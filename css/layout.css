@@ -6,7 +6,7 @@ body {
   height: 10000px;
   font-family: "SuisseIntl", sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.14;
   letter-spacing: -0.014rem;
   color: #fff;
@@ -19,7 +19,7 @@ section {
   /* 1823 */
   width: 96%;
   height: auto;
-  margin: 0 auto;
+  margin: 0 40px;
 }
 /* 헤더 */
 header {
@@ -43,6 +43,7 @@ header .con {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  font-weight: 400;
 }
 /* 로고 */
 h1 span {
@@ -56,7 +57,7 @@ h1 img {
 /* 메뉴 */
 #gnb > ul {
   display: flex;
-  margin-left: 9.5vw;
+  margin-left: 26vw;
   text-transform: capitalize;
 }
 #gnb > ul > li {
@@ -83,19 +84,63 @@ h1 img {
 }
 /* 모바일메뉴 */
 #mobile_menu {
-  display: none;
+  transform: scale(0);
 }
-.btn_talk .off {
-  display: none;
+/* 더보기 */
+.btn_talk {
+  width: 74px;
+  height: 18px;
+  overflow: hidden;
+  transition: 0.5s;
+  transform-origin: left;
+
+  /* background-color: violet; */
 }
-.btn_talk:hover .off {
+.btn_talk a {
+  display: flex;
+  width: max-content;
+  transform: translateX(-14px);
+  transition: 0.5s;
+  transform-origin: left;
+  gap: 3px;
+}
+.btn_talk::after {
+  content: "line";
+  font-size: 0;
   display: block;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.5s;
+  transform-origin: left;
 }
-.btn_talk:hover .on {
-  display: none;
+.btn_talk:hover::after {
+  width: 74px;
 }
-/* 더보기아이콘 */
 .btn_talk i {
+  transition: 0.5s;
+}
+.btn_talk:hover a {
+  transform: translateX(0);
+}
+.btn_talk .btn_learn i {
+  transition: 0.5s;
+}
+.btn_talk .btn_learn i.on {
+  transform: translatey(10px) rotate(45deg);
+}
+.btn_talk .btn_learn i.off {
+  transform: translatey(4px) rotate(45deg);
+}
+.btn_talk .btn_learn:hover i.off {
+  transform: translatey(-10px) rotate(45deg);
+}
+.btn_talk .btn_learn:hover i.on {
+  transform: translatey(1px) rotate(45deg);
+}
+
+/* 더보기아이콘 */
+.xi-arrow-up {
   transform: rotate(45deg) scale(1.1);
 }
 
@@ -106,18 +151,16 @@ main {
   left: 0;
 }
 /* 메인비주얼 */
-.main_visual .con {
-  width: 100%;
-}
+
+/* 로고 및 텍스트 */
 .main_visual .logo_wrap {
   width: 96%;
   margin: 0 auto;
 }
-/* 로고 및 텍스트 */
 .logo_wrap > div:first-child {
   margin-top: 18px;
 }
-/* 💡로고 떨어질때 샤라락 */
+/* 💡로고 떨어질때 샤라락 - 하나씩 잘라써도되는지 */
 .logo_wrap > div:first-child > img {
   transition: 0.3s;
 }
@@ -132,7 +175,7 @@ main {
   display: flex;
   gap: 66px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.016rem;
 }
@@ -142,10 +185,13 @@ main {
   padding-top: 16px;
 }
 /* 동영상 */
-.main_visual .main_video > div {
+.main_video > div {
   position: relative;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 1040px;
+  overflow: hidden;
   cursor: pointer;
 }
 .main_video > div > video {
@@ -160,7 +206,6 @@ main {
   transform: translateX(-50%);
   z-index: 10;
   font-size: 62px;
-  font-weight: 300;
   letter-spacing: -0.093rem;
 }
 .main_video > div > h2::after {
@@ -177,18 +222,41 @@ main {
 .main_video > div > h2:hover::after {
   transform: scale(1);
 }
-/* 💡마우스무브이벤트+클릭하면 라이트박스 */
-
+/* 💡마우스무브이벤트 */
+.main_video .play {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  font-size: 16px;
+}
+.main_video .play span {
+  font-size: 10px;
+  line-height: 16px;
+}
+.main_video .sec1_lightbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.main_video .sec1_lightbox video {
+  width: 88%;
+  height: 88%;
+  margin: 16px 114px;
+  padding-top: 10px;
+}
 /* 섹션2 */
 .sec2 > .con > div {
   box-sizing: border-box;
   padding: 60px 0;
+  border-bottom: 1px solid #ffffff34;
 }
 .sec2 > .con > div > p {
   width: 100%;
   font-size: 82px;
-  font-weight: 300;
   letter-spacing: -0.22rem;
+  word-spacing: 8px;
 }
 .sec2 > .con > div > p:first-child {
   text-align: right;
@@ -203,7 +271,7 @@ main {
   line-height: 0.86;
   position: absolute;
   top: 23px;
-  left: 10px;
+  left: 20px;
 }
 /* 💡라인2개로 해보기 */
 .sec2 a > span::after {
@@ -212,7 +280,7 @@ main {
   display: block;
   background-color: #fff;
   width: 429px;
-  height: 1px;
+  height: 3px;
   margin-top: 10px;
   transform: scale(0);
   transition: 0.3s;
@@ -220,4 +288,138 @@ main {
 }
 .sec2 a > span:hover::after {
   transform: scale(1);
+}
+
+/* 섹션3 */
+.sec3 > .con > div {
+  display: flex;
+  font-size: 20px;
+  box-sizing: border-box;
+  padding-top: 23px;
+}
+.sec3 .left_txt {
+  width: 50%;
+}
+.sec3 .right_txt {
+  width: 50%;
+}
+/* 💡글자까지만 밑줄나오게 */
+.sec3 .right_txt .btn_learn {
+  width: 130px;
+  height: 24px;
+  overflow: hidden;
+}
+.btn_learn::after {
+  content: "line";
+  font-size: 0;
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.5s;
+  transform-origin: left;
+}
+.btn_learn:hover::after {
+  width: 130px;
+}
+.btn_learn a {
+  display: flex;
+  width: max-content;
+  transform: translateX(-20px);
+  transition: 0.5s;
+  transform-origin: left;
+  gap: 3px;
+}
+.btn_learn:hover a {
+  transform: translateX(0);
+}
+.btn_learn i {
+  transition: 0.5s;
+}
+.btn_learn i.on {
+  transform: translatey(10px) rotate(45deg);
+}
+.btn_learn i.off {
+  transform: translatey(4px) rotate(45deg);
+}
+.btn_learn:hover i.off {
+  transform: translatey(-10px) rotate(45deg);
+}
+.btn_learn:hover i.on {
+  transform: translatey(1px) rotate(45deg);
+}
+
+/* 섹션4 */
+.sec4 .highlights {
+  padding-top: 300px;
+}
+.sec4 .highlights > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  line-height: 2.4;
+}
+.btn_see {
+  width: 142px;
+  height: 44px;
+  overflow: hidden;
+}
+.btn_see a {
+  display: flex;
+  width: max-content;
+  transform: translateX(-20px);
+  transition: 0.5s;
+  transform-origin: left;
+  gap: 3px;
+}
+.btn_see:hover a {
+  transform: translateX(0);
+}
+.btn_see i {
+  transition: 0.5s;
+}
+.btn_see i.on {
+  transform: translate(-16px, 20px) rotate(45deg);
+}
+.btn_see i.off {
+  transform: translate(-8px, 12px) rotate(45deg);
+}
+.btn_see:hover i.on {
+  transform: translate(-8px, 10px) rotate(45deg);
+}
+.btn_see:hover i.off {
+  transform: translatey(-10px) rotate(45deg);
+}
+/* 동영상 */
+.sec4 .img_lg {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.sec4 .img_lg > img {
+  position: absolute;
+}
+.sec4 img:first-of-type {
+  top: 0;
+  left: 0;
+  height: 1170px;
+}
+.sec4 img:nth-of-type(2) {
+  width: 156px;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+/* 호버이미지 동영상박스 */
+.sec4 .img_lg > .hover_video {
+  width: 406px;
+  height: fit;
+  position: absolute;
+  font-size: 14px;
+}
+.sec4 .img_lg > .hover_video > video {
+  width: 100%;
+  height: 500px;
+  object-fit: fill;
 }

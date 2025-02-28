@@ -47,11 +47,28 @@ $(function () {
   );
 
   // .hover_img_lg가 마우스 따라다니기
+  // $(".sec4 .img_lg > .hover_area").on("scroll mousemove", function (e) {
+  //   $(".sec4 .img_lg > .hover_img_lg").css({
+  //     left: (e.pageX -= 20) + "px",
+  //     top: (e.pageY -= 3080) + "px",
+  //   });
+  // });
+
+  // test - 범위제한 .hover_img_lg가 마우스 따라다니기
   $(".sec4 .img_lg > .hover_area").on("scroll mousemove", function (e) {
-    $(".sec4 .img_lg > .hover_img_lg").css({
-      left: (e.pageX -= 20) + "px",
-      top: (e.pageY -= 3080) + "px",
-    });
+    let hover_left = $(".sec4 .img_lg > .hover_img_lg").position().left;
+
+    if (hover_left < 800) {
+      $(".sec4 .img_lg > .hover_img_lg").css({
+        left: (e.pageX -= 20) + "px",
+        top: (e.pageY -= 3080) + "px",
+      });
+    } else {
+      $(".sec4 .img_lg > .hover_img_lg").css({
+        left: (e.pageX -= 500) + "px",
+        top: (e.pageY -= 3080) + "px",
+      });
+    }
   });
 
   // work2
@@ -88,7 +105,20 @@ $(function () {
       left: (e.pageX -= 910) + "px",
       top: (e.pageY -= 4280) + "px",
     });
+    $(".img_sm-r .hover_img_sm-r > span").css({});
   });
+
+  // $(".img_sm-r").on("scroll mousemove", function (e) {
+  //   let centerPageX = $(".img_sm-r").width() / 2 - e.pageX;
+  //   let centerPageY = $(".img_sm-r").height() / 2 - e.pageY;
+
+  //   console.log(centerPageX);
+  //   $(".img_sm-r .hover_img_sm-r").css({
+  //     left: (e.pageX -= 910) + "px",
+  //     top: (e.pageY -= 4280) + "px",
+  //   });
+  //   $(".img_sm-r .hover_img_sm-r > span").css({});
+  // });
 
   //----------------------
 });

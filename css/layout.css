@@ -144,13 +144,13 @@ h1 img {
 }
 
 /* 메인 */
-main {
+
+/* 메인비주얼 */
+.main_visual {
   position: relative;
   top: 62px;
   left: 0;
 }
-/* 메인비주얼 */
-
 /* 로고 및 텍스트 */
 .main_visual .logo_wrap {
   width: 96%;
@@ -278,7 +278,6 @@ main {
   left: 14px;
   overflow: hidden;
 }
-/* 💡라인2개로 해보기 */
 .sec2 a > span::before {
   content: "line1";
   font-size: 0;
@@ -459,6 +458,7 @@ main {
   top: 0;
   left: 0;
   z-index: 100;
+  /* transition: all 0.5s ease-out; */
 }
 .sec4 .img_lg > .hover_img_lg > video {
   width: 100%;
@@ -713,3 +713,146 @@ swiper-slide img {
   transform: translateY(-100px);
   transition-delay: 0.1s;
 } */
+
+/* footer */
+footer {
+  background-color: #000;
+  font-weight: 400;
+}
+footer .con {
+  background-color: #000;
+  padding-top: 52px;
+  padding-bottom: 39px;
+}
+footer .con > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 167px;
+}
+/* 왼쪽 */
+footer .left {
+  width: 24%;
+}
+footer .left > h2 {
+  font-size: 40px;
+  font-weight: 300;
+}
+footer .left > h2 + div {
+  margin-top: 65px;
+  margin-bottom: 32px;
+}
+footer .left div:nth-of-type(2) {
+  width: 100%;
+  height: auto;
+  /* background-color: rgb(100, 107, 114); */
+  padding-bottom: 2px;
+  border-bottom: 1px solid #fff;
+}
+footer .left div:nth-of-type(2) > p {
+  margin-bottom: 12px;
+}
+footer input {
+  width: 92%;
+  height: 24px;
+  margin: 2px 8px 2px 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+footer label i {
+  color: #696969;
+}
+/* 오른쪽 */
+.right {
+  width: 24%;
+}
+.right_up {
+  display: flex;
+  justify-content: space-between;
+}
+.right_up > ul:first-child {
+  /* background-color: blue; */
+  width: 60%;
+  margin-bottom: 86px;
+}
+.right_up > ul:last-child {
+  width: 34%;
+}
+.right_up > ul:last-child > li {
+  width: 86px;
+  overflow: hidden;
+}
+.right_up > ul:last-child > li > a {
+  display: flex;
+  gap: 3px;
+  width: max-content;
+  transform: translateX(-12px);
+  transition: 0.3s;
+}
+.right_up > ul:last-child > li:hover > a {
+  transform: translateX(2px);
+}
+.right_up > ul > li {
+  height: 22px;
+}
+/* 💡💡💡 수정해야함 */
+.right_up > ul:last-child > li::before {
+  content: "line";
+  font-size: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  transform: translate(-88px, 17px);
+  background-color: red;
+  transition: 0.5s;
+  transform-origin: left;
+}
+.right_up > ul:last-child > li:hover::before {
+  transform: translate(0, 17px);
+}
+.right_up > ul:last-child > li::after {
+  content: "line";
+  font-size: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  transform: translate(88px, 17px);
+  transition: 0.5s;
+  transform-origin: left;
+}
+.right_up > ul:last-child > li:hover::after {
+  width: 100%;
+  transform: translate(0, 17px);
+  transition-delay: 1s;
+}
+.right_up > ul:last-child > li i {
+  transition: 0.5s;
+}
+.right_up > ul:last-child > li i.on {
+  transform: translatey(0px) rotate(45deg);
+}
+.right_up > ul:last-child > li:hover i.on {
+  transform: translatey(-14px) rotate(45deg);
+}
+.right_up > ul:last-child > li i.off {
+  transform: translatey(10px) rotate(45deg);
+}
+.right_up > ul:last-child > li:hover i.off {
+  transform: translatey(0px) rotate(45deg);
+}
+.right_down {
+  display: flex;
+  justify-content: space-between;
+}
+.right_down > div:first-child {
+  width: 60%;
+  line-height: 20px;
+}
+.right_down > div:last-child {
+  width: 34%;
+}
+.right_down > div:last-child > a {
+  line-height: 24px;
+}

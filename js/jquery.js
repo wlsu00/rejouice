@@ -54,7 +54,7 @@ $(function () {
   //   });
   // });
 
-  // test - 범위제한 .hover_img_lg가 마우스 따라다니기
+  // test - 범위제한 .hover_img_lg가 마우스 따라다니기 - mouseleave로 하면 호버이미지 겹쳐도 괜찮을듯
   $(".sec4 .img_lg > .hover_area").on("scroll mousemove", function (e) {
     let hover_left = $(".sec4 .img_lg > .hover_img_lg").position().left;
 

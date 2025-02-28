@@ -95,13 +95,19 @@
           <div class="main_video">
             <div>
               <video src="./img/video/sec1.mp4" autoplay muted loop>
-                이 동영상은 해당 브라우저에서 지원되지 않습니다.
+                이 동영상 파일은 해당 브라우저에서 지원되지 않습니다.
               </video>
               <h2>Showreel</h2>
               <div class="play"><span>▶</span> Play Reel</div>
               <div class="sec1_lightbox">
-                <video src="./img/video/sec1_lightbox.mp4" autoplay muted loop>
-                  이 동영상은 해당 브라우저에서 지원되지 않습니다.
+                <video
+                  src="./img/video/sec1_lightbox.mp4"
+                  autoplay
+                  muted
+                  loop
+                  controls
+                >
+                  이 동영상 파일은 해당 브라우저에서 지원되지 않습니다.
                 </video>
               </div>
             </div>
@@ -172,8 +178,9 @@
                 <div class="img_lg">
                   <img src="./img/sec4/rivian.jpg" alt="rivian" />
                   <img src="./img/rivian-white.svg" alt="rivian" />
+                  <div class="hover_area"></div>
                   <!-- 호버이미지 동영상박스-lg -->
-                  <div class="hover_video">
+                  <div class="hover_img_lg">
                     <span>Case study Revian</span>
                     <video
                       src="./img/video/HIGHLIGHT-Work-01.mp4"
@@ -181,42 +188,44 @@
                       muted
                       loop
                     >
-                      이 동영상은 해당 브라우저에서 지원하지 않습니다.
+                      이 동영상 파일은 해당 브라우저에서 지원하지 않습니다.
                     </video>
                   </div>
                 </div>
                 <!-- 작은 이미지 -->
                 <div class="img_sm">
                   <!-- 왼쪽 -->
-                  <div>
-                    <img src="./img/oura.png" alt="oura" />
+                  <div class="img_sm-l">
+                    <img src="./img/sec4/oura.png" alt="oura" />
                     <img src="./img/oura-logo-white.svg" alt="oura" />
-                    <div>
+                    <div class="hover_area"></div>
+                    <div class="hover_img_sm-l">
                       <span>Case study Oura Ring</span>
-                      <!-- <video
+                      <video
                         src="./img/video/HIGHLIGHT-Work-02.mp4"
                         autoplay
                         muted
                         loop
                       >
-                        이 동영상은 해당 브라우저에서 지원하지 않습니다.
-                      </video> -->
+                        이 동영상 파일은 해당 브라우저에서 지원하지 않습니다.
+                      </video>
                     </div>
                   </div>
                   <!-- 오른쪽 -->
-                  <div>
-                    <img src="./img/Z1r5XZbqstJ98aZ6_moxion.jpg" alt="moxion" />
+                  <div class="img_sm-r">
+                    <img src="./img/sec4/moxion.png" alt="moxion" />
                     <img src="./img/moxion-logo-white.svg" alt="moxion" />
-                    <div>
-                      <span>Case study Oura Ring</span>
-                      <!-- <video
-                        src="./img/video/HIGHLIGHT-Work-02.mp4"
+                    <div class="hover_area"></div>
+                    <div class="hover_img_sm-r">
+                      <span>Case study Moxion Power</span>
+                      <video
+                        src="./img/video/HIGHLIGHT-Work-03.mp4"
                         autoplay
                         muted
                         loop
                       >
-                        이 동영상은 해당 브라우저에서 지원하지 않습니다.
-                      </video> -->
+                        이 동영상 파일은 해당 브라우저에서 지원하지 않습니다.
+                      </video>
                     </div>
                   </div>
                 </div>
@@ -224,9 +233,147 @@
             </div>
           </div>
         </section>
+        <!-- 섹션5 -->
+        <section class="sec5">
+          <div class="con">
+            <ul class="logo_con">
+              <li>
+                <img src="./img/Rivian_logo.svg" alt="Rivian_logo" />
+              </li>
+              <li>
+                <img src="./img/oura-logo.svg" alt="Rivian_logo" />
+              </li>
+              <li>
+                <img src="./img/Moxion-logo_.svg" alt="Rivian_logo" />
+              </li>
+              <li>
+                <img src="./img/8VC-logo.svg" alt="Rivian_logo" />
+              </li>
+              <li>
+                <img src="./img/RAPPI-logo.svg" alt="Rivian_logo" />
+              </li>
+              <li>
+                <img src="./img/HYPERFRAME-logo.svg" alt="Rivian_logo" />
+              </li>
+              <li>
+                <img src="./img/ov_loop-logo.svg" alt="Rivian_logo" />
+              </li>
+              <li>
+                <img src="./img/Proof-logo.svg" alt="Rivian_logo" />
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- 섹션6 -->
+        <section class="sec6">
+          <div class="con">
+            <!-- 글자 -->
+            <div>
+              <span>Rejouice at a Glance.</span>
+              <a href="#">
+                <span>hello@rejouice.com</span>
+              </a>
+            </div>
+            <!-- 슬라이드 -->
+            <swiper-container
+              class="mySwiper"
+              pagination="true"
+              pagination-clickable="true"
+              slides-per-view="4"
+              space-between="30"
+              free-mode="true"
+            >
+              <swiper-slide>
+                <img src="./img/image (1).avif" alt="img1" />
+              </swiper-slide>
+              <swiper-slide>Slide 2</swiper-slide>
+              <swiper-slide>Slide 3</swiper-slide>
+              <swiper-slide>Slide 4</swiper-slide>
+              <swiper-slide>Slide 5</swiper-slide>
+              <swiper-slide>Slide 6</swiper-slide>
+              <swiper-slide>Slide 7</swiper-slide>
+              <swiper-slide>Slide 8</swiper-slide>
+              <swiper-slide>Slide 9</swiper-slide>
+            </swiper-container>
+          </div>
+        </section>
+        <!-- 섹션7 -->
+        <section class="sec7">
+          <div class="con">
+            <h2>Our approach.</h2>
+            <div>
+              <div>
+                <h3>
+                  A simple philosophy:<br />
+                  quality over quantity.
+                </h3>
+                <p>
+                  We build brands that set new benchmarks. To do so, we don’t do
+                  volume. We partner with only five clients a year, ensuring
+                  unmatched focus, precision, and impact. Every detail is
+                  crafted, every decision strategic, and every outcome
+                  transformative.
+                </p>
+              </div>
+              <div>
+                <h3>
+                  Performance & emotion.<br />
+                  You need both.
+                </h3>
+                <p>
+                  Data is vital. Fostering an emotional connection with your
+                  audience is equally vital if you want to drive retention and
+                  advocacy. That’s why we create brands that not only captivate
+                  but also deliver measurable and sustainable growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 섹션8 -->
+        <section class="sec8">
+          <div class="con">
+            <div>
+              <video src="./img/video/PORTFOLIO-LOOP-PROJECTS.mp4" muted loop>
+                이 동영상 파일은 해당 브라우저에서 지원되지 않습니다.
+              </video>
+            </div>
+          </div>
+        </section>
+        <!-- 섹션9 -->
+        <section class="sec9">
+          <div class="con">
+            <div class="txt_wrap">
+              <div class="get_us">
+                <div>G</div>
+                <div>e</div>
+                <div>t</div>
+                <div>&nbsp;t</div>
+                <div>o</div>
+                <div>&nbsp;k</div>
+                <div>n</div>
+                <div>o</div>
+                <div>w</div>
+                <div>&nbsp;u</div>
+                <div>s</div>
+              </div>
+              <div class="about_us">
+                <div>A</div>
+                <div>b</div>
+                <div>o</div>
+                <div>u</div>
+                <div>t</div>
+                <div>&nbsp;u</div>
+                <div>s</div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer></footer>
     </div>
+    <!-- 슬라이드 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <!-- 제이쿼리 -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/jquery.js"></script>

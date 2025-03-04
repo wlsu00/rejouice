@@ -1,6 +1,34 @@
 "use strict";
 
 $(function () {
+  /* 메인비주얼 로딩화면 */
+  // 1. 로딩 화면이 뜬 상태에서 main 숨기기
+  gsap.set(".logo_wrap", { display: "none" }); // 처음에 main을 숨김
+
+  // 2. 로딩 화면 끝나면 main 보이게
+  gsap.to(".loading", {
+    opacity: 0,
+    duration: 0.5,
+    delay: 1.5, // 로딩 화면 유지 시간 (1.5초 추가)
+    onStart: function () {
+      $(".logo_wrap").css("display", "block"); // 로딩 화면이 시작될 때 main을 보이게 설정
+    },
+    onComplete: function () {
+      $(".loading").hide(); // 로딩 화면 끝나면 숨기기
+    },
+  });
+
+  // 3. main을 위에서 아래로 애니메이션으로 나타내기
+  gsap.set("main", { y: "-100vh", opacity: 0 }); // 처음에는 숨긴 상태로 설정
+
+  gsap.to("main", {
+    y: "0vh",
+    opacity: 1,
+    duration: 1,
+    ease: "power3.out",
+    delay: 2, // 로딩 끝난 후에 메인 등장
+  });
+
   /* 섹션2 */
 
   //마우스올리면 .play 나오고, 벗어나면 사라지기
@@ -32,93 +60,95 @@ $(function () {
     $(".main_video .play").toggle();
   });
 
+  /* -------------------------------------------------------------------- */
+  // if ($(".main_video2").hide()) {
+  //   $(".main_video .play").text(" Close Reel");
+  // }
+  /* -------------------------------------------------------------------- */
   /* 섹션4 */
 
   // work1
   //마우스올리면 .hover_img_lg 나오고, 벗어나면 사라지기
   $(".img_lg > .hover_img_lg").hide();
-  $(".img_lg > .hover_area").hover(
-    function () {
-      $(".sec4 .img_lg > .hover_img_lg").fadeIn(1000);
-    },
-    function () {
-      $(".sec4 .img_lg > .hover_img_lg").fadeOut(500);
-    }
-  );
-
-  // .hover_img_lg가 마우스 따라다니기
-  // $(".sec4 .img_lg > .hover_area").on("scroll mousemove", function (e) {
-  //   $(".sec4 .img_lg > .hover_img_lg").css({
-  //     left: (e.pageX -= 20) + "px",
-  //     top: (e.pageY -= 3080) + "px",
-  //   });
-  // });
-
-  // test - 범위제한 .hover_img_lg가 마우스 따라다니기 - mouseleave로 하면 호버이미지 겹쳐도 괜찮을듯
-  $(".sec4 .img_lg > .hover_area").on("scroll mousemove", function (e) {
-    let hover_left = $(".sec4 .img_lg > .hover_img_lg").position().left;
-
-    if (hover_left < 800) {
-      $(".sec4 .img_lg > .hover_img_lg").css({
-        left: (e.pageX -= 20) + "px",
-        top: (e.pageY -= 3080) + "px",
-      });
-    } else {
-      $(".sec4 .img_lg > .hover_img_lg").css({
-        left: (e.pageX -= 500) + "px",
-        top: (e.pageY -= 3080) + "px",
-      });
-    }
+  $(".img_lg > .hover_area").on("mouseenter", function () {
+    $(".sec4 .img_lg > .hover_img_lg").slideDown();
+    $(".sec4 .img_lg img:first-child").css("opacity", "0.5");
+    $(".sec4 .img_lg img:nth-of-type(2)").css("opacity", "0");
+  });
+  $(".img_lg > .hover_area").on("mouseleave", function () {
+    $(".sec4 .img_lg > .hover_img_lg").slideUp();
+    $(".sec4 .img_lg img:first-child").css("opacity", "1");
+    $(".sec4 .img_lg img:nth-of-type(2)").css("opacity", "1");
   });
 
-  // work2
+  // 💡work2 깜빡거림
   $(".img_sm-l .hover_img_sm-l").hide();
-  $(".img_sm-l > .hover_area").hover(
+
+  $(".hover_area-l").on("mouseenter", function () {
+    $(".img_sm-l .hover_img_sm-l").slideDown();
+    $(".img_sm-l img:first-child").css("opacity", "0.5");
+    $(".img_sm-l img:nth-of-type(2)").css("opacity", "0");
+  });
+  $(".hover_area-l").on("mouseleave", function () {
+    $(".img_sm-l .hover_img_sm-l").slideUp();
+    $(".img_sm-l img:first-child").css("opacity", "1");
+    $(".img_sm-l img:nth-of-type(2)").css("opacity", "1");
+  });
+
+  //💡work3 깜빡거림
+  $(".hover_img_sm-r").hide();
+
+  $(".hover_area-r").on("mouseenter", function () {
+    $(".img_sm-r .hover_img_sm-r").slideDown();
+    $(".img_sm-r img:first-child").css("opacity", "0.5");
+  });
+  $(".hover_area-r").on("mouseleave", function () {
+    $(".img_sm-r .hover_img_sm-r").slideUp();
+    $(".img_sm-r img:first-child").css("opacity", "1");
+  });
+
+  //호버하면 애프터 앞으로 사라지면서 움직이기
+  $(".main_video > div > h2").hover(
     function () {
-      $(".img_sm-l .hover_img_sm-l").fadeIn(1000);
+      $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
     },
     function () {
-      $(".img_sm-l .hover_img_sm-l").fadeOut(500);
+      $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+    }
+  );
+  $(".comEmail").hover(
+    function () {
+      $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+    },
+    function () {
+      $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+    }
+  );
+  $(".right_up > ul:last-child > li > a").hover(
+    function () {
+      $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+    },
+    function () {
+      $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+    }
+  );
+  $(".right_down > div:last-child > a").hover(
+    function () {
+      $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+    },
+    function () {
+      $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+    }
+  );
+  $("#gnb > ul > li").hover(
+    function () {
+      $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+    },
+    function () {
+      $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
     }
   );
 
-  $(".img_sm-l").on("scroll mousemove", function (e) {
-    $(".img_sm-l .hover_img_sm-l").css({
-      left: (e.pageX -= 0) + "px",
-      top: (e.pageY -= 4280) + "px",
-    });
-  });
-
-  //work3
-  $(".img_sm-r .hover_img_sm-r").hide();
-  $(".img_sm-r > .hover_area").hover(
-    function () {
-      $(".img_sm-r .hover_img_sm-r").fadeIn(1000);
-    },
-    function () {
-      $(".img_sm-r .hover_img_sm-r").fadeOut(500);
-    }
-  );
-
-  $(".img_sm-r").on("scroll mousemove", function (e) {
-    $(".img_sm-r .hover_img_sm-r").css({
-      left: (e.pageX -= 910) + "px",
-      top: (e.pageY -= 4280) + "px",
-    });
-    $(".img_sm-r .hover_img_sm-r > span").css({});
-  });
-
-  // $(".img_sm-r").on("scroll mousemove", function (e) {
-  //   let centerPageX = $(".img_sm-r").width() / 2 - e.pageX;
-  //   let centerPageY = $(".img_sm-r").height() / 2 - e.pageY;
-
-  //   console.log(centerPageX);
-  //   $(".img_sm-r .hover_img_sm-r").css({
-  //     left: (e.pageX -= 910) + "px",
-  //     top: (e.pageY -= 4280) + "px",
-  //   });
-  //   $(".img_sm-r .hover_img_sm-r > span").css({});
-  // });
-
+  // 💡💡💡💡
   //----------------------
 });

@@ -45,13 +45,29 @@ header .con {
   font-weight: 400;
 }
 /* 로고 */
-h1 span {
-  text-transform: capitalize;
+h1 {
+  width: fit-content;
+  /* height: 20px;
+  overflow: hidden; */
+}
+h1 .logo_text {
+  transition: opacity 0.3s;
+  display: block;
 }
 /* 💡로고이미지-스크롤 내리면 span대신 img로 바뀜 */
-h1 img {
+h1 .logo_img {
   width: 68px;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.3s ease-in-out;
+}
+.logo_img.show {
+  opacity: 1;
+  visibility: visible;
+}
+.logo_text.hide {
+  opacity: 0;
+  visibility: hidden;
 }
 /* 메뉴 */
 #gnb > ul {
@@ -61,21 +77,41 @@ h1 img {
 }
 #gnb > ul > li {
   transition: 0.3s;
+  width: fit-content;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
 #gnb > ul > li > a {
-  /* background-color: yellowgreen; */
   box-sizing: border-box;
   padding: 0 3px;
+}
+#gnb > ul > li::after {
+  content: "line";
+  font-size: 0;
+  display: block;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.8s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#gnb > ul > li:hover::after {
+  width: 100%;
+  left: 0;
+}
+#gnb > ul > li.removing::after {
+  width: 0%;
+  left: auto;
+  right: 0;
 }
 #gnb > ul > li > div {
   width: 0;
   height: 1px;
   background-color: #fff;
   transition: 0.3s;
-}
-/* 💡나중에 제이쿼리로 마우스 아웃효과 적용해보기 */
-#gnb > ul > li:hover > div {
-  width: 100%;
 }
 #gnb > ul > li:first-child > a {
   color: #696969;
@@ -92,8 +128,6 @@ h1 img {
   overflow: hidden;
   transition: 0.5s;
   transform-origin: left;
-
-  /* background-color: violet; */
 }
 .btn_talk a {
   display: flex;
@@ -137,14 +171,83 @@ h1 img {
 .btn_talk .btn_learn:hover i.on {
   transform: translatey(1px) rotate(45deg);
 }
-
 /* 더보기아이콘 */
 .xi-arrow-up {
   transform: rotate(45deg) scale(1.1);
 }
 
 /* 메인 */
-
+main {
+  transform: translateY(-100vh); /* 처음에 화면 위에 배치 */
+  opacity: 0;
+}
+.loading {
+  width: 99vw;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  animation: loading 2s ease-out 0s 1 forwards;
+  transition: 0.3s;
+}
+@keyframes loading {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  70% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    animation-duration: 2s;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.loading div {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 10px;
+}
+.loading span {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+  opacity: 0;
+  animation: drop 0.8s linear 1 forwards;
+  transition: 0.3s;
+}
+@keyframes drop {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.loading .load1 {
+  /* opacity: 0; */
+  animation-delay: 0.1s;
+}
+.loading .load2 {
+  animation-delay: 0.3s;
+}
+.loading .load3 {
+  animation-delay: 0.4s;
+}
+.loading.hidden {
+  /* display: none; */
+  height: 0;
+}
 /* 메인비주얼 */
 .main_visual {
   position: relative;
@@ -155,6 +258,7 @@ h1 img {
 .main_visual .logo_wrap {
   width: 96%;
   margin: 0 auto;
+  transition: 0.3s;
 }
 .logo_wrap > div:first-child {
   margin-top: 18px;
@@ -205,6 +309,7 @@ h1 img {
   left: 0;
 }
 .main_video > div > h2 {
+  width: fit-content;
   position: absolute;
   top: 45%;
   left: 50%;
@@ -212,22 +317,34 @@ h1 img {
   z-index: 10;
   font-size: 62px;
   letter-spacing: -0.093rem;
+  position: relative;
+  display: block;
+  padding-bottom: 4px;
+  overflow: hidden;
 }
 .main_video > div > h2::after {
   content: "line";
   font-size: 0;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
   display: block;
-  width: 100%;
+  width: 0%;
   height: 2px;
-  transform: scale(0);
-  transform-origin: left;
-  transition: 0.5s;
+  transition: 1s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease-in-out;
 }
 .main_video > div > h2:hover::after {
-  transform: scale(1);
+  width: 100%;
+  left: 0;
 }
-/* 💡마우스무브이벤트 */
+.main_video > div > h2.removing::after {
+  width: 0%;
+  left: auto;
+  right: 0;
+}
+/* 마우스무브이벤트 */
 .main_video .play {
   width: fit-content;
   height: fit-content;
@@ -240,6 +357,15 @@ h1 img {
 .main_video .play span {
   font-size: 10px;
   line-height: 16px;
+}
+.main_video .close {
+  display: none;
+  color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  font-weight: 400;
 }
 .main_video .sec1_lightbox {
   position: absolute;
@@ -416,6 +542,9 @@ h1 img {
   transform: translatey(-10px) rotate(45deg);
 }
 /* 동영상 */
+.sec4 img {
+  transition: 0.3s;
+}
 /* 큰 이미지 */
 .sec4 .img_lg {
   width: 100%;
@@ -442,14 +571,15 @@ h1 img {
   z-index: 10;
 }
 .sec4 .hover_area {
-  width: 90%;
-  height: 85%;
+  width: 80%;
+  height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 50;
   cursor: pointer;
+  overflow: hidden;
 }
 /* 호버이미지 동영상박스 */
 .sec4 .img_lg > .hover_img_lg {
@@ -457,11 +587,12 @@ h1 img {
   height: 538px;
   font-size: 14px;
   font-weight: 400;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  /* transition: all 0.5s ease-out; */
+  cursor: pointer;
+  pointer-events: none;
 }
 .sec4 .img_lg > .hover_img_lg > video {
   width: 100%;
@@ -483,6 +614,7 @@ h1 img {
 .img_sm-r {
   width: 50%;
   height: 100%;
+  overflow: hidden;
   object-fit: contain;
   position: relative;
   cursor: pointer;
@@ -498,19 +630,20 @@ h1 img {
   left: 50%;
   transform: translateX(-50%);
 }
-.img_sm-l .hover_area-l {
+.hover_area-l {
   width: 80%;
-  height: 85%;
+  height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 50;
+  overflow: hidden;
 }
 .img_sm-l .hover_img_sm-l {
   width: 346px;
   height: 484px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
@@ -532,10 +665,20 @@ h1 img {
   left: 50%;
   transform: translateX(-50%);
 }
+.hover_area-r {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  overflow: hidden;
+}
 .img_sm-r .hover_img_sm-r {
   width: 346px;
   height: 484px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
@@ -641,10 +784,13 @@ swiper-slide img {
 /* 섹션8 */
 /* gsap쓰기 */
 .sec8 .con {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0 auto; */
 }
 .sec8 .con > div {
-  width: 100%;
+  width: 84%;
   height: 100%;
 }
 .sec8 .con > div video {
@@ -744,6 +890,27 @@ footer .left > h2 + div {
   margin-top: 65px;
   margin-bottom: 32px;
 }
+
+.comEmail {
+  width: fit-content;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px;
+  overflow: hidden;
+}
+.comEmail::after {
+  content: "line";
+  font-size: 0;
+  display: block;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.5s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
 footer .left div:nth-of-type(2) {
   width: 100%;
   height: auto;
@@ -775,7 +942,6 @@ footer label i {
   justify-content: space-between;
 }
 .right_up > ul:first-child {
-  /* background-color: blue; */
   width: 60%;
   margin-bottom: 86px;
 }
@@ -792,43 +958,38 @@ footer label i {
   width: max-content;
   transform: translateX(-12px);
   transition: 0.3s;
+  position: relative;
+  display: block;
+  padding-bottom: 4px;
+  overflow: hidden;
 }
 .right_up > ul:last-child > li:hover > a {
   transform: translateX(2px);
 }
 .right_up > ul > li {
-  height: 22px;
+  height: 24px;
 }
-/* 💡💡💡 수정해야함 */
-.right_up > ul:last-child > li::before {
+.right_up > ul:last-child > li > a::after {
   content: "line";
   font-size: 0;
   display: block;
-  width: 100%;
-  height: 1px;
-  transform: translate(-88px, 17px);
-  background-color: red;
-  transition: 0.5s;
-  transform-origin: left;
-}
-.right_up > ul:last-child > li:hover::before {
-  transform: translate(0, 17px);
-}
-.right_up > ul:last-child > li::after {
-  content: "line";
-  font-size: 0;
-  display: block;
-  width: 100%;
+  width: 0%;
   height: 1px;
   background-color: #fff;
-  transform: translate(88px, 17px);
-  transition: 0.5s;
-  transform-origin: left;
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease-in-out;
 }
-.right_up > ul:last-child > li:hover::after {
+.right_up > ul:last-child > li:hover > a::after {
   width: 100%;
-  transform: translate(0, 17px);
-  transition-delay: 1s;
+  left: 0;
+}
+.right_up > ul:last-child > li > a.removing::after {
+  width: 0%;
+  left: auto;
+  right: 0;
 }
 .right_up > ul:last-child > li i {
   transition: 0.5s;
@@ -858,4 +1019,46 @@ footer label i {
 }
 .right_down > div:last-child > a {
   line-height: 24px;
+  display: flex;
+  gap: 3px;
+  width: max-content;
+  transform: translateX(-12px);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  left: 10px;
+}
+.right_down > div:last-child > a::after {
+  content: "line";
+  font-size: 0;
+  display: block;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease-in-out;
+}
+.right_down > div:last-child > a:hover::after {
+  width: 100%;
+  left: 0;
+}
+.right_down > div:last-child > a.removing::after {
+  width: 0%;
+  left: auto;
+  right: 0;
+}
+
+/* 마우스를 올리면 밑줄이 나타남 */
+.hovered::after {
+  width: 100%;
+  left: 0;
+}
+.removing::after {
+  width: 0%;
+  left: auto; /* 오른쪽에서 사라지도록 설정 */
+  right: 0;
 }

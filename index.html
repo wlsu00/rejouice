@@ -19,39 +19,36 @@
         <div class="con">
           <!-- 로고 -->
           <h1>
-            <a href="#">
-              <div>
-                <span>the</span>
-                <span>growth</span>
-                <span>accelerator</span>
-              </div>
-            </a>
-            <a href="/">
-              <img src="./img/logo.svg" alt="logo" />
-            </a>
+            <div class="logo_text">
+              <a href="#">
+                <span>The</span>
+                <span>Growth</span>
+                <span>Accelerator</span>
+              </a>
+            </div>
+            <div class="logo_img">
+              <a href="/">
+                <img src="./img/logo.svg" alt="logo" />
+              </a>
+            </div>
           </h1>
           <!-- 메뉴 -->
           <nav id="gnb">
             <ul>
               <li>
                 <a href="#">home</a>
-                <div></div>
               </li>
               <li>
                 <a href="#">work</a>
-                <div></div>
               </li>
               <li>
                 <a href="#">about</a>
-                <div></div>
               </li>
               <li>
                 <a href="#">services</a>
-                <div></div>
               </li>
               <li>
                 <a href="#">contact</a>
-                <div></div>
               </li>
             </ul>
           </nav>
@@ -75,6 +72,13 @@
         </div>
       </header>
       <!-- 메인 -->
+      <div class="loading">
+        <div>
+          <span class="load1">Tomorrow's </span>
+          <span class="load2"> Brands, </span>
+          <span class="load3"> Today.™</span>
+        </div>
+      </div>
       <main>
         <!-- 메인비주얼 -->
         <section class="main_visual">
@@ -94,11 +98,18 @@
           <!-- 동영상 -->
           <div class="main_video">
             <div>
-              <video src="./img/video/sec1.mp4" autoplay muted loop>
+              <video
+                src="./img/video/sec1.mp4"
+                autoplay
+                muted
+                loop
+                class="main_video1"
+              >
                 이 동영상 파일은 해당 브라우저에서 지원되지 않습니다.
               </video>
               <h2>Showreel</h2>
               <div class="play"><span>▶</span> Play Reel</div>
+              <div class="close"><span>X</span> Close Reel</div>
               <div class="sec1_lightbox">
                 <video
                   src="./img/video/sec1_lightbox.mp4"
@@ -106,6 +117,7 @@
                   muted
                   loop
                   controls
+                  class="main_video2"
                 >
                   이 동영상 파일은 해당 브라우저에서 지원되지 않습니다.
                 </video>
@@ -198,7 +210,7 @@
                   <div class="img_sm-l">
                     <img src="./img/sec4/oura.png" alt="oura" />
                     <img src="./img/oura-logo-white.svg" alt="oura" />
-                    <div class="hover_area"></div>
+                    <div class="hover_area-l"></div>
                     <div class="hover_img_sm-l">
                       <span>Case study Oura Ring</span>
                       <video
@@ -215,7 +227,7 @@
                   <div class="img_sm-r">
                     <img src="./img/sec4/moxion.png" alt="moxion" />
                     <img src="./img/moxion-logo-white.svg" alt="moxion" />
-                    <div class="hover_area"></div>
+                    <div class="hover_area-r"></div>
                     <div class="hover_img_sm-r">
                       <span>Case study Moxion Power</span>
                       <video
@@ -336,9 +348,9 @@
             <div>
               <video
                 src="./img/video/PORTFOLIO-LOOP-PROJECTS.mp4"
-                autoplay
                 muted
                 loop
+                autoplay
               >
                 이 동영상 파일은 해당 브라우저에서 지원되지 않습니다.
               </video>
@@ -350,17 +362,17 @@
           <div class="con">
             <div class="txt_wrap">
               <div class="get_us">
-                <div>G</div>
-                <div>e</div>
-                <div>t</div>
-                <div>&nbsp;t</div>
-                <div>o</div>
-                <div>&nbsp;k</div>
-                <div>n</div>
-                <div>o</div>
-                <div>w</div>
-                <div>&nbsp;u</div>
-                <div>s</div>
+                <span>G</span>
+                <span>e</span>
+                <span>t</span>
+                <span>&nbsp;t</span>
+                <span>o</span>
+                <span>&nbsp;k</span>
+                <span>n</span>
+                <span>o</span>
+                <span>w</span>
+                <span>&nbsp;u</span>
+                <span>s</span>
               </div>
               <div class="about_us">
                 <div>A</div>
@@ -383,7 +395,7 @@
               <h2>Do it once. Do it right.</h2>
               <div>
                 <p>New Business:</p>
-                <a href="#">hello@rejouice.com</a>
+                <a href="#" class="comEmail">hello@rejouice.com</a>
               </div>
               <div>
                 <p>Sign up for our newsletter (No spam)</p>
@@ -393,7 +405,6 @@
                     id="user_mail"
                     name="user_mail"
                     placeholder="Email"
-                    autofocus
                   />
                   <a href="#"><i class="xi-arrow-right"></i></a>
                 </label>

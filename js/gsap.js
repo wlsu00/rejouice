@@ -24,6 +24,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   /* 섹션2 */
+
+  gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".sec2", // .sec2 영역에서 스크롤 트리거 발생
+        start: "top 90%", // sec2가 뷰포트에 들어오면
+        end: "100% 5%", // sec2가 끝날 때
+        scrub: true, // 스크롤에 따라 애니메이션이 부드럽게 진행되도록
+        markers: true, // 디버그용, 작업 끝나면 지우기
+      },
+    })
+    .from(".sec2 .ani_text p", {
+      // y: 100, // 시작할 때 100px 아래로 떨어져 있음
+      opacity: 0, // 처음에는 보이지 않음
+      duration: 1, // 애니메이션 지속 시간
+      stagger: 0.3, // 각 p 태그들이 순차적으로 떨어지게 함
+      ease: "power3.out", // 애니메이션 속도
+    });
+
+  /* 섹션4 */
   //work1
   gsap.set(".hover_img_lg", { xPercent: -50, yPercent: -50 });
 

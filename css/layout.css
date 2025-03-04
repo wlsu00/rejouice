@@ -354,11 +354,9 @@ main {
   z-index: 100;
   font-size: 16px;
 }
-.main_video .play span {
-  font-size: 10px;
-  line-height: 16px;
-}
 .main_video .close {
+  width: fit-content;
+  height: fit-content;
   display: none;
   color: #000;
   position: absolute;
@@ -380,12 +378,15 @@ main {
   padding-top: 44px;
 }
 /* 섹션2 */
-.sec2 > .con > div {
+.sec2 {
+  margin-top: 62px;
+}
+.sec2 > .con > .ani_text {
   box-sizing: border-box;
   padding: 60px 0;
   border-bottom: 1px solid #ffffff34;
 }
-.sec2 > .con > div > p {
+.sec2 > .con > .ani_text > p {
   width: 100%;
   font-size: 82px;
   letter-spacing: -0.22rem;

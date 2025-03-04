@@ -1,7 +1,7 @@
 "use strict";
 
 $(function () {
-  /* 메인비주얼 로딩화면 */
+  /* 메인 로딩화면 */
   // 1. 로딩 화면이 뜬 상태에서 main 숨기기
   gsap.set(".logo_wrap", { display: "none" }); // 처음에 main을 숨김
 
@@ -29,7 +29,7 @@ $(function () {
     delay: 2, // 로딩 끝난 후에 메인 등장
   });
 
-  /* 섹션2 */
+  /* 메인비주얼 큰 동영상 */
 
   //마우스올리면 .play 나오고, 벗어나면 사라지기
   $(".main_video .play").hide();
@@ -54,17 +54,27 @@ $(function () {
 
   //클릭하면 라이트박스 동영상 나오기 💡회전시키기
   $(".main_video .sec1_lightbox").slideToggle();
+
   $(".main_video > div").on("click", function () {
     $(".main_video .sec1_lightbox").slideToggle();
     $(".main_video > div > h2, .main_video > div > h2::after").toggle(300);
-    $(".main_video .play").toggle();
   });
 
-  /* -------------------------------------------------------------------- */
-  // if ($(".main_video2").hide()) {
-  //   $(".main_video .play").text(" Close Reel");
-  // }
-  /* -------------------------------------------------------------------- */
+  $(".main_video > div .main_video1").on("click", function () {
+    $(".main_video .play").text("X Close Reel").css({
+      fontWeight: "400",
+      color: "#000",
+    });
+  });
+  $(".main_video .sec1_lightbox").on("click", function (e) {
+    $(".main_video .play").text("▶ Play Reel").css({
+      fontWeight: "300",
+      color: "#fff",
+    });
+  });
+
+  /* 섹션2 */
+
   /* 섹션4 */
 
   // work1

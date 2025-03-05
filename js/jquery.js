@@ -73,8 +73,6 @@ $(function () {
     });
   });
 
-  /* 섹션2 */
-
   /* 섹션4 */
 
   // work1
@@ -91,32 +89,7 @@ $(function () {
     $(".sec4 .img_lg img:nth-of-type(2)").css("opacity", "1");
   });
 
-  // 💡work2 깜빡거림
-  $(".img_sm-l .hover_img_sm-l").hide();
-
-  $(".hover_area-l").on("mouseenter", function () {
-    $(".img_sm-l .hover_img_sm-l").slideDown();
-    $(".img_sm-l img:first-child").css("opacity", "0.5");
-    $(".img_sm-l img:nth-of-type(2)").css("opacity", "0");
-  });
-  $(".hover_area-l").on("mouseleave", function () {
-    $(".img_sm-l .hover_img_sm-l").slideUp();
-    $(".img_sm-l img:first-child").css("opacity", "1");
-    $(".img_sm-l img:nth-of-type(2)").css("opacity", "1");
-  });
-
-  //💡work3 깜빡거림
-  $(".hover_img_sm-r").hide();
-
-  $(".hover_area-r").on("mouseenter", function () {
-    $(".img_sm-r .hover_img_sm-r").slideDown();
-    $(".img_sm-r img:first-child").css("opacity", "0.5");
-  });
-  $(".hover_area-r").on("mouseleave", function () {
-    $(".img_sm-r .hover_img_sm-r").slideUp();
-    $(".img_sm-r img:first-child").css("opacity", "1");
-  });
-
+  /* 가상요소들 */
   //호버하면 애프터 앞으로 사라지면서 움직이기
   $(".main_video > div > h2").hover(
     function () {
@@ -158,7 +131,14 @@ $(function () {
       $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
     }
   );
+  $(".sec6 .con > div > a").hover(
+    function () {
+      $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+    },
+    function () {
+      $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+    }
+  );
 
-  // 💡💡💡💡
   //----------------------
 });

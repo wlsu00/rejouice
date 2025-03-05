@@ -794,45 +794,69 @@ h1 .logo_img {
 /* 슬라이드 */
 swiper-container {
   width: 100%;
-  height: 100%;
-}
-
-swiper-slide {
-  width: 440px;
   height: auto;
-  background-color: #f7f7f7;
-  border-radius: 8px;
-  overflow: hidden;
+}
+swiper-slide {
   text-align: center;
-  font-size: 18px;
-  /* background: #fff; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.slide_wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.slide_wrap.ring {
-  width: 100%;
-  height: 100%;
-  /* background: url("../img/sec6/image1.avif") no-repeat; */
-}
-.slide_text {
-  width: fit-content;
-  height: 68px;
-  overflow: hidden;
-  font-size: 20px;
-}
-/* swiper-slide img {
+swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-} */
+}
+/* 여기까진 스와이퍼 */
 
+.card_wrap {
+  width: 440px;
+  height: 540px;
+  background-color: #f7f7f7;
+  background-color: #e7cfcf;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card_wrap.pic {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.card_wrap.pic > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.text {
+  width: fit-content;
+  font-size: 20px;
+  text-align: start;
+  position: absolute;
+  margin: 37px 43px;
+}
+.text.card1 {
+  height: 100%;
+  height: 72px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.text.card1 p {
+  width: fit-content;
+  height: auto;
+  font-size: 20px;
+  line-height: 1.2;
+  text-align: start;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+  transform: translateY(0); /* 초기 위치 아래로 */
+  /* opacity: 0; */
+}
+.text.card1 p.show {
+  opacity: 1; /* 보이게 할 텍스트 */
+  transform: translateY(-10%); /* 원래 위치로 돌아오기 */
+}
 /* 섹션7 */
 .sec7 .con {
   background-color: #fff;

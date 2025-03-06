@@ -22,7 +22,6 @@ section {
 }
 /* 헤더 */
 header {
-  /* background-color: aliceblue; */
   width: 100%;
   height: 62px;
   display: flex;
@@ -34,7 +33,6 @@ header {
   z-index: 999;
 }
 header .con {
-  /* background-color: yellowgreen; */
   width: 100%;
   height: 42px;
   box-sizing: border-box;
@@ -43,6 +41,7 @@ header .con {
   justify-content: space-between;
   align-items: end;
   font-weight: 400;
+  text-shadow: 0 0 1px #ffffff6b;
 }
 /* 로고 */
 h1 {
@@ -279,9 +278,10 @@ h1 .logo_img {
   display: flex;
   gap: 66px;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.1;
   letter-spacing: -0.016rem;
+  text-shadow: 0 0 1px #fff;
 }
 .text_wrap > div:last-child > i {
   display: block;
@@ -449,6 +449,7 @@ h1 .logo_img {
   font-size: 20px;
   box-sizing: border-box;
   padding-top: 23px;
+  text-shadow: 0 0 1px #fff;
 }
 .sec3 .left_txt {
   width: 50%;
@@ -511,6 +512,7 @@ h1 .logo_img {
 /* 섹션4 */
 .sec4 {
   overflow: hidden;
+  text-shadow: 0 0 1px #fff;
 }
 .sec4 .highlights {
   box-sizing: border-box;
@@ -630,6 +632,8 @@ h1 .logo_img {
   overflow: hidden;
   object-fit: contain;
   position: relative;
+  top: 0;
+  left: 0;
   cursor: pointer;
 }
 /* 왼쪽 */
@@ -644,7 +648,6 @@ h1 .logo_img {
   transform: translateX(-50%);
 }
 .hover_area_l {
-  /* background-color: rgba(250, 235, 215, 0.568); */
   width: 80%;
   height: 80%;
   position: absolute;
@@ -723,6 +726,7 @@ h1 .logo_img {
 .sec8,
 .sec9 {
   background-color: #fff;
+  text-shadow: 0 0 0px black;
 }
 .sec5 .con {
   box-sizing: border-box;
@@ -750,6 +754,7 @@ h1 .logo_img {
   margin: 0 auto;
   padding-bottom: 120px;
   background-color: #fff;
+  font-size: 20px;
 }
 .sec6 .con > div {
   color: #000;
@@ -795,12 +800,16 @@ h1 .logo_img {
 swiper-container {
   width: 100%;
   height: auto;
+  transition-timing-function: linear;
 }
 swiper-slide {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* ㄴ 고정 */
+  border-radius: 8px;
+  overflow: hidden;
 }
 swiper-slide img {
   display: block;
@@ -808,55 +817,354 @@ swiper-slide img {
   height: 100%;
   object-fit: cover;
 }
-/* 여기까진 스와이퍼 */
 
-.card_wrap {
+/* 여기까진 스와이퍼 */
+/* 카드들 공통 */
+.card1,
+.card3,
+.card4,
+.card5,
+.card6 {
+  text-shadow: 0 0 1px #ffffff6b;
+}
+/* 카드1 */
+.card1 {
   width: 440px;
-  height: 540px;
-  background-color: #f7f7f7;
-  background-color: #e7cfcf;
-  border-radius: 8px;
+  height: 504px;
+  position: relative;
+}
+.card1 > img {
+  position: absolute;
+}
+.card1 > .card {
+  width: 100%;
+  height: 100%;
+  margin: 37px 43px;
+  position: absolute;
+}
+.card1 .content {
+  width: 100%;
+  text-align: start;
+}
+.card1 .text_con {
+  width: 100%;
+  height: 200px;
   overflow: hidden;
 }
-.card_wrap.pic {
+.card1 .text {
+  width: 200px;
   position: relative;
   top: 0;
   left: 0;
 }
-.card_wrap.pic > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.text {
-  width: fit-content;
-  font-size: 20px;
-  text-align: start;
-  position: absolute;
-  margin: 37px 43px;
-}
-.text.card1 {
-  height: 100%;
-  height: 72px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
-.text.card1 p {
-  width: fit-content;
-  height: auto;
+.card1 .text p {
+  margin: 0;
   font-size: 20px;
   line-height: 1.2;
   text-align: start;
-  transition: transform 1s ease-out, opacity 1s ease-out;
-  transform: translateY(0); /* 초기 위치 아래로 */
-  /* opacity: 0; */
+  position: absolute; /* 각자 쌓이는 위치를 JS로 지정 */
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(0);
 }
-.text.card1 p.show {
-  opacity: 1; /* 보이게 할 텍스트 */
-  transform: translateY(-10%); /* 원래 위치로 돌아오기 */
+/* 카드2 */
+.card2 {
+  width: 440px;
+  height: 326px;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  padding: 37px 43px;
 }
+.card2 > .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card2 > .card .text {
+  width: 40%;
+  height: auto;
+  color: #000;
+  text-align: start;
+}
+.logos {
+  width: fit-content;
+  height: 30px;
+  margin-left: auto;
+  overflow: hidden;
+  transform: translateY(0);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.logos img {
+  width: fit-content;
+  display: block;
+  box-sizing: border-box;
+  padding-top: 8px;
+  object-fit: contain;
+  animation: rolling 6s steps(4) infinite;
+  -webkit-animation: rolling 6s steps(4) infinite;
+}
+.logos img:nth-child(2) {
+  padding: 0;
+}
+@keyframes rolling {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-120px);
+  }
+}
+/* 카드3 */
+.card3 {
+  width: 440px;
+  height: 504px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.card3 > img {
+  position: absolute;
+}
+.card3 .card {
+  position: absolute;
+  margin: 37px 43px;
+  text-align: start;
+}
+.card3 .text span {
+  opacity: 0.5;
+}
+/* 카드4 */
+.card4 {
+  width: 440px;
+  height: 326px;
+  background-color: #000;
+  box-sizing: border-box;
+  padding: 37px 43px;
+}
+.card4 .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card4 .text {
+  width: 100%;
+  text-align: start;
+}
+.card4 .text p {
+  width: 40%;
+}
+.card4 .text span {
+  opacity: 0.5;
+}
+.card4 .btn_learn {
+  width: 126px;
+  overflow: hidden;
+}
+/* 카드5 */
+.card5 {
+  width: 440px;
+  height: 254px;
+  background-color: #f7f7f7;
+  color: #000;
+  text-align: start;
+  padding: 37px 43px;
+  position: relative;
+}
+.card5 .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card5 .text span {
+  opacity: 0.5;
+}
+.card5 .bg_num {
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  position: absolute;
+  right: 43px;
+  bottom: 37px;
+  font-size: 50px;
+  opacity: 0;
+  transform: translateY(20px); /* 아래에 숨겨둠 */
+  transition: none;
+}
+/* 카드6 */
+.card6 {
+  width: 440px;
+  height: 440px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.card6 video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index: 200; */
+}
+.card6 .card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 37px 43px;
+  text-align: start;
+}
+.card6 .card .text {
+  width: 56%;
+}
+.card6 .card .text span:nth-child(2) {
+  opacity: 0.5;
+}
+.card6 .card > img {
+  width: fit-content;
+  height: 20px;
+  position: absolute;
+  right: 43px;
+  bottom: 37px;
+  object-fit: contain;
+}
+/* 카드7 */
+.card7 {
+  width: 440px;
+  height: 325px;
+  text-align: start;
+  background-color: #f7f7f7;
+  color: #000;
+}
+.card7 .card {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 37px 43px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card7 .bottom_con {
+  display: flex;
+  justify-content: space-between;
+}
+.bottom_con .btn_learn {
+  width: 124px;
+  overflow: hidden;
+}
+.bottom_con .btn_learn a {
+  color: #000;
+}
+.bottom_con .btn_learn::after {
+  background-color: #000;
+}
+.bottom_con img {
+  height: 20px;
+  object-fit: contain;
+}
+/* 카드8 */
+.card8 {
+  width: 440px;
+  height: 503px;
+  background-color: #f7f7f7;
+  text-align: start;
+  color: #000;
+}
+.card8 .card {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 37px 43px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card8 .text > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+.card8 .text > div > div:hover span {
+  opacity: 1;
+}
+.card8 .text span {
+  opacity: 0.5;
+  transition: 0.3s;
+}
+/* 아날로그 시계 */
+.clock {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+/* 시·분·초침 공통 스타일 */
+.hand {
+  position: absolute;
+  width: 2px; /* 바늘 두께 */
+  height: 50%; /* 시계 반지름의 절반 정도 */
+  background: #000;
+  top: 50%; /* 시계 중심 */
+  left: 50%;
+  transform-origin: 50% 100%; /* 바늘 끝(시계 중심)을 기준으로 회전 */
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+.hand.second {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card8:hover .hand.second {
+  opacity: 1;
+}
+/* 카드9 */
+.card9 {
+  width: 440px;
+  height: 325px;
+  text-align: start;
+  background-color: #000;
+  color: #fff;
+}
+.card9 .card {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 37px 43px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card9 .logos {
+  width: fit-content;
+  height: 20px;
+  overflow: hidden;
+}
+.card9 .logos img {
+  height: 20px;
+  object-fit: contain;
+  padding: 0;
+  animation: rolling2 6s steps(6) infinite;
+  -webkit-animation: rolling2 6s steps(6) infinite;
+}
+@keyframes rolling2 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-120px);
+  }
+}
+
+/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 /* 섹션7 */
 .sec7 .con {
   background-color: #fff;

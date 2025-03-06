@@ -108,13 +108,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   document.querySelector(".hover_area_l").addEventListener("mouseenter", () => {
     document.querySelector(".hover_img_sm_l").classList.add("on");
+    // 뒤 이미지 투명도 조절 추가
+    $(".img_sm_l img:first-of-type").css("opacity", "0.5");
+    $(".img_sm_l img:nth-of-type(2)").css("opacity", "0");
   });
+
   document.querySelector(".hover_area_l").addEventListener("mousemove", (e) => {
     xTo2(e.pageX);
     yTo2(e.pageY);
   });
   document.querySelector(".hover_area_l").addEventListener("mouseleave", () => {
     document.querySelector(".hover_img_sm_l").classList.remove("on");
+    // 뒤 이미지 원래 상태로 복구
+    $(".img_sm_l img:first-of-type").css("opacity", "1");
+    $(".img_sm_l img:nth-of-type(2)").css("opacity", "1");
   });
 
   //work3
@@ -131,6 +138,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   document.querySelector(".hover_area_r").addEventListener("mouseenter", () => {
     document.querySelector(".hover_img_sm_r").classList.add("on");
+    // 뒤 이미지 투명도 조절 추가
+    $(".img_sm_r img:first-of-type").css("opacity", "0.5");
+    $(".img_sm_r img:nth-of-type(2)").css("opacity", "0");
   });
   document.querySelector(".hover_area_r").addEventListener("mousemove", (e) => {
     xTo3(e.pageX);
@@ -138,6 +148,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
   document.querySelector(".hover_area_r").addEventListener("mouseleave", () => {
     document.querySelector(".hover_img_sm_r").classList.remove("on");
+    // 뒤 이미지 원래 상태로 복구
+    $(".img_sm_r img:first-of-type").css("opacity", "1");
+    $(".img_sm_r img:nth-of-type(2)").css("opacity", "1");
   });
 
   /* 섹션8 */

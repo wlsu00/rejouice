@@ -704,7 +704,7 @@ h1 .logo_img {
   top: 0;
   left: 0;
   z-index: 100;
-  transition: 0.1s;
+  transition: 0.2s;
   pointer-events: none;
 }
 .img_sm_r .hover_img_sm_r video {

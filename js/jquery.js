@@ -89,6 +89,45 @@ $(function () {
     $(".sec4 .img_lg img:nth-of-type(2)").css("opacity", "1");
   });
 
+  //work2랑 3은 gsap으로 다르게함
+  /*
+  //work2
+  $(".img_sm_l .hover_img_sm_l").hide();
+
+  $(".hover_area_l").on("mouseenter", function () {
+    // $(".img_sm_l .hover_img_sm_l").slideDown();
+    $(".img_sm_l img:first-of-type").css("opacity", "0.5");
+    $(".img_sm_l img:nth-of-type(2)").css("opacity", "0");
+  });
+  $(".hover_area_l").on("mouseleave", function () {
+    // $(".img_sm_l .hover_img_sm_l").slideUp();
+    $(".img_sm_l img:first-of-type").css("opacity", "1");
+    $(".img_sm_l img:nth-of-type(2)").css("opacity", "1");
+  });
+
+  //work3
+  $(".hover_area-r").on("mouseenter", function () {
+    $(".img_sm_r .hover_img_sm_r").slideDown();
+    $(".img_sm_r img:first-of-type").css("opacity", "0.5");
+    $(".img_sm_r img:nth-of-type(2)").css("opacity", "0");
+  });
+  $(".hover_area-r").on("mouseleave", function () {
+    $(".img_sm_r .hover_img_sm_r").slideUp();
+    $(".img_sm_r img:first-of-type").css("opacity", "1");
+    $(".img_sm_r img:nth-of-type(2)").css("opacity", "1");
+  });
+  */
+
+  $(".hover_img_sm_l").on("mouseenter", function () {
+    $(".img_sm_l img:first-of-type").css("opacity", "0.5");
+    $(".img_sm_l img:nth-of-type(2)").css("opacity", "0");
+  });
+
+  $(".hover_img_sm_l").on("mouseleave", function () {
+    $(".img_sm_l img:first-of-type").css("opacity", "1");
+    $(".img_sm_l img:nth-of-type(2)").css("opacity", "1");
+  });
+
   /* 가상요소들 */
   //호버하면 애프터 앞으로 사라지면서 움직이기
   $(".main_video > div > h2").hover(

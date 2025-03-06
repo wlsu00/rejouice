@@ -208,8 +208,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  // ③ 2초마다 updateText 실행
-  setInterval(updateText, 2000);
+  // ③ 1초마다 updateText 실행
+  setInterval(updateText, 1000);
 
   // 초기 상태 한 번 실행
   updateText();
@@ -255,7 +255,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
+  /*
   //카드8 - 시계
+  
   // 초기 시간대: 미국
   let currentTZ = "America/Los_Angeles";
 
@@ -381,24 +383,83 @@ document.addEventListener("DOMContentLoaded", (event) => {
     };
   }
 
+  */
+
+  /* 섹션7 */
+  //보더 늘어나기
+  gsap.to(".sec7 .ani_border", {
+    width: "100%",
+    duration: 2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".sec7",
+      start: "820px 80%",
+      // markers: true,
+    },
+  });
+  //글자 내려오기
+  gsap.fromTo(
+    ".sec7 p",
+    { y: "-100%", opacity: 0 },
+    {
+      y: "0px",
+      opacity: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".sec7",
+        start: "800px 80%",
+        // markers: true,
+      },
+    }
+  );
+
   /* 섹션8 */
-  //💡💡스크롤 내리면 동영상 점점커지기
-  // gsap.to(".sec8 video", {
-  //   opacity: 0,
-  //   duration: 0.3,
-  //   scrollTrigger: {
-  //     trigger: ".sec8 video",
-  //     start: "-1100px 90%",
-  //     end: "-1100px top",
-  //     scrub: 1,
-  //     markers: true,
-  //   },
-  //   onEnter: () => {
-  //     $(".sec8 video").css("width", "100%");
-  //   },
-  //   onLeaveBack: () => {
-  //     $(".sec8 video").css("width", "60%");
-  //   },
-  // });
+  //스크롤 내리면 동영상 점점커지기
+  gsap.fromTo(
+    ".sec8 .con > div",
+    { width: "83%" },
+    {
+      width: "100%",
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".sec8",
+        scrub: 3,
+        start: "800px 70%",
+        // markers: true,
+      },
+    }
+  );
+
+  /* 섹션9 */
+  $(".txt_wrap").hover(
+    function () {
+      // 마우스 진입 시: 초기 텍스트는 사라지고, 호버 텍스트가 위에서 아래로 등장
+      gsap.to(".get_us span", { opacity: 0, duration: 0.3 });
+      gsap.fromTo(
+        ".about_us span",
+        { opacity: 0, y: -20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+        }
+      );
+    },
+    function () {
+      // 마우스 나갈 때: 호버 텍스트는 아래로 사라지고, 초기 텍스트가 다시 나타남
+      gsap.to(".about_us span", {
+        opacity: 0,
+        y: 20,
+        duration: 0.5,
+        stagger: 0.05,
+        ease: "back.in(1.7)",
+      });
+      gsap.to(".get_us span", { opacity: 1, duration: 0.3, delay: 0.3 });
+    }
+  );
   // ---------------
 });

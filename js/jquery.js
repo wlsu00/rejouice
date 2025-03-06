@@ -165,6 +165,15 @@ $(function () {
       $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
     }
   );
+
+  $(".right_up > .sitemap > li > a").hover(
+    function () {
+      $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+    },
+    function () {
+      $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+    }
+  );
   $(".right_up > ul:last-child > li > a").hover(
     function () {
       $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남

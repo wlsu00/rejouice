@@ -906,8 +906,8 @@ swiper-slide img {
   box-sizing: border-box;
   padding-top: 8px;
   object-fit: contain;
-  animation: rolling 6s steps(4) infinite;
-  -webkit-animation: rolling 6s steps(4) infinite;
+  animation: rolling 8s steps(4) infinite;
+  -webkit-animation: rolling 8s steps(4) infinite;
 }
 .logos img:nth-child(2) {
   padding: 0;
@@ -916,6 +916,7 @@ swiper-slide img {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-120px);
   }
@@ -1152,8 +1153,8 @@ swiper-slide img {
   height: 20px;
   object-fit: contain;
   padding: 0;
-  animation: rolling2 6s steps(6) infinite;
-  -webkit-animation: rolling2 6s steps(6) infinite;
+  animation: rolling2 12s steps(6) infinite;
+  -webkit-animation: rolling2 12s steps(6) infinite;
 }
 @keyframes rolling2 {
   0% {
@@ -1164,7 +1165,6 @@ swiper-slide img {
   }
 }
 
-/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 /* 섹션7 */
 .sec7 .con {
   background-color: #fff;
@@ -1176,24 +1176,28 @@ swiper-slide img {
   font-size: 62px;
   padding-bottom: 40px;
 }
-.sec7 .con > div > div {
+.sec7 .ani_border {
+  width: 0px;
+  height: 1px;
+  background-color: #bfbfbf;
+}
+.sec7 .left_txt,
+.sec7 .right_txt {
   padding-top: 23px;
   display: flex;
   font-size: 20px;
-  border-top: 1px solid #696969;
 }
-.sec7 .con > div > div:first-child {
+.sec7 .left_txt {
   margin-bottom: 33px;
 }
-.sec7 .con > div > div > h3 {
+.sec7 .con h3 {
   width: 50%;
 }
-.sec7 .con > div > div > p {
+.sec7 .con p {
   width: 20%;
 }
 
 /* 섹션8 */
-/* gsap쓰기 */
 .sec8 .con {
   display: flex;
   justify-content: center;
@@ -1201,7 +1205,7 @@ swiper-slide img {
   /* margin: 0 auto; */
 }
 .sec8 .con > div {
-  width: 84%;
+  width: 83%;
   height: 100%;
 }
 .sec8 .con > div video {
@@ -1245,34 +1249,11 @@ swiper-slide img {
   left: 50%;
   transform: translateX(-50%);
 }
-.sec9 .con .about_us {
-  display: none;
+.txt_wrap {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
 }
-/* 글자 올라가기 */
-.sec9 .txt_wrap .get_us div {
-  transition: 0.5s;
-}
-.sec9 .txt_wrap:hover .get_us div:nth-child(1),
-.sec9 .txt_wrap:hover .get_us div:nth-child(2),
-.sec9 .txt_wrap:hover .get_us div:nth-child(3) {
-  /* transform: translateY(-100px); */
-  transition-delay: 0.04s;
-  top: -20px;
-}
-/* .sec9 .txt_wrap:hover .get_us div:nth-child(4),
-.sec9 .txt_wrap:hover .get_us div:nth-child(5),
-.sec9 .txt_wrap:hover .get_us div:nth-child(6),
-.sec9 .txt_wrap:hover .get_us div:nth-child(7),
-.sec9 .txt_wrap:hover .get_us div:nth-child(8),
-.sec9 .txt_wrap:hover .get_us div:nth-child(9) {
-  transform: translateY(-100px);
-  transition-delay: 0.08s;
-}
-.sec9 .txt_wrap:hover .get_us div:nth-child(10),
-.sec9 .txt_wrap:hover .get_us div:nth-child(11) {
-  transform: translateY(-100px);
-  transition-delay: 0.1s;
-} */
 
 /* footer */
 footer {
@@ -1339,6 +1320,7 @@ footer input {
   background-color: transparent;
   border: none;
   outline: none;
+  color: #fff;
 }
 
 footer label i {
@@ -1352,27 +1334,51 @@ footer label i {
   display: flex;
   justify-content: space-between;
 }
-.right_up > ul:first-child {
+.right_up > .sitemap {
   width: 60%;
   margin-bottom: 86px;
+}
+.right_up > .sitemap > li > a::after {
+  content: "line";
+  font-size: 0;
+  display: block;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease-in-out;
+}
+.right_up > .sitemap > li:hover > a::after {
+  width: 100%;
+  left: 0;
+}
+.right_up > .sitemap > li > a.removing::after {
+  width: 0%;
+  left: auto;
+  right: 0;
 }
 .right_up > ul:last-child {
   width: 34%;
 }
-.right_up > ul:last-child > li {
+.right_up > ul > li {
   width: 86px;
   overflow: hidden;
 }
-.right_up > ul:last-child > li > a {
-  display: flex;
-  gap: 3px;
+.right_up > ul > li > a {
   width: max-content;
-  transform: translateX(-12px);
   transition: 0.3s;
   position: relative;
   display: block;
   padding-bottom: 4px;
   overflow: hidden;
+}
+.right_up > ul:last-child > li > a {
+  display: flex;
+  gap: 3px;
+  transform: translateX(-12px);
 }
 .right_up > ul:last-child > li:hover > a {
   transform: translateX(2px);
@@ -1472,4 +1478,7 @@ footer label i {
   width: 0%;
   left: auto; /* 오른쪽에서 사라지도록 설정 */
   right: 0;
+}
+.scrolltrigger-marker {
+  z-index: 9999 !important;
 }

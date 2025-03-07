@@ -289,10 +289,16 @@
             <!-- 슬라이드 -->
             <swiper-container
               class="mySwiper"
-              slides-per-view="4"
+              slides-per-view="auto"
               space-between="30"
               free-mode="true"
               loop="true"
+              looped-slides="9"
+              autoplay='{
+                "delay": 0,
+                "disableOnInteraction": false
+              }'
+              speed="500"
             >
               <!-- 카드1 : 반지 -->
               <swiper-slide>
@@ -528,8 +534,12 @@
         <section class="sec8">
           <div class="con">
             <div>
-              <video src="./img/video/PORTFOLIO-LOOP-PROJECTS.mp4" muted loop>
-                <!-- autoplay -->
+              <video
+                src="./img/video/PORTFOLIO-LOOP-PROJECTS.mp4"
+                autoplay
+                muted
+                loop
+              >
                 이 동영상 파일은 해당 브라우저에서 지원되지 않습니다.
               </video>
             </div>
@@ -540,26 +550,15 @@
           <div class="con">
             <div class="txt_wrap">
               <div class="get_us">
-                <span>G</span>
-                <span>e</span>
-                <span>t</span>
-                <span>&nbsp;t</span>
-                <span>o</span>
-                <span>&nbsp;k</span>
-                <span>n</span>
-                <span>o</span>
-                <span>w</span>
-                <span>&nbsp;u</span>
-                <span>s</span>
+                <span>Get</span>
+                <span>to know</span>
+                <span>us</span>
+                <div class="underline"></div>
               </div>
               <div class="about_us">
-                <span>A</span>
-                <span>b</span>
-                <span>o</span>
-                <span>u</span>
-                <span>t</span>
-                <span>&nbsp;u</span>
-                <span>s</span>
+                <span>About</span>
+                <span>us</span>
+                <div class="underline"></div>
               </div>
             </div>
           </div>
@@ -627,7 +626,7 @@
               </div>
             </div>
           </div>
-          <div>
+          <div class="footer_logo">
             <img src="./img/logo.svg" alt="logo" />
           </div>
         </div>
@@ -635,8 +634,6 @@
     </div>
     <!-- 슬라이드 -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-    <!-- 자바스크립트 -->
-    <script src="./js/layout.js"></script>
     <!-- 제이쿼리 -->
     <script src="./js/jquery.min.js"></script>
     <script src="./js/jquery.js"></script>

@@ -800,16 +800,20 @@ h1 .logo_img {
 swiper-container {
   width: 100%;
   height: auto;
-  transition-timing-function: linear;
+  margin: 0 auto;
+  /* transition-timing-function: linear; */
+  overflow: hidden;
+  display: block;
 }
 swiper-slide {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* ㄴ 고정 */
   border-radius: 8px;
   overflow: hidden;
+  width: 440px;
+  flex-shrink: 0;
 }
 swiper-slide img {
   display: block;
@@ -826,6 +830,10 @@ swiper-slide img {
 .card5,
 .card6 {
   text-shadow: 0 0 1px #ffffff6b;
+}
+/* 모든카드n들 */
+swiper-slide > div {
+  flex: 0 0 auto;
 }
 /* 카드1 */
 .card1 {
@@ -976,6 +984,7 @@ swiper-slide img {
   background-color: #f7f7f7;
   color: #000;
   text-align: start;
+  box-sizing: border-box;
   padding: 37px 43px;
   position: relative;
 }
@@ -1222,23 +1231,15 @@ swiper-slide img {
   align-items: center;
 }
 .sec9 .txt_wrap {
-  width: 414px;
+  width: 820px;
   height: 76px;
   position: relative;
   top: 0;
   left: 0;
   margin: 270px 0;
   overflow: hidden;
-  background-color: rosybrown;
-}
-.sec9 .txt_wrap::after {
-  content: "line";
-  font-size: 0;
-  display: block;
-  background-color: #000;
-  width: 100%;
-  height: 3px;
-  margin-top: 70px;
+  display: inline-block;
+  cursor: pointer;
 }
 .sec9 .get_us,
 .sec9 .about_us {
@@ -1246,19 +1247,39 @@ swiper-slide img {
   color: #000;
   display: flex;
   position: absolute;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
-}
-.txt_wrap {
-  position: relative;
   display: inline-block;
-  cursor: pointer;
+}
+.get_us span {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  margin: 0;
+  padding: 0;
+}
+.about_us span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-20px);
+  margin: 0;
+  padding: 0;
+}
+.sec9 .txt_wrap .get_us .underline,
+.sec9 .txt_wrap .about_us .underline {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 /* footer */
 footer {
   background-color: #000;
   font-weight: 400;
+  overflow: hidden;
 }
 footer .con {
   background-color: #000;
@@ -1270,6 +1291,10 @@ footer .con > div:first-child {
   justify-content: space-between;
   margin-bottom: 167px;
 }
+footer .con > div:first-child {
+  transform: translateY(-70%);
+}
+
 /* 왼쪽 */
 footer .left {
   width: 24%;
@@ -1468,7 +1493,16 @@ footer label i {
   left: auto;
   right: 0;
 }
-
+.footer_logo {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.footer_logo img {
+  /* height: 0; */
+  transform-origin: top;
+  transform: scaleY(0);
+}
 /* 마우스를 올리면 밑줄이 나타남 */
 .hovered::after {
   width: 100%;
@@ -1478,7 +1512,4 @@ footer label i {
   width: 0%;
   left: auto; /* 오른쪽에서 사라지도록 설정 */
   right: 0;
-}
-.scrolltrigger-marker {
-  z-index: 9999 !important;
 }

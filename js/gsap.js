@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     xTo(e.pageX);
     yTo(e.pageY);
   });
+  //work1 글자 움직이기
 
   //work2
 
@@ -156,6 +157,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
   /* 섹션6 - 슬라이드 */
 
   //슬라이드 전체
+  // 슬라이더 타임라인 생성 (무한 반복)
+  let tl = gsap.timeline({ repeat: -1, ease: "linear" });
+
+  // 예시: 슬라이더 전체를 20초에 걸쳐 1000px 이동 (실제 값은 콘텐츠 길이에 맞춰 조절)
+  tl.to("swiper-container", { x: "-=1000", duration: 20 });
+
+  // 마우스 hover 시 타임라인 정지/재생
+  $("swiper-container").hover(
+    function () {
+      tl.pause();
+    },
+    function () {
+      tl.play();
+    }
+  );
 
   // 카드1 - 글자움직이기
   const $texts = $(".card1 .text p");
@@ -425,7 +441,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".sec8",
-        scrub: 3,
+        scrub: 2,
         start: "800px 70%",
         // markers: true,
       },
@@ -433,13 +449,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
   );
 
   /* 섹션9 */
+
   $(".txt_wrap").hover(
     function () {
-      // 마우스 진입 시: 초기 텍스트는 사라지고, 호버 텍스트가 위에서 아래로 등장
-      gsap.to(".get_us span", { opacity: 0, duration: 0.3 });
+      // 마우스 진입 시: 기존 텍스트 (.get_us)와 그 밑줄을 위로 사라지게,
+      // 동시에 호버 텍스트 (.about_us)와 그 밑줄을 아래에서 위로 등장시키기
+
+      // 기존 텍스트 애니메이션
+      gsap.to(".get_us span", { opacity: 0, y: -20, duration: 0.3 });
+      // 밑줄 애니메이션: scaleX를 0으로 줄여서 사라지게
+      gsap.to(".get_us .underline", { scaleX: 0, opacity: 0, duration: 0.3 });
+
+      // 호버 텍스트 애니메이션
       gsap.fromTo(
         ".about_us span",
-        { opacity: 0, y: -20 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
@@ -448,18 +472,71 @@ document.addEventListener("DOMContentLoaded", (event) => {
           ease: "back.out(1.7)",
         }
       );
+      // 호버 텍스트 밑줄: 처음 0 상태에서 확장
+      gsap.fromTo(
+        ".about_us .underline",
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 0.5, delay: 0.3 }
+      );
     },
     function () {
-      // 마우스 나갈 때: 호버 텍스트는 아래로 사라지고, 초기 텍스트가 다시 나타남
+      // 마우스 나갈 시: 호버 텍스트 (.about_us)와 그 밑줄을 위로 사라지게,
+      // 그리고 기존 텍스트 (.get_us)와 그 밑줄을 아래에서 위로 등장시키기
+
       gsap.to(".about_us span", {
         opacity: 0,
-        y: 20,
-        duration: 0.5,
+        y: -20,
+        duration: 0.3,
         stagger: 0.05,
         ease: "back.in(1.7)",
       });
-      gsap.to(".get_us span", { opacity: 1, duration: 0.3, delay: 0.3 });
+      gsap.to(".about_us .underline", { scaleX: 0, opacity: 0, duration: 0.3 });
+
+      gsap.fromTo(
+        ".get_us span",
+        { opacity: 0, y: -20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          delay: 0.3,
+          stagger: 0.05,
+          ease: "back.out(1.7)",
+        }
+      );
+      gsap.fromTo(
+        ".get_us .underline",
+        { scaleX: 0, opacity: 0 },
+        { scaleX: 1, opacity: 1, duration: 0.5, delay: 0.3 }
+      );
     }
   );
+
+  /* footer */
+  //footer 글씨
+  gsap.to("footer .con > div:first-child", {
+    y: "0%",
+    duration: 0.5,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "footer",
+      scrub: 1,
+      start: "-30% 70%",
+      // markers: true,
+    },
+  });
+
+  //footer로고
+  gsap.to(".footer_logo img", {
+    scaleY: 1,
+    duration: 2.5,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "footer",
+      // scrub: 1,
+      start: "-30% 40%",
+      // markers: true,
+    },
+  });
   // ---------------
 });

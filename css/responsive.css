@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* 노트북 lg */
+@media screen and (min-width: 1440px) {
+}
+
+/* 노트북 md / 태블릿 lg*/
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+}
+
+/* 모바일 */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+}

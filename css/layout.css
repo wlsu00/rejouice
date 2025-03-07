@@ -15,13 +15,14 @@ section {
   width: 100%;
 }
 .con {
-  /* 1823 */
+  /* 1840(1920 - 패딩 옆 40씩) */
   width: 96%;
   height: auto;
   margin: 0 40px;
 }
 /* 헤더 */
 header {
+  mix-blend-mode: difference; /* 배경색에 따라 글자색 반전*/
   width: 100%;
   height: 62px;
   display: flex;
@@ -41,7 +42,7 @@ header .con {
   justify-content: space-between;
   align-items: end;
   font-weight: 400;
-  text-shadow: 0 0 1px #ffffff6b;
+  text-shadow: 0 0 1px #ffffff2b;
 }
 /* 로고 */
 h1 {
@@ -797,58 +798,70 @@ h1 .logo_img {
 }
 
 /* 슬라이드 */
-swiper-container {
+.slide {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto; /* 가운데 정렬 */
+}
+.inner_slide {
   width: 100%;
   height: auto;
-  margin: 0 auto;
-  /* transition-timing-function: linear; */
-  overflow: hidden;
-  display: block;
+  display: flex;
 }
-swiper-slide {
-  text-align: center;
+.card_wrap {
+  display: flex;
+  gap: 30px;
+  flex-shrink: 0; /* 😬크기 유지 */
+}
+
+/* 카드 낱 장 */
+.card_wrap > div {
+  width: 440px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
   overflow: hidden;
-  width: 440px;
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
-swiper-slide img {
+.card img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* 여기까진 스와이퍼 */
 /* 카드들 공통 */
 .card1,
 .card3,
 .card4,
 .card5,
 .card6 {
+  color: #fff;
   text-shadow: 0 0 1px #ffffff6b;
-}
-/* 모든카드n들 */
-swiper-slide > div {
-  flex: 0 0 auto;
 }
 /* 카드1 */
 .card1 {
   width: 440px;
   height: 504px;
   position: relative;
+  top: 0;
+  left: 0;
+  margin-left: 30px;
 }
 .card1 > img {
   position: absolute;
+  top: 0;
+  left: 0;
 }
 .card1 > .card {
   width: 100%;
   height: 100%;
-  margin: 37px 43px;
   position: absolute;
+  box-sizing: border-box;
+  padding: 37px 43px;
+  text-align: start;
 }
 .card1 .content {
   width: 100%;
@@ -856,7 +869,7 @@ swiper-slide > div {
 }
 .card1 .text_con {
   width: 100%;
-  height: 200px;
+  height: 84px;
   overflow: hidden;
 }
 .card1 .text {
@@ -939,10 +952,15 @@ swiper-slide > div {
 }
 .card3 > img {
   position: absolute;
+  top: 0;
+  left: 0;
 }
 .card3 .card {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  margin: 37px 43px;
+  box-sizing: border-box;
+  padding: 37px 43px;
   text-align: start;
 }
 .card3 .text span {
@@ -1090,12 +1108,14 @@ swiper-slide > div {
   color: #000;
 }
 .card8 .card {
+  width: 100%;
   height: 100%;
   box-sizing: border-box;
   padding: 37px 43px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 112px;
 }
 .card8 .text > div > div {
   display: flex;
@@ -1103,6 +1123,7 @@ swiper-slide > div {
 }
 .card8 .text > div > div:hover span {
   opacity: 1;
+  cursor: auto;
 }
 .card8 .text span {
   opacity: 0.5;
@@ -1110,31 +1131,68 @@ swiper-slide > div {
 }
 /* 아날로그 시계 */
 .clock {
-  position: relative;
-  width: 260px;
-  height: 260px;
+  width: 240px;
+  height: 240px;
   margin: 0 auto;
-  border: 2px solid #ccc;
   border-radius: 50%;
-  box-sizing: border-box;
+  background: transparent;
+
+  position: relative;
 }
-/* 시·분·초침 공통 스타일 */
-.hand {
+/* 시계바늘 공통 */
+.hour {
   position: absolute;
-  width: 2px; /* 바늘 두께 */
-  height: 50%; /* 시계 반지름의 절반 정도 */
-  background: #000;
-  top: 50%; /* 시계 중심 */
+  background-color: #888;
+  transform-origin: bottom;
+  transform: translateX(-50%);
+}
+.hour.us {
+  width: 2px;
+  height: 28px;
+  top: 20px;
   left: 50%;
-  transform-origin: 50% 100%; /* 바늘 끝(시계 중심)을 기준으로 회전 */
-  transform: translate(-50%, -100%) rotate(0deg);
+  opacity: 0.8;
 }
-.hand.second {
-  opacity: 0;
-  transition: opacity 0.3s;
+.hour.fr {
+  width: 2px;
+  height: 28px;
+  top: 20px;
+  left: 50%;
+  background-color: red;
 }
-.card8:hover .hand.second {
-  opacity: 1;
+.center_circle {
+  width: 34px;
+  height: 34px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center_circle .dot {
+  width: 2px;
+  height: 2px;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ticks {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.tick {
+  position: absolute;
+  width: 1px;
+  height: 22px;
+  background-color: #0000004d;
+  left: 50%;
+  transform-origin: center 90px;
 }
 /* 카드9 */
 .card9 {

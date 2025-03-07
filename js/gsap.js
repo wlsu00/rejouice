@@ -156,29 +156,77 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   /* 섹션6 - 슬라이드 */
 
-  //슬라이드 전체
-  // 슬라이더 타임라인 생성 (무한 반복)
-  let tl = gsap.timeline({ repeat: -1, ease: "linear" });
+  gsap.registerPlugin(Draggable);
+  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
 
-  // 예시: 슬라이더 전체를 20초에 걸쳐 1000px 이동 (실제 값은 콘텐츠 길이에 맞춰 조절)
-  tl.to("swiper-container", { x: "-=1000", duration: 20 });
+  // 원본 카드(복제 전)의 총 너비 계산 (예: 첫 9장)
+  let originalWidth = 0;
+  let $cards = $(".card_wrap > div");
+  let originalCount = 9; // 원본 카드 개수
+  $cards.slice(0, originalCount).each(function () {
+    originalWidth += $(this).outerWidth(true);
+  });
 
-  // 마우스 hover 시 타임라인 정지/재생
-  $("swiper-container").hover(
-    function () {
-      tl.pause();
-    },
-    function () {
-      tl.play();
+  // 자동 이동 타임라인
+  let isDragging = false;
+  let startTime = Date.now();
+
+  // GSAP manualTween: 60초 동안 전체 이동
+  let manualTween = gsap.to(
+    {},
+    {
+      duration: 60,
+      repeat: -1,
+      ease: "none",
+      onUpdate: function () {
+        if (!isDragging) {
+          let elapsed = (Date.now() - startTime) / 1000;
+          let progress = elapsed % 60;
+          let xVal = -((progress / 60) * originalWidth);
+          gsap.set(".card_wrap", { x: xVal });
+        }
+      },
     }
   );
 
+  // Draggable로 슬라이더 드래그 기능
+  Draggable.create(".card_wrap", {
+    type: "x",
+    bounds: ".slide ",
+    inertia: true,
+    onDragStart: function () {
+      isDragging = true;
+      manualTween.pause();
+    },
+    onDragEnd: function () {
+      isDragging = false;
+      // 현재 x값을 기준으로 경과 시간을 계산하여 startTime 업데이트
+      let currentX = this.x; // 음수 값
+      // 현재 진행된 시간을 (비율 * 60)로 계산
+      let currentProgress = (-currentX / originalWidth) * 60;
+      startTime = Date.now() - currentProgress * 1000;
+      manualTween.play();
+    },
+  });
+
+  // 마우스 호버하면 슬라이드 중지
+  $(".slide").hover(
+    function () {
+      manualTween.pause();
+    },
+    function () {
+      if (!isDragging) manualTween.play();
+    }
+  );
+
+  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
+
+  //💡
   // 카드1 - 글자움직이기
   const $texts = $(".card1 .text p");
   const total = $texts.length;
   let index = 0;
 
-  // "한 줄 높이" (CSS의 line-height와 동일하게 맞춰야 깔끔함)
   const lineHeight = 24;
 
   // ① 초기: 각 p를 (i*lineHeight) 위치에 배치 (세로로 줄줄이)
@@ -199,16 +247,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
       if (dist < 0) dist += total; // 음수면 순환
 
       if (dist === 0) {
-        // 맨 위 줄 (완전히 보여야 함)
+        // 글자 1
         gsap.to(el, { y: 0, opacity: 1, duration: 0.5 });
       } else if (dist === 1) {
-        // 두 번째 줄
+        // 글자 2
         gsap.to(el, { y: lineHeight, opacity: 0.8, duration: 0.5 });
       } else if (dist === 2) {
-        // 세 번째 줄
+        // 글자 3
         gsap.to(el, { y: lineHeight * 2, opacity: 0.6, duration: 0.5 });
       } else {
-        // ✨ "최상단 글자는 먼저 투명하게 만든 후, 나중에 위로 올림"
+        // ✨최상단 글자는 먼저 투명하게 만든 후, 나중에 위로 올림
         if (dist === total - 1) {
           gsap.to(el, {
             opacity: 0,
@@ -223,10 +271,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     });
   }
-
   // ③ 1초마다 updateText 실행
   setInterval(updateText, 1000);
-
   // 초기 상태 한 번 실행
   updateText();
 
@@ -271,135 +317,51 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  /*
   //카드8 - 시계
-  
-  // 초기 시간대: 미국
-  let currentTZ = "America/Los_Angeles";
-
-  // 1) 시계 매초 업데이트
-  setInterval(function () {
-    updateClock(currentTZ);
-  }, 1000);
-
-  gsap.to(".hand.hour", { rotation: hourDeg, duration: 0.5 });
-  gsap.to(".hand.minute", { rotation: minuteDeg, duration: 0.5 });
-  gsap.to(".hand.second", { rotation: secondDeg, duration: 0.5 });
-  // 2) 카드(.clock-widget)에 마우스 올리면 초침 표시, 떼면 초침 숨기기
-  $(".clock-widget").hover(
-    function () {
-      $(".hand.second").css("opacity", 1); // 초침 보이기
-    },
-    function () {
-      $(".hand.second").css("opacity", 0); // 초침 숨기기
-    }
-  );
-
-  // 3) 도시 정보 호버 → 해당 시간대로 변경
-  $(".us").hover(
-    function () {
-      currentTZ = $(this).data("tz"); // "America/Los_Angeles"
-    },
-    function () {}
-  );
-  $(".fr").hover(
-    function () {
-      currentTZ = $(this).data("tz"); // "Europe/Paris"
-    },
-    function () {}
-  );
-  //실제 타임존 계산
-  function getLocalTime(tz) {
-    // UTC 시각
-    let now = new Date();
-    let utcH = now.getUTCHours();
-    let utcM = now.getUTCMinutes();
-    let utcS = now.getUTCSeconds();
-
-    let offset = 0;
-    if (tz === "America/Los_Angeles") offset = -7;
-    if (tz === "Europe/Paris") offset = 1;
-    let localH = (utcH + offset + 24) % 24;
-
-    return { hour: localH, minute: utcM, second: utcS };
-  }
-
-  // 함수: 시계 업데이트 (GSAP로 바늘 회전)
-  function updateClock(timezone) {
-    // 3.1) 현재 시각 계산 (JS date + timezone offset)
-    let now = getTimeForTZ(timezone); // 아래 getTimeForTZ 구현
-    let hour = now.hours;
-    let minute = now.minutes;
-    let second = now.seconds;
-
-    // 3.2) 각 바늘의 회전각 계산
-    // 12시간제 기준
-    let hourDeg = (hour % 12) * 30 + minute * 0.5 + second * (0.5 / 60);
-    let minuteDeg = minute * 6 + second * 0.1;
-    let secondDeg = second * 6;
-
-    // 3.3) GSAP으로 바늘 회전
-    gsap.to(".hand.hour", {
-      rotation: hourDeg,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-    gsap.to(".hand.minute", {
-      rotation: minuteDeg,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-    gsap.to(".hand.second", {
-      rotation: secondDeg,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-
-    // 3.4) 디지털 시간도 업데이트
-    let ampm = hour >= 12 ? "PM" : "AM";
-    let dispHour = hour % 12 || 12;
-    let dispMin = minute < 10 ? "0" + minute : minute;
-    let dispSec = second < 10 ? "0" + second : second;
-    let displayTime = `${dispHour}:${dispMin}:${dispSec} ${ampm}`;
-
-    if (timezone === "America/Los_Angeles") {
-      $(".us-time .time").text(displayTime);
-    } else {
-      $(".fr-time .time").text(displayTime);
-    }
-  }
-
-  // 함수: 특정 타임존 시간 구하기
-  function getTimeForTZ(tz) {
-    // 여기서는 moment-timezone 라이브러리 없이,
-    // 간단히 JS Date + offset으로 처리 가능(정확도 제한)
-    // 실제론 moment-timezone / dayjs.tz / luxon 추천
-
-    // UTC 시각
-    let now = new Date();
-    // 시·분·초 (UTC)
-    let utcHours = now.getUTCHours();
-    let utcMinutes = now.getUTCMinutes();
-    let utcSeconds = now.getUTCSeconds();
-
-    // 예시: 미국 LA = UTC-7, 파리 = UTC+1 (썸머타임 고려는 직접)
-    let offset = 0; // in hours
-    if (tz === "America/Los_Angeles") offset = -7;
-    if (tz === "Europe/Paris") offset = 1;
-
-    let localHour = utcHours + offset;
-    // 분, 초 그대로
-    // 24시간 처리
-    localHour = (localHour + 24) % 24;
-
-    return {
-      hours: localHour,
-      minutes: utcMinutes,
-      seconds: utcSeconds,
+  //미국
+  function updateSanDiegoTime() {
+    // hh:mm:ssPM
+    let options = {
+      timeZone: "America/Los_Angeles",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
     };
+    let timeString = new Date().toLocaleTimeString("en-US", options);
+    $(".us span:last-child").text(timeString);
   }
 
-  */
+  updateSanDiegoTime(); // 초기 업데이트
+  setInterval(updateSanDiegoTime, 1000); // 1초마다 업데이트
+
+  //프랑스
+  function updateParisTime() {
+    let options2 = {
+      timeZone: "Europe/Paris",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    };
+    let timeString2 = new Date().toLocaleTimeString("en-US", options2);
+    $(".fr span:last-child").text(timeString2);
+  }
+
+  updateParisTime(); // 초기 업데이트
+  setInterval(updateParisTime, 1000); // 1초마다 업데이트
+
+  updateSanDiegoTime(); // 초기 업데이트
+  setInterval(updateSanDiegoTime, 1000); // 1초마다 업데이트
+
+  //시계테두리
+  const $ticks = $(".ticks");
+  for (let i = 0; i < 60; i++) {
+    const $tick = $("<div>").addClass("tick");
+
+    $tick.css("transform", `rotate(${i * 6}deg) translateY(-90px)`);
+    $ticks.append($tick);
+  }
 
   /* 섹션7 */
   //보더 늘어나기
@@ -452,11 +414,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   $(".txt_wrap").hover(
     function () {
-      // 마우스 진입 시: 기존 텍스트 (.get_us)와 그 밑줄을 위로 사라지게,
-      // 동시에 호버 텍스트 (.about_us)와 그 밑줄을 아래에서 위로 등장시키기
+      /* 마우스 진입 - get us랑 밑줄 위로 사라지기 
+      about us랑 밑줄 아래에서 위로 등장*/
 
       // 기존 텍스트 애니메이션
-      gsap.to(".get_us span", { opacity: 0, y: -20, duration: 0.3 });
+      gsap.to(".get_us span", { opacity: 0, y: -20, duration: 0.5 });
       // 밑줄 애니메이션: scaleX를 0으로 줄여서 사라지게
       gsap.to(".get_us .underline", { scaleX: 0, opacity: 0, duration: 0.3 });
 
@@ -467,7 +429,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.5,
+          duration: 0.8,
           stagger: 0.05,
           ease: "back.out(1.7)",
         }
@@ -476,17 +438,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
       gsap.fromTo(
         ".about_us .underline",
         { scaleX: 0, opacity: 0 },
-        { scaleX: 1, opacity: 1, duration: 0.5, delay: 0.3 }
+        { scaleX: 1, opacity: 1, duration: 0.3, delay: 0.2 }
       );
     },
     function () {
-      // 마우스 나갈 시: 호버 텍스트 (.about_us)와 그 밑줄을 위로 사라지게,
-      // 그리고 기존 텍스트 (.get_us)와 그 밑줄을 아래에서 위로 등장시키기
+      /* 마우스아웃 - about_us이랑 밑줄 위로 사라지기
+      get_us랑 밑줄 아래에서 위로 등장 */
 
       gsap.to(".about_us span", {
         opacity: 0,
         y: -20,
-        duration: 0.3,
+        duration: 0.5,
         stagger: 0.05,
         ease: "back.in(1.7)",
       });
@@ -507,7 +469,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       gsap.fromTo(
         ".get_us .underline",
         { scaleX: 0, opacity: 0 },
-        { scaleX: 1, opacity: 1, duration: 0.5, delay: 0.3 }
+        { scaleX: 1, opacity: 1, duration: 0.3, delay: 0.3 }
       );
     }
   );
@@ -538,5 +500,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       // markers: true,
     },
   });
+
   // ---------------
 });

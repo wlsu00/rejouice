@@ -128,25 +128,6 @@ $(function () {
     $(".img_sm_l img:nth-of-type(2)").css("opacity", "1");
   });
 
-  /* 섹션6 */
-  //전체 슬라이드 호버하면 멈추기
-  $(".sec6").on("mouseover", function () {
-    swiper.autoplay.stop();
-  });
-  $(".sec6").on("mouseout", function () {
-    swiper.autoplay.start();
-  });
-
-  //카드6의 비디오가 호버하면 재생되기
-  $(".card6").hover(
-    function () {
-      $(this).find("video")[0].play();
-    },
-    function () {
-      $(this).find("video")[0].pause();
-    }
-  );
-
   /* 가상요소들 */
   //호버하면 애프터 앞으로 사라지면서 움직이기
   $(".main_video > div > h2").hover(
@@ -165,7 +146,6 @@ $(function () {
       $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
     }
   );
-
   $(".right_up > .sitemap > li > a").hover(
     function () {
       $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남

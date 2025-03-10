@@ -186,34 +186,6 @@ $(function () {
       $(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
     }
   );
-  // 테스트
-  /*
-  $("swiper-slide").hover(
-    function () {
-      $("swiper-container").pause();
-    },
-    function () {
-      $("swiper-container").play();
-    }
-  );
-  */
-  //테스트2
-  let swiperInstance = $(".mySwiper")[0].swiper;
 
-  // .slide 영역에 마우스 호버 이벤트를 추가합니다.
-  $(".slide").hover(
-    function () {
-      // 마우스 진입 시: 자동 재생 중지
-      if (swiperInstance && swiperInstance.autoplay) {
-        swiperInstance.autoplay.stop();
-      }
-    },
-    function () {
-      // 마우스 나갈 때: 자동 재생 재시작
-      if (swiperInstance && swiperInstance.autoplay) {
-        swiperInstance.autoplay.start();
-      }
-    }
-  );
   //----------------------
 });

@@ -854,7 +854,6 @@ h1 .logo_img {
   position: relative;
   top: 0;
   left: 0;
-  margin-left: 30px;
 }
 .card1 > img {
   position: absolute;
@@ -1243,6 +1242,33 @@ h1 .logo_img {
     transform: translateY(-120px);
   }
 }
+/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
+
+/* 💡슬라이드 테스트💡 */
+.swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.swiper-wrapper {
+  display: flex;
+  transition-timing-function: linear !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 
 /* 섹션7 */
 .sec7 .con {
@@ -1275,31 +1301,6 @@ h1 .logo_img {
 .sec7 .con p {
   width: 20%;
 }
-
-/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
-
-/* 💡슬라이드 테스트💡 */
-swiper-container {
-  width: 100%;
-  height: 100%;
-}
-
-swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 
 /* 섹션8 */
 .sec8 .con {

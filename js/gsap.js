@@ -220,6 +220,61 @@ document.addEventListener("DOMContentLoaded", (event) => {
   );
 */
   //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
+  /*
+  //슬라이드 잘림
+  gsap.to("swiper-container", {
+    x: "-=1000",
+    duration: 20,
+    ease: "linear",
+    repeat: -1, // 무한 반복
+  });
+  */
+  /*
+  let swiper = new swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      // stopOnLastSlide: false,
+    },
+    speed: 5000,
+  });
+  */
+
+  let swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    grabCursor: true,
+    freeMode: true,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      stopOnLastSlide: false,
+    },
+    on: {
+      touchEnd: function () {
+        swiper.autoplay.start();
+        swiper.slidePrev(0);
+      },
+    },
+    speed: 5000,
+  });
+
+  $(".mySwiper").on("mouseenter", function () {
+    swiper.autoplay.pause();
+    swiper.setTranslate(swiper.getTranslate());
+  });
+  $(".mySwiper").on("mouseleave", function () {
+    swiper.slidePrev(0);
+    swiper.setTranslate(`${swiper.progress}`);
+    swiper.autoplay.resume();
+  });
+
+  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
 
   //💡
   // 카드1 - 글자움직이기
@@ -239,7 +294,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // ② 매번 호출될 때 실행
   function updateText() {
-    // 한 줄씩 "위로" 이동한 느낌을 주기 위해 index를 1 증가
+    // 한 줄씩 "위로" 이동 - index를 1 증가
     index = (index + 1) % total;
 
     $texts.each(function (i, el) {
@@ -316,6 +371,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
       ease: "power2.in",
     });
   });
+
+  //카드6 비디오 호버효과
+  $(".card6").hover(
+    {
+      function() {
+        $(".card6 video").attr("autoplay", "true");
+      },
+    },
+    {
+      function() {
+        $(".card6 video").removeAttr("autoplay");
+      },
+    }
+  );
 
   //카드8 - 시계
   //미국

@@ -74,9 +74,12 @@ h1 .logo_img {
   transition: 0.5s;
 }
 /* 메뉴 */
+#gnb {
+  margin-left: 8vw;
+}
 #gnb > ul {
   display: flex;
-  margin-left: 24vw;
+  /* margin-left: 8vw; */
   text-transform: capitalize;
 }
 #gnb > ul > li {
@@ -122,8 +125,10 @@ h1 .logo_img {
   font-weight: 700;
 }
 /* 모바일메뉴 */
+.btn_menu,
 #mobile_menu {
-  transform: scale(0);
+  /* transform: scale(0); */
+  display: none;
 }
 /* 더보기 */
 .btn_talk {
@@ -572,6 +577,7 @@ h1 .logo_img {
 .sec4 .img_lg > img:first-of-type {
   width: 100%;
   height: 100%;
+  object-fit: scale-down;
   position: absolute;
   top: 0;
   left: 0;
@@ -1081,6 +1087,12 @@ h1 .logo_img {
   flex-direction: column;
   justify-content: space-between;
 }
+/* 💡💡💡💡안먹어서 수정해야함💡💡💡💡 */
+.card7 .text > p > p {
+  opacity: 0.5;
+  color: red;
+  background-color: pink;
+}
 .card7 .bottom_con {
   display: flex;
   justify-content: space-between;
@@ -1263,6 +1275,31 @@ h1 .logo_img {
 .sec7 .con p {
   width: 20%;
 }
+
+/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
+
+/* 💡슬라이드 테스트💡 */
+swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 
 /* 섹션8 */
 .sec8 .con {

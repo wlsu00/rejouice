@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   /* 섹션6 - 슬라이드 */
-
+  /*
   gsap.registerPlugin(Draggable);
   //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
 
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       if (!isDragging) manualTween.play();
     }
   );
-
+*/
   //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
 
   //💡

@@ -220,21 +220,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
   );
 */
   //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
-  /*
-  //슬라이드 잘림
-  gsap.to("swiper-container", {
-    x: "-=1000",
-    duration: 20,
-    ease: "linear",
-    repeat: -1, // 무한 반복
-  });
-  */
-  /*
-  let swiper = new swiper(".mySwiper", {
+
+  let swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
     spaceBetween: 30,
     grabCursor: true,
     loop: true,
+    loopFillGroupWithBlank: true,
+    loopPreventsSlide: true,
+    touchMoveStopPropagation: true,
     autoplay: {
       delay: 0,
       disableOnInteraction: false,
@@ -242,8 +236,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
     },
     speed: 5000,
   });
-  */
 
+  let swiperInstance = $(".mySwiper")[0].swiper;
+
+  $(".mySwiper").on("mouseenter", function () {
+    // 현재 translate 값을 가져와서 슬라이더 wrapper의 전환을 없애고 고정
+    let currentTranslate = swiperInstance.getTranslate();
+    swiperInstance.wrapperEl.style.transitionDuration = "0ms";
+    swiperInstance.setTranslate(currentTranslate);
+    // autoplay를 일시정지 (즉시 멈춤)
+    swiperInstance.autoplay.stop();
+  });
+
+  $(".mySwiper").on("mouseleave", function () {
+    // wrapper 전환 지속시간을 기본값(빈 문자열)으로 복원
+    swiperInstance.wrapperEl.style.transitionDuration = "";
+    // autoplay를 즉시 재개
+    swiperInstance.autoplay.start();
+  });
+  /*
+//임시로 막기 + 이거랑 아래랑 세트로 먹음
   let swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
     spaceBetween: 30,
@@ -263,16 +275,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
     },
     speed: 5000,
   });
+  */
 
-  $(".mySwiper").on("mouseenter", function () {
-    swiper.autoplay.pause();
-    swiper.setTranslate(swiper.getTranslate());
-  });
-  $(".mySwiper").on("mouseleave", function () {
-    swiper.slidePrev(0);
-    swiper.setTranslate(`${swiper.progress}`);
-    swiper.autoplay.resume();
-  });
+  //즉시 멈추긴함
+  // $(".mySwiper").on("mouseenter", function () {
+  //   swiper.autoplay.pause();
+  //   swiper.setTranslate(swiper.getTranslate());
+  // });
+  // $(".mySwiper").on("mouseleave", function () {
+  //   swiper.slidePrev(0);
+  //   swiper.setTranslate(`${swiper.progress}`);
+  //   swiper.autoplay.resume();
+  // });
+
+  //  스르륵멈춤
+  // $(".mySwiper").on("mouseenter", function () {
+  //   if (swiper.autoplay) {
+  //     swiper.autoplay.stop();
+  //   }
+  // });
+  // $(".mySwiper").on("mouseleave", function () {
+  //   if (swiper.autoplay) {
+  //     swiper.autoplay.start();
+  //   }
+  // });
 
   //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
 

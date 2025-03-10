@@ -1040,12 +1040,13 @@ h1 .logo_img {
   position: relative;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 .card6 video {
   position: absolute;
   top: 0;
   left: 0;
-  /* z-index: 200; */
+  object-fit: scale-down;
 }
 .card6 .card {
   width: 100%;

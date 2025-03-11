@@ -155,72 +155,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   /* 섹션6 - 슬라이드 */
+  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
   /*
-  gsap.registerPlugin(Draggable);
-  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
-
-  // 원본 카드(복제 전)의 총 너비 계산 (예: 첫 9장)
-  let originalWidth = 0;
-  let $cards = $(".card_wrap > div");
-  let originalCount = 9; // 원본 카드 개수
-  $cards.slice(0, originalCount).each(function () {
-    originalWidth += $(this).outerWidth(true);
-  });
-
-  // 자동 이동 타임라인
-  let isDragging = false;
-  let startTime = Date.now();
-
-  // GSAP manualTween: 60초 동안 전체 이동
-  let manualTween = gsap.to(
-    {},
-    {
-      duration: 60,
-      repeat: -1,
-      ease: "none",
-      onUpdate: function () {
-        if (!isDragging) {
-          let elapsed = (Date.now() - startTime) / 1000;
-          let progress = elapsed % 60;
-          let xVal = -((progress / 60) * originalWidth);
-          gsap.set(".card_wrap", { x: xVal });
-        }
-      },
-    }
-  );
-
-  // Draggable로 슬라이더 드래그 기능
-  Draggable.create(".card_wrap", {
-    type: "x",
-    bounds: ".slide ",
-    inertia: true,
-    onDragStart: function () {
-      isDragging = true;
-      manualTween.pause();
-    },
-    onDragEnd: function () {
-      isDragging = false;
-      // 현재 x값을 기준으로 경과 시간을 계산하여 startTime 업데이트
-      let currentX = this.x; // 음수 값
-      // 현재 진행된 시간을 (비율 * 60)로 계산
-      let currentProgress = (-currentX / originalWidth) * 60;
-      startTime = Date.now() - currentProgress * 1000;
-      manualTween.play();
-    },
-  });
-
-  // 마우스 호버하면 슬라이드 중지
-  $(".slide").hover(
-    function () {
-      manualTween.pause();
-    },
-    function () {
-      if (!isDragging) manualTween.play();
-    }
-  );
-*/
-  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
-
   let swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,
     spaceBetween: 30,
@@ -254,28 +190,36 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // autoplay를 즉시 재개
     swiperInstance.autoplay.start();
   });
-  /*
-//임시로 막기 + 이거랑 아래랑 세트로 먹음
-  let swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    grabCursor: true,
-    freeMode: true,
-    loop: true,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-      stopOnLastSlide: false,
-    },
-    on: {
-      touchEnd: function () {
-        swiper.autoplay.start();
-        swiper.slidePrev(0);
-      },
-    },
-    speed: 5000,
-  });
+
   */
+
+  //임시주석 + 이거랑 아래랑 세트로 먹음
+  // let swiper = new Swiper(".mySwiper", {
+  //   slidesPerView: 4,
+  //   grabCursor: true,
+  //   allowTouchMove: true,
+  //   loop: true,
+  //   speed: 5000,
+  //   autoplay: {
+  //     delay: 0,
+  //     disableOnInteraction: false,
+  //     stopOnLastSlide: false,
+  //   },
+  //   on: {
+  //     init: function () {
+  //       let swiperEl = this.el;
+  //       swiperEl.addEventListener("mouseenter", () => {
+  //         this.autoplay.pause();
+  //         swiper.setTranslate(swiper.getTranslate());
+  //       });
+  //       swiperEl.addEventListener("mouseleave", () => {
+  //         swiper.params.autoplay.delay = 0;
+  //         this.autoplay.resume();
+  //         swiper.update();
+  //       });
+  //     },
+  //   },
+  // });
 
   //즉시 멈추긴함
   // $(".mySwiper").on("mouseenter", function () {
@@ -284,7 +228,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // });
   // $(".mySwiper").on("mouseleave", function () {
   //   swiper.slidePrev(0);
-  //   swiper.setTranslate(`${swiper.progress}`);
+  //   swiper.setTranslate(swiper.getTranslate());
   //   swiper.autoplay.resume();
   // });
 
@@ -299,8 +243,80 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //     swiper.autoplay.start();
   //   }
   // });
+  /*
+  $(".mySwiper").on("mouseenter", function () {
+    swiper.autoplay.stop();
+    swiper.setTranslate(swiper.getTranslate());
+  });
+  $(".mySwiper").on("mouseleave", function () {
+    // swiper.slidePrev();
+    // swiper.setTranslate(-swiper.progress * swiper.width);
+    swiper.setTranslate(imagesReady);
+    swiper.autoplay.start();
+  });
+  */
 
-  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
+  //03.11
+  $(document).ready(function () {
+    // 1. inner_slide의 내용을 복제하여, 무한 루프를 위한 복제본을 추가합니다.
+    let $inner = $(".swiper-wrapper");
+    if (!$inner.data("duplicated")) {
+      // 원본 HTML을 복제하여 append()합니다.
+      $inner.append($inner.html());
+      $inner.data("duplicated", true);
+    }
+
+    // 2. 원활한 무한 루프를 위해, 원본 슬라이드(복제 전)의 총 너비를 계산합니다.
+    let originalWidth = 0;
+    $inner
+      .children(".swiper-slide")
+      .slice(0, 9)
+      .each(function () {
+        originalWidth += $(this).outerWidth(true);
+      });
+
+    // 3. GSAP 타임라인 생성: inner_slide를 원본 너비만큼 왼쪽으로 이동한 후, x를 0으로 리셋하여 무한 반복합니다.
+    let tl = gsap.timeline({
+      repeat: -1,
+      ease: "linear",
+    });
+
+    tl.to($inner, {
+      x: -originalWidth,
+      duration: 100, // 이동 속도 조절 (60초 동안 이동)
+      onRepeat: function () {
+        // 반복 시 inner_slide의 x값을 0으로 리셋
+        gsap.set($inner, { x: 0 });
+      },
+    });
+    Draggable.create(".swiper-wrapper", {
+      type: "x",
+      bounds: ".sec6",
+      inertia: true,
+      onDragStart: function () {
+        isDragging = true;
+        manualTween.pause();
+      },
+      onDragEnd: function () {
+        isDragging = false;
+        // 현재 x값을 기준으로 경과 시간을 계산하여 startTime 업데이트
+        let currentX = this.x; // 음수 값
+        // 현재 진행된 시간을 (비율 * 60)로 계산
+        let currentProgress = (-currentX / originalWidth) * 60;
+        startTime = Date.now() - currentProgress * 1000;
+        manualTween.play();
+      },
+    });
+    // 4. 마우스 오버 시 슬라이드 애니메이션을 즉시 멈추고, 마우스 나가면 즉시 재생
+    $(".mySwiper").hover(
+      function () {
+        tl.pause();
+      },
+      function () {
+        tl.play();
+      }
+    );
+  });
 
   //💡
   // 카드1 - 글자움직이기
@@ -400,15 +416,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //카드6 비디오 호버효과
   $(".card6").hover(
-    {
-      function() {
-        $(".card6 video").attr("autoplay", "true");
-      },
+    function () {
+      $(".card6 > video").attr("autoplay", "true");
     },
-    {
-      function() {
-        $(".card6 video").removeAttr("autoplay");
-      },
+
+    function () {
+      $(".card6 > video").removeAttr("autoplay");
     }
   );
 
@@ -454,7 +467,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   for (let i = 0; i < 60; i++) {
     const $tick = $("<div>").addClass("tick");
 
-    $tick.css("transform", `rotate(${i * 6}deg) translateY(-90px)`);
+    $tick.css("transform", `rotate(${i * 6}deg) translateY(-40px)`);
     $ticks.append($tick);
   }
 

@@ -18,7 +18,8 @@ section {
   /* 1840(1920 - 패딩 옆 40씩) */
   width: 96%;
   height: auto;
-  margin: 0 40px;
+  /* margin: 0 40px; */
+  margin: 0 auto;
 }
 /* 헤더 */
 header {
@@ -26,7 +27,7 @@ header {
   width: 100%;
   height: 62px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   position: fixed;
   top: 0;
   left: 0;
@@ -395,7 +396,8 @@ h1 .logo_img {
 }
 .sec2 > .con > .ani_text > p {
   width: 100%;
-  font-size: 82px;
+  /* font-size: 82px; */
+  font-size: 4.3vw;
   letter-spacing: -0.22rem;
   word-spacing: 8px;
   transform: translateY(-100%);
@@ -802,27 +804,36 @@ h1 .logo_img {
   left: auto;
   right: 0;
 }
+/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 
-/* 슬라이드 */
-.slide {
+/* 💡슬라이드 테스트💡 */
+.mySwiper {
   width: 100%;
+  height: 100%;
   overflow: hidden;
-  position: relative;
-  margin: 0 auto; /* 가운데 정렬 */
+  margin: 0 auto;
 }
-.inner_slide {
+.swiper-wrapper {
   width: 100%;
-  height: auto;
-  display: flex;
-}
-.card_wrap {
   display: flex;
   gap: 30px;
-  flex-shrink: 0; /* 😬크기 유지 */
+  transition-timing-function: linear !important;
 }
-
+.swiper-slide {
+  text-align: center;
+  font-size: 20px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* 카드 낱 장 */
-.card_wrap > div {
+.swiper-slide > div {
   width: 440px;
   display: flex;
   justify-content: center;
@@ -831,14 +842,9 @@ h1 .logo_img {
   overflow: hidden;
   flex: 0 0 auto;
 }
-.card img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 
-/* 카드들 공통 */
+/* 흰글씨카드 */
 .card1,
 .card3,
 .card4,
@@ -849,7 +855,6 @@ h1 .logo_img {
 }
 /* 카드1 */
 .card1 {
-  width: 440px;
   height: 504px;
   position: relative;
   top: 0;
@@ -888,7 +893,7 @@ h1 .logo_img {
   font-size: 20px;
   line-height: 1.2;
   text-align: start;
-  position: absolute; /* 각자 쌓이는 위치를 JS로 지정 */
+  position: absolute;
   left: 0;
   width: 100%;
   opacity: 0;
@@ -896,7 +901,6 @@ h1 .logo_img {
 }
 /* 카드2 */
 .card2 {
-  width: 440px;
   height: 326px;
   background-color: #f7f7f7;
   box-sizing: border-box;
@@ -949,7 +953,6 @@ h1 .logo_img {
 }
 /* 카드3 */
 .card3 {
-  width: 440px;
   height: 504px;
   position: relative;
   top: 0;
@@ -973,7 +976,6 @@ h1 .logo_img {
 }
 /* 카드4 */
 .card4 {
-  width: 440px;
   height: 326px;
   background-color: #000;
   box-sizing: border-box;
@@ -1002,7 +1004,6 @@ h1 .logo_img {
 }
 /* 카드5 */
 .card5 {
-  width: 440px;
   height: 254px;
   background-color: #f7f7f7;
   color: #000;
@@ -1035,7 +1036,6 @@ h1 .logo_img {
 }
 /* 카드6 */
 .card6 {
-  width: 440px;
   height: 440px;
   position: relative;
   top: 0;
@@ -1072,7 +1072,6 @@ h1 .logo_img {
 }
 /* 카드7 */
 .card7 {
-  width: 440px;
   height: 325px;
   text-align: start;
   background-color: #f7f7f7;
@@ -1087,11 +1086,8 @@ h1 .logo_img {
   flex-direction: column;
   justify-content: space-between;
 }
-/* 💡💡💡💡안먹어서 수정해야함💡💡💡💡 */
-.card7 .text > p > p {
+.card7 .text > p:last-child {
   opacity: 0.5;
-  color: red;
-  background-color: pink;
 }
 .card7 .bottom_con {
   display: flex;
@@ -1113,7 +1109,6 @@ h1 .logo_img {
 }
 /* 카드8 */
 .card8 {
-  width: 440px;
   height: 503px;
   background-color: #f7f7f7;
   text-align: start;
@@ -1161,16 +1156,17 @@ h1 .logo_img {
 .hour.us {
   width: 2px;
   height: 28px;
-  top: 20px;
+  top: 4px;
   left: 50%;
   opacity: 0.8;
 }
 .hour.fr {
   width: 2px;
   height: 28px;
-  top: 20px;
-  left: 50%;
-  background-color: red;
+  top: 126px;
+  left: 21%;
+  /* background-color: red; */
+  transform: rotate(45deg);
 }
 .center_circle {
   width: 34px;
@@ -1178,7 +1174,7 @@ h1 .logo_img {
   background-color: #000;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -1197,7 +1193,6 @@ h1 .logo_img {
   height: 100%;
   position: absolute;
 }
-
 .tick {
   position: absolute;
   width: 1px;
@@ -1208,7 +1203,6 @@ h1 .logo_img {
 }
 /* 카드9 */
 .card9 {
-  width: 440px;
   height: 325px;
   text-align: start;
   background-color: #000;
@@ -1243,33 +1237,6 @@ h1 .logo_img {
     transform: translateY(-120px);
   }
 }
-/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
-
-/* 💡슬라이드 테스트💡 */
-.swiper {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.swiper-wrapper {
-  display: flex;
-  transition-timing-function: linear !important;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-}
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* 💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡 */
 
 /* 섹션7 */
 .sec7 .con {

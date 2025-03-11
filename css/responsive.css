@@ -2,9 +2,38 @@
 
 /* 노트북 lg */
 @media screen and (min-width: 1440px) {
+  /* 💡가상요소 위치 고치기 */
+  .sec2 a > span::after {
+    width: 332px;
+  }
 }
-
-/* 노트북 md / 태블릿 lg*/
+/*  노트북 md */
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  /* 섹션4 */
+  /* 로고사이즈 */
+  .sec4 .img_lg > img:nth-of-type(2) {
+    width: 8.2vw;
+  }
+  .hover_area,
+  .hover_area_l,
+  .hover_area_r {
+    display: none;
+  }
+  .hover_img_lg,
+  .hover_img_sm_l,
+  .hover_img_sm_r {
+    display: none;
+  }
+  .img_sm_l > img:nth-of-type(2) {
+    width: 4.8vw;
+    top: 61vh;
+  }
+  .img_sm_r > img:nth-of-type(2) {
+    width: 9vw;
+    top: 61vh;
+  }
+}
+/* 태블릿 lg */
 @media screen and (min-width: 768px) and (max-width: 1439px) {
 }
 

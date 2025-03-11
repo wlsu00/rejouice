@@ -29,8 +29,12 @@ $(function () {
     delay: 2, // 로딩 끝난 후에 메인 등장
   });
 
-  /* 메인비주얼 큰 동영상 */
+  /* 모바일메뉴 */
+  $(".btn_menu").on("click", function () {
+    $("#mobile_menu").slideToggle;
+  });
 
+  /* 메인비주얼 큰 동영상 */
   //마우스올리면 .play 나오고, 벗어나면 사라지기
   $(".main_video .play").hide();
 
@@ -73,6 +77,26 @@ $(function () {
     });
   });
 
+  /* 섹션2 */
+  //ain_text 첫줄만 들여쓰기
+  // $(document).ready(function () {
+  //   // 첫 번째 span의 상단 위치를 기준으로 첫 줄의 위치를 결정
+  //   var firstLineTop = $(".ani_text span").first().position().top;
+
+  //   // 약간의 오차를 고려해, top 위치가 firstLineTop과 거의 같은 (< 5px 차이) span들을 선택
+  //   var firstLineSpans = $(".ani_text span").filter(function () {
+  //     return Math.abs($(this).position().top - firstLineTop) < 5;
+  //   });
+
+  //   // 선택된 첫 줄의 span들을 하나의 래퍼로 감싸기
+  //   firstLineSpans.wrapAll('<div class="first-line"></div>');
+
+  //   // 감싼 컨테이너에 오른쪽 정렬 CSS 적용
+  //   $(".first-line").css({
+  //     display: "block", // 인라인 요소가 아니라 블록 요소로 처리해서 정렬 적용
+  //     "text-align": "right",
+  //   });
+  // });
   /* 섹션4 */
 
   // work1

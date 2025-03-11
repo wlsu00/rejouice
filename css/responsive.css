@@ -3,12 +3,20 @@
 /* 노트북 lg */
 @media screen and (min-width: 1440px) {
   /* 💡가상요소 위치 고치기 */
-  .sec2 a > span::after {
+  /* .sec2 a > span::after {
     width: 332px;
-  }
+  } */
 }
 /*  노트북 md */
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
+  /* 섹션2 */
+  .sec2 a > span {
+    position: static;
+  }
+  .sec2 a > span::before,
+  .sec2 a > span::after {
+    display: none;
+  }
   /* 섹션4 */
   /* 로고사이즈 */
   .sec4 .img_lg > img:nth-of-type(2) {
@@ -32,9 +40,92 @@
     width: 9vw;
     top: 61vh;
   }
+  .sec4 .img_lg {
+    height: 68.2vh;
+  }
+  .img_sm {
+    height: 68.2vh;
+  }
+  /* 섹션7 */
+  .sec7 .con p {
+    width: 26%;
+  }
+  /* footer */
+  footer .con {
+    box-sizing: border-box;
+    padding: 52px 40px 39px;
+  }
+  footer .con > div:first-child {
+    margin-top: 30px;
+  }
+  footer .left {
+    width: 30%;
+  }
+  footer .left div:nth-of-type(2) {
+    width: 84%;
+  }
+  footer .left div:nth-of-type(2) p {
+    width: 80%;
+  }
+  footer input {
+    width: 86%;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 /* 태블릿 lg */
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  header {
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  header .con {
+    width: 84%;
+    margin: 10px;
+    /* position: relative; */
+  }
+  #gnb {
+    display: none;
+  }
+  .ham {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn_menu {
+    width: 70px;
+    height: 37px;
+    background-color: #ffffff21;
+    line-height: 37px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .btn_menu a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  #mobile_menu {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    /* position: absolute; */
+    z-index: 998;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .btn_talk {
+    display: none;
+  }
 }
 
 /* 모바일 */

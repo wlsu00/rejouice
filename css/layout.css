@@ -2,6 +2,7 @@
 @import url("./reset.css");
 
 /* 공통영역 */
+
 body {
   font-family: "SuisseIntl", sans-serif;
   font-size: 14px;
@@ -15,7 +16,6 @@ section {
   width: 100%;
 }
 .con {
-  /* 1840(1920 - 패딩 옆 40씩) */
   width: 96%;
   height: auto;
   /* margin: 0 40px; */
@@ -27,7 +27,7 @@ header {
   width: 100%;
   height: 62px;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -126,9 +126,7 @@ h1 .logo_img {
   font-weight: 700;
 }
 /* 모바일메뉴 */
-.btn_menu,
-#mobile_menu {
-  /* transform: scale(0); */
+.ham {
   display: none;
 }
 /* 더보기 */

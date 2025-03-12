@@ -30,10 +30,21 @@ $(function () {
   });
 
   /* 모바일메뉴 */
-  $(".btn_menu").on("click", function () {
-    $("#mobile_menu").slideToggle;
+  $("#mobile_menu").hide();
+  $(".btn_menu a").on("click", function (e) {
+    e.preventDefault();
+    $("#mobile_menu").slideToggle(function () {
+      if ($("#mobile_menu").is(":visible")) {
+        $(".btn_menu a").text("Close");
+        $("header").css("background-color", "#000");
+      } else {
+        $(".btn_menu a").text("Menu");
+      }
+    });
   });
-
+  $("#mobile_menu > .mbtn_talk").on("click", function () {
+    $("#mobile_menu > .mbtn_talk").css("opacity", "0.5");
+  });
   /* 메인비주얼 큰 동영상 */
   //마우스올리면 .play 나오고, 벗어나면 사라지기
   $(".main_video .play").hide();
@@ -150,6 +161,33 @@ $(function () {
   $(".hover_img_sm_l").on("mouseleave", function () {
     $(".img_sm_l img:first-of-type").css("opacity", "1");
     $(".img_sm_l img:nth-of-type(2)").css("opacity", "1");
+  });
+
+  //스크롤바 없이 사진3장 드래그
+  $(document).ready(function () {
+    let isDown = false;
+    let startX, scrollLeft;
+    const $container = $(".sec4 .highlights > div:last-child");
+
+    $container.on("mousedown", function (e) {
+      isDown = true;
+      startX = e.pageX - $container.offset().left;
+      scrollLeft = $container.scrollLeft();
+    });
+
+    // document 전체에 mouseup 이벤트를 걸어, 컨테이너 외부에서도 drag 상태를 해제
+    $(document).on("mouseup", function () {
+      isDown = false;
+      $container.removeClass("active");
+    });
+
+    $container.on("mousemove", function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - $container.offset().left;
+      const walk = (x - startX) * 3; // 드래그 이동 속도 조절
+      $container.scrollLeft(scrollLeft - walk);
+    });
   });
 
   /* 가상요소들 */

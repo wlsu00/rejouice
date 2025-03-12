@@ -23,7 +23,6 @@ section {
 }
 /* 헤더 */
 header {
-  mix-blend-mode: difference; /* 배경색에 따라 글자색 반전*/
   width: 100%;
   height: 62px;
   display: flex;
@@ -53,6 +52,7 @@ h1 {
   overflow: hidden;
 }
 h1 .logo_text {
+  mix-blend-mode: difference; /* 배경색에 따라 글자색 반전*/
   transition: opacity 0.3s;
   display: block;
   padding-top: 12px;
@@ -77,6 +77,7 @@ h1 .logo_img {
 /* 메뉴 */
 #gnb {
   margin-left: 8vw;
+  mix-blend-mode: difference; /* 배경색에 따라 글자색 반전*/
 }
 #gnb > ul {
   display: flex;
@@ -122,13 +123,15 @@ h1 .logo_img {
   transition: 0.3s;
 }
 #gnb > ul > li:first-child > a {
-  color: #696969;
-  font-weight: 700;
+  opacity: 0.5;
+  font-weight: 700; /*흐려서 이거만 두껍게 함*/
 }
 /* 모바일메뉴 */
 .ham {
+  mix-blend-mode: difference; /* 배경색에 따라 글자색 반전*/
   display: none;
 }
+
 /* 더보기 */
 .btn_talk {
   width: 74px;
@@ -136,6 +139,7 @@ h1 .logo_img {
   overflow: hidden;
   transition: 0.5s;
   transform-origin: left;
+  mix-blend-mode: difference; /* 배경색에 따라 글자색 반전*/
 }
 .btn_talk a {
   display: flex;

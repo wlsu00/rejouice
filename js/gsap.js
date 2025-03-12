@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   );
   /* 섹션4 */
-  //work1
+  //work1 호버이미지
   gsap.set(".hover_img_lg", { xPercent: -50, yPercent: -50 });
 
   let xTo = gsap.quickTo(".hover_img_lg", "x", {
@@ -92,10 +92,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     xTo(e.pageX);
     yTo(e.pageY);
   });
-  //work1 글자 움직이기
 
   //work2
-
   gsap.set(".hover_img_sm_l", { xPercent: -50, yPercent: -50 });
 
   let xTo2 = gsap.quickTo(".hover_img_sm_l", "x", {
@@ -113,11 +111,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     $(".img_sm_l img:first-of-type").css("opacity", "0.5");
     $(".img_sm_l img:nth-of-type(2)").css("opacity", "0");
   });
-
+  //마우스좌표
   document.querySelector(".hover_area_l").addEventListener("mousemove", (e) => {
     xTo2(e.pageX);
     yTo2(e.pageY);
   });
+
   document.querySelector(".hover_area_l").addEventListener("mouseleave", () => {
     document.querySelector(".hover_img_sm_l").classList.remove("on");
     // 뒤 이미지 원래 상태로 복구
@@ -143,10 +142,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     $(".img_sm_r img:first-of-type").css("opacity", "0.5");
     $(".img_sm_r img:nth-of-type(2)").css("opacity", "0");
   });
+  //마우스좌표
   document.querySelector(".hover_area_r").addEventListener("mousemove", (e) => {
     xTo3(e.pageX);
     yTo3(e.pageY);
   });
+
   document.querySelector(".hover_area_r").addEventListener("mouseleave", () => {
     document.querySelector(".hover_img_sm_r").classList.remove("on");
     // 뒤 이미지 원래 상태로 복구
@@ -154,111 +155,58 @@ document.addEventListener("DOMContentLoaded", (event) => {
     $(".img_sm_r img:nth-of-type(2)").css("opacity", "1");
   });
 
+  /* 섹션5 */
+
+  //반응형 768이하는 로고슬라이드
+
+  $(document).ready(function () {
+    if ($(window).width() <= 768) {
+      let isDragging = false;
+      const logo = $(".sec5 .logo_con");
+
+      if (!logo.data("duplicated")) {
+        logo.append(logo.html());
+        logo.data("duplicated", true);
+      }
+      let originalWidth = 0;
+      logo
+        .children("li")
+        .slice(0, 8)
+        .each(function () {
+          originalWidth += $(this).outerWidth(true);
+        });
+
+      const duration = 60000;
+      let startTime = Date.now();
+      function animateMarquee() {
+        if (!isDragging) {
+          let elapsed = Date.now() - startTime;
+          let progress = (elapsed % duration) / duration;
+          let x = -progress * originalWidth;
+          gsap.set(logo, { x: x });
+        }
+        requestAnimationFrame(animateMarquee);
+      }
+      animateMarquee();
+
+      Draggable.create(logo, {
+        type: "x",
+        // bounds: ".sec5 .con",
+        inertia: true,
+        onDragStart: function () {
+          isDragging = true;
+        },
+        onDragEnd: function () {
+          isDragging = false;
+        },
+      });
+    }
+  });
   /* 섹션6 - 슬라이드 */
-  //💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡💡
-  /*
-  let swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    grabCursor: true,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    loopPreventsSlide: true,
-    touchMoveStopPropagation: true,
-    autoplay: {
-      delay: 0,
-      disableOnInteraction: false,
-      // stopOnLastSlide: false,
-    },
-    speed: 5000,
-  });
-
-  let swiperInstance = $(".mySwiper")[0].swiper;
-
-  $(".mySwiper").on("mouseenter", function () {
-    // 현재 translate 값을 가져와서 슬라이더 wrapper의 전환을 없애고 고정
-    let currentTranslate = swiperInstance.getTranslate();
-    swiperInstance.wrapperEl.style.transitionDuration = "0ms";
-    swiperInstance.setTranslate(currentTranslate);
-    // autoplay를 일시정지 (즉시 멈춤)
-    swiperInstance.autoplay.stop();
-  });
-
-  $(".mySwiper").on("mouseleave", function () {
-    // wrapper 전환 지속시간을 기본값(빈 문자열)으로 복원
-    swiperInstance.wrapperEl.style.transitionDuration = "";
-    // autoplay를 즉시 재개
-    swiperInstance.autoplay.start();
-  });
-
-  */
-
-  //임시주석 + 이거랑 아래랑 세트로 먹음
-  // let swiper = new Swiper(".mySwiper", {
-  //   slidesPerView: 4,
-  //   grabCursor: true,
-  //   allowTouchMove: true,
-  //   loop: true,
-  //   speed: 5000,
-  //   autoplay: {
-  //     delay: 0,
-  //     disableOnInteraction: false,
-  //     stopOnLastSlide: false,
-  //   },
-  //   on: {
-  //     init: function () {
-  //       let swiperEl = this.el;
-  //       swiperEl.addEventListener("mouseenter", () => {
-  //         this.autoplay.pause();
-  //         swiper.setTranslate(swiper.getTranslate());
-  //       });
-  //       swiperEl.addEventListener("mouseleave", () => {
-  //         swiper.params.autoplay.delay = 0;
-  //         this.autoplay.resume();
-  //         swiper.update();
-  //       });
-  //     },
-  //   },
-  // });
-
-  //즉시 멈추긴함
-  // $(".mySwiper").on("mouseenter", function () {
-  //   swiper.autoplay.pause();
-  //   swiper.setTranslate(swiper.getTranslate());
-  // });
-  // $(".mySwiper").on("mouseleave", function () {
-  //   swiper.slidePrev(0);
-  //   swiper.setTranslate(swiper.getTranslate());
-  //   swiper.autoplay.resume();
-  // });
-
-  //  스르륵멈춤
-  // $(".mySwiper").on("mouseenter", function () {
-  //   if (swiper.autoplay) {
-  //     swiper.autoplay.stop();
-  //   }
-  // });
-  // $(".mySwiper").on("mouseleave", function () {
-  //   if (swiper.autoplay) {
-  //     swiper.autoplay.start();
-  //   }
-  // });
-  /*
-  $(".mySwiper").on("mouseenter", function () {
-    swiper.autoplay.stop();
-    swiper.setTranslate(swiper.getTranslate());
-  });
-  $(".mySwiper").on("mouseleave", function () {
-    // swiper.slidePrev();
-    // swiper.setTranslate(-swiper.progress * swiper.width);
-    swiper.setTranslate(imagesReady);
-    swiper.autoplay.start();
-  });
-  */
 
   //03.11
   $(document).ready(function () {
-    // 1. inner_slide의 내용을 복제하여, 무한 루프를 위한 복제본을 추가합니다.
+    // 1. inner_slide의 내용을 복제 (무한 루프를 위한 복제본 추가)
     let $inner = $(".swiper-wrapper");
     if (!$inner.data("duplicated")) {
       // 원본 HTML을 복제하여 append()합니다.
@@ -266,7 +214,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       $inner.data("duplicated", true);
     }
 
-    // 2. 원활한 무한 루프를 위해, 원본 슬라이드(복제 전)의 총 너비를 계산합니다.
+    // 2. 원활한 무한 루프를 위해, 원본 슬라이드(복제 전)의 총 너비를 계산
     let originalWidth = 0;
     $inner
       .children(".swiper-slide")
@@ -275,7 +223,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         originalWidth += $(this).outerWidth(true);
       });
 
-    // 3. GSAP 타임라인 생성: inner_slide를 원본 너비만큼 왼쪽으로 이동한 후, x를 0으로 리셋하여 무한 반복합니다.
+    // 3. GSAP 타임라인 생성: inner_slide를 원본 너비만큼 왼쪽으로 이동한 후, x를 0으로 리셋하여 무한 반복
     let tl = gsap.timeline({
       repeat: -1,
       ease: "linear",
@@ -324,7 +272,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const total = $texts.length;
   let index = 0;
 
-  const lineHeight = 24;
+  //화면사이즈 768 이하면 줄간격16
+  const lineHeight = $(window).width() <= 768 ? 16 : 24;
 
   // ① 초기: 각 p를 (i*lineHeight) 위치에 배치 (세로로 줄줄이)
   $texts.each(function (i, el) {
@@ -414,14 +363,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  //카드6 비디오 호버효과
+  //카드6 비디오 호버하면 재생
   $(".card6").hover(
     function () {
-      $(".card6 > video").attr("autoplay", "true");
+      $(this).find("video")[0].play();
     },
 
     function () {
-      $(".card6 > video").removeAttr("autoplay");
+      $(this).find("video")[0].pause();
     }
   );
 
@@ -463,11 +412,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
   setInterval(updateSanDiegoTime, 1000); // 1초마다 업데이트
 
   //시계테두리
+  const translateYValue = $(window).width() <= 768 ? 0 : -40;
   const $ticks = $(".ticks");
   for (let i = 0; i < 60; i++) {
     const $tick = $("<div>").addClass("tick");
 
-    $tick.css("transform", `rotate(${i * 6}deg) translateY(-40px)`);
+    $tick.css(
+      "transform",
+      `rotate(${i * 6}deg) translateY(${translateYValue}px)`
+    );
     $ticks.append($tick);
   }
 

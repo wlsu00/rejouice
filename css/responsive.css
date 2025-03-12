@@ -102,13 +102,13 @@
   }
   /* 모바일메뉴 */
   .ham {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 862px;
-    right: 1px;
+    top: 16px;
+    right: 0px;
   }
   .btn_menu {
     width: 70px;
@@ -164,6 +164,25 @@
   .text_wrap > div:first-child {
     gap: 18px;
   }
+  /* 동영상 */
+  .main_video .sec1_lightbox {
+    width: 100vw;
+    height: 100%;
+    background-color: #000;
+  }
+  .main_video .sec1_lightbox video {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .sec1_lightbox .btn_close {
+    position: absolute;
+    top: 200px;
+    right: 10px;
+    z-index: 1000; /* 라이트박스 안에서 가장 위 */
+    cursor: pointer;
+  }
   /* 섹션2 */
   .sec2 a > span {
     position: static;
@@ -206,14 +225,14 @@
   }
   /* 이미지3장(호버) - 컨테이너 */
   .sec4 .highlights > div:last-child {
-    height: 449px;
+    height: 346px;
     display: flex;
     gap: 10px;
     position: relative;
     overflow-x: auto; /* 가로 스크롤 가능 */
-    cursor: grab;
     -ms-overflow-style: none; /* 스크롤바 안보이게 */
     scrollbar-width: none;
+    overflow-y: hidden;
   }
   .sec4 .highlights > div:last-child::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera용 */
@@ -261,9 +280,166 @@
     width: 68px;
     bottom: 52px;
   }
+  /* 섹션5 */
+  .sec5 .con {
+    padding: 82px 0;
+  }
+  .sec5 .logo_con {
+    gap: 50px;
+  }
+  .logo_con > li {
+    width: fit-content;
+    flex: 0 0 auto;
+  }
+  .logo_con > li > img {
+    object-fit: cover;
+  }
+  /* 섹션6 */
+  .sec6 .con > div {
+    font-size: 2.1vw;
+    padding-top: 9px;
+  }
+  .sec6 .con > div > a {
+    font-size: 2.1vw;
+  }
+  .swiper-wrapper {
+    gap: 8px;
+  }
+  .swiper-slide {
+    font-size: 14px;
+  }
+  .swiper-slide > div {
+    width: 235px;
+    border-radius: 4px;
+  }
+  .swiper-slide > div > div {
+    padding: 16px 20px;
+  }
+  .card2,
+  .card4,
+  .card5 {
+    padding: 16px 20px;
+  }
+  .card1 {
+    height: 268px;
+  }
+  .card1 .text p {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .card2 {
+    height: 173px;
+  }
+  .card2 > .card .text {
+    width: 100%;
+  }
+  .logos {
+    width: 100%;
+    height: 30px;
+  }
+  .logos img {
+    padding-top: 12px;
+  }
+  .logos img:nth-child(2) {
+    padding: 0;
+  }
+  .card3 {
+    height: 268px;
+  }
+  .card4 {
+    height: 173px;
+  }
+  .card4 .text p {
+    width: 100%;
+  }
+  .card4 .btn_learn a {
+    transform: translateX(0);
+  }
+  .card4 .btn_learn i:first-child {
+    display: none;
+  }
+  .card5 {
+    height: 173px;
+  }
+  .card5 .text {
+    width: 50%;
+  }
+  .card5 .bg_num {
+    display: none;
+  }
+  .card6 {
+    height: 235px;
+  }
+  .card6 video {
+    width: 235px;
+  }
+  .card6 .card .text {
+    width: 100%;
+  }
+  .card6 .card > img {
+    height: 13px;
+    right: 20px;
+    bottom: 16px;
+  }
+  .card7 {
+    height: 173px;
+  }
+  .card7 .card .text br {
+    display: none;
+  }
+  .bottom_con .btn_learn a {
+    transform: translateX(0);
+  }
+  .bottom_con .btn_learn i:first-child {
+    display: none;
+  }
+  .bottom_con img {
+    height: 13px;
+  }
+  .card8 {
+    height: 268px;
+  }
+  .card8 .card {
+    gap: 10px;
+  }
+  .clock {
+    width: 183px;
+    height: 183px;
+  }
+  .hour.us {
+    height: 20px;
+    top: 26px;
+  }
+  .hour.fr {
+    top: 120px;
+    left: 26%;
+  }
+  .center_circle {
+    width: 24px;
+    height: 24px;
+    top: 50%;
+  }
+  .tick {
+    height: 18px;
+  }
 
-  .sec6,
-  .sec7,
+  .card9 {
+    height: 173px;
+  }
+  .card9 .logos {
+    height: 13px;
+  }
+  .card9 .logos img {
+    height: 13px;
+  }
+  @keyframes rolling2 {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-78px);
+    }
+  }
   .sec8,
   .sec9,
   footer {

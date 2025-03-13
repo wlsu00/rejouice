@@ -101,11 +101,13 @@ $(function () {
   if ($(window).width() <= 768) {
     if ($(".sec1_lightbox").is(":visible")) {
       $(".sec1_lightbox .btn_close").show();
+      $("header .con").css("opacity", "0");
+      $(".main_video .play").css("opacity", "0");
     }
+    $("header .con").css("opacity", "1");
   } else {
     $(".sec1_lightbox .btn_close").hide();
   }
-
   /* 섹션4 */
 
   // work1 (work2,3은 gsap으로 처리)

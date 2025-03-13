@@ -159,109 +159,157 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //반응형 768이하는 로고슬라이드
 
-  $(document).ready(function () {
+  $(window).on("load", function () {
     if ($(window).width() <= 768) {
       let isDragging = false;
-      const logo = $(".sec5 .logo_con");
+      const $logoCon = $(".sec5 .logo_con");
 
-      if (!logo.data("duplicated")) {
-        logo.append(logo.html());
-        logo.data("duplicated", true);
+      // 복제: 원본 로고 8개를 복제하여 무한 루프 효과
+      if (!$logoCon.data("duplicated")) {
+        $logoCon.append($logoCon.html());
+        $logoCon.data("duplicated", true);
       }
+
+      // 원본 로고 8개의 총 너비 계산 (이미지가 로드된 후라면 값이 올바르게 나와야 함)
       let originalWidth = 0;
-      logo
+      $logoCon
         .children("li")
         .slice(0, 8)
         .each(function () {
-          originalWidth += $(this).outerWidth(true);
+          // outerWidth(true)가 0인 경우가 있다면 fallback 값 지정(예: 100px)
+          let w = $(this).outerWidth(true);
+          originalWidth += w > 0 ? w : 100;
         });
+      console.log("originalWidth:", originalWidth);
 
-      const duration = 60000;
+      const duration = 60000; // 60초 (60000ms)
       let startTime = Date.now();
+
+      // 자동 슬라이드 애니메이션: requestAnimationFrame 사용
       function animateMarquee() {
         if (!isDragging) {
-          let elapsed = Date.now() - startTime;
-          let progress = (elapsed % duration) / duration;
-          let x = -progress * originalWidth;
-          gsap.set(logo, { x: x });
+          let elapsed = Date.now() - startTime; // 밀리초 단위 경과시간
+          let progress = (elapsed % duration) / duration; // 0 ~ 1 사이 진행률
+          let x = -progress * originalWidth; // 선형 계산한 x값
+          gsap.set($logoCon, { x: x });
         }
         requestAnimationFrame(animateMarquee);
       }
       animateMarquee();
 
-      Draggable.create(logo, {
+      // Draggable 적용: GSAP Draggable을 사용해 로고 영역을 드래그 가능하게 함
+      Draggable.create($logoCon[0], {
         type: "x",
-        // bounds: ".sec5 .con",
+        // bounds를 설정하지 않으면 드래그 시 자연스러운 이동이 가능합니다.
         inertia: true,
         onDragStart: function () {
           isDragging = true;
+          console.log("드래그 시작, x =", this.x);
         },
         onDragEnd: function () {
           isDragging = false;
+          // 현재 x값 가져오기 (DOM 요소로 전달)
+          var currentX = gsap.getProperty($logoCon[0], "x") || 0;
+          // 진행률 계산: (-currentX / originalWidth) (0~1 사이)
+          var progressFraction = -currentX / originalWidth;
+          progressFraction = progressFraction % 1; // 소수점 부분만 취함
+          if (progressFraction < 0) {
+            progressFraction += 1;
+          }
+          // 현재 진행 시간 (밀리초)
+          var currentProgress = progressFraction * duration;
+          startTime = Date.now() - currentProgress;
+          console.log(
+            "드래그 종료, currentX =",
+            currentX,
+            "진행 시간:",
+            currentProgress
+          );
         },
       });
     }
   });
+
   /* 섹션6 - 슬라이드 */
 
-  //03.11
+  //03.13
+
+  gsap.registerPlugin(Draggable);
+
   $(document).ready(function () {
-    // 1. inner_slide의 내용을 복제 (무한 루프를 위한 복제본 추가)
-    let $inner = $(".swiper-wrapper");
-    if (!$inner.data("duplicated")) {
-      // 원본 HTML을 복제하여 append()합니다.
-      $inner.append($inner.html());
-      $inner.data("duplicated", true);
+    var $wrapper = $(".swiper-wrapper");
+
+    // 1. 복제: 원본 슬라이드(첫 9개)가 복제되어 무한 루프 효과를 만듦
+    if (!$wrapper.data("duplicated")) {
+      $wrapper.append($wrapper.html());
+      $wrapper.data("duplicated", true);
     }
 
-    // 2. 원활한 무한 루프를 위해, 원본 슬라이드(복제 전)의 총 너비를 계산
-    let originalWidth = 0;
-    $inner
-      .children(".swiper-slide")
-      .slice(0, 9)
-      .each(function () {
-        originalWidth += $(this).outerWidth(true);
-      });
-
-    // 3. GSAP 타임라인 생성: inner_slide를 원본 너비만큼 왼쪽으로 이동한 후, x를 0으로 리셋하여 무한 반복
-    let tl = gsap.timeline({
-      repeat: -1,
-      ease: "linear",
+    // 2. 원본 슬라이드(복제 전) 첫 9개의 총 너비 계산
+    var originalWidth = 0;
+    var $slides = $wrapper.children(".swiper-slide");
+    var originalCount = $slides.length / 2; // 원본 슬라이드 수
+    $slides.slice(0, originalCount).each(function () {
+      originalWidth += $(this).outerWidth(true);
     });
 
-    tl.to($inner, {
-      x: -originalWidth,
-      duration: 100, // 이동 속도 조절 (60초 동안 이동)
-      onRepeat: function () {
-        // 반복 시 inner_slide의 x값을 0으로 리셋
-        gsap.set($inner, { x: 0 });
-      },
+    //잠깐 멈출때 여기 주석하기
+    // var duration = 60; // 한 사이클 이동 시간 (초)
+    // var startTime = Date.now();
+    // var isPaused = false;
+    // var isDragging = false;
+
+    // 3. GSAP ticker: 매 프레임마다 자동 이동 (현재 진행률에 따라 x값 업데이트)
+    gsap.ticker.add(function () {
+      if (isPaused || isDragging) return;
+      var elapsed = (Date.now() - startTime) / 1000;
+      var progress = (elapsed % duration) / duration;
+      var xVal = -progress * originalWidth;
+      gsap.set($wrapper, { x: xVal });
     });
-    Draggable.create(".swiper-wrapper", {
+
+    // 4. Draggable: 드래그 시 사용자가 이동하는 만큼 슬라이드가 따라가게 하고,
+    //    드래그 종료 시 진행률을 재계산하여 자동 이동이 그 위치에서 이어지도록 함.
+    Draggable.create($wrapper[0], {
       type: "x",
-      bounds: ".sec6",
+      // bounds 옵션을 제거하여 자유롭게 드래그하도록 함.
       inertia: true,
       onDragStart: function () {
         isDragging = true;
-        manualTween.pause();
+        isPaused = true;
+        this.startX = this.x;
+        console.log("Drag 시작, x =", this.x);
       },
       onDragEnd: function () {
         isDragging = false;
-        // 현재 x값을 기준으로 경과 시간을 계산하여 startTime 업데이트
-        let currentX = this.x; // 음수 값
-        // 현재 진행된 시간을 (비율 * 60)로 계산
-        let currentProgress = (-currentX / originalWidth) * 60;
+        // $wrapper를 DOM 요소로 전달
+        var currentX = gsap.getProperty($wrapper[0], "x"); // now 올바른 값이 나와야 함
+        var progressFraction = -currentX / originalWidth;
+        progressFraction = progressFraction % 1; // 0~1 사이의 값
+        var currentProgress = progressFraction * duration;
         startTime = Date.now() - currentProgress * 1000;
-        manualTween.play();
+        isPaused = false;
+        console.log(
+          "드래그 종료, currentX =",
+          currentX,
+          "진행 시간:",
+          currentProgress
+        );
       },
     });
-    // 4. 마우스 오버 시 슬라이드 애니메이션을 즉시 멈추고, 마우스 나가면 즉시 재생
+
+    // 5. 마우스 호버 이벤트: 슬라이드 영역에 마우스 오버 시 즉시 멈추고, 리브 시 현재 진행 상태에서 이어서 재생
     $(".mySwiper").hover(
       function () {
-        tl.pause();
+        isPaused = true;
       },
       function () {
-        tl.play();
+        var currentX = gsap.getProperty($wrapper[0], "x");
+        var progressFraction = -currentX / originalWidth;
+        progressFraction = progressFraction % 1;
+        var currentProgress = progressFraction * duration;
+        startTime = Date.now() - currentProgress * 1000;
+        isPaused = false;
       }
     );
   });
@@ -537,17 +585,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   /* footer */
   //footer 글씨
-  gsap.to("footer .con > div:first-child", {
-    y: "0%",
-    duration: 0.5,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: "footer",
-      scrub: 1,
-      start: "-30% 70%",
-      // markers: true,
-    },
-  });
+
+  if ($(window).width() > 768) {
+    gsap.to("footer .con > div:first-child", {
+      y: "0%",
+      duration: 0.5,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "footer",
+        scrub: 1,
+        start: "-30% 70%",
+        // markers: true,
+      },
+    });
+  }
 
   //footer로고
   gsap.to(".footer_logo img", {

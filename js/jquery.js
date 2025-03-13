@@ -83,6 +83,7 @@ $(function () {
     $(".main_video .sec1_lightbox").slideToggle();
     $(".main_video > div > h2, .main_video > div > h2::after").toggle(300);
   });
+  //화면사이즈 768보다 크면 마우스커스 play>close
   if (768 < $(window).outerWidth()) {
     $(".main_video > div .main_video1").on("click", function () {
       $(".main_video .play").text("X Close Reel").css({
@@ -91,23 +92,24 @@ $(function () {
       });
     });
   }
+  //라이트박스 클릭하면 다시 마우스커서 close>play
   $(".main_video .sec1_lightbox").on("click", function (e) {
     $(".main_video .play").text("▶ Play Reel").css({
       fontWeight: "300",
       color: "#fff",
     });
   });
-  //해상도 768 이하부터 라이트박스 엑스아이콘
+
+  //해상도 768 이하부터 라이트박스 엑스아이콘등장
   if ($(window).width() <= 768) {
     if ($(".sec1_lightbox").is(":visible")) {
       $(".sec1_lightbox .btn_close").show();
-      $("header .con").css("opacity", "0");
       $(".main_video .play").css("opacity", "0");
     }
-    $("header .con").css("opacity", "1");
   } else {
     $(".sec1_lightbox .btn_close").hide();
   }
+
   /* 섹션4 */
 
   // work1 (work2,3은 gsap으로 처리)

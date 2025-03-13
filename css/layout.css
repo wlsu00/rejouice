@@ -1222,7 +1222,7 @@ h1 .logo_img {
   left: 0;
 }
 /* 시계바늘 공통 */
-/* .hour {
+.hour {
   position: absolute;
   background-color: #888;
   transform-origin: bottom;
@@ -1275,7 +1275,7 @@ h1 .logo_img {
   background-color: #0000004d;
   left: 50%;
   transform-origin: center 90px;
-} */
+}
 /* 시계모양 이미지 */
 .anal {
   width: 100%;

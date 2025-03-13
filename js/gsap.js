@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //반응형 768이하는 로고슬라이드
 
   $(window).on("load", function () {
-    if ($(window).width() <= 768) {
+    if ($(window).outerWidth() <= 768) {
       let isDragging = false;
       const $logoCon = $(".sec5 .logo_con");
 
@@ -254,10 +254,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     //잠깐 멈출때 여기 주석하기
-    // var duration = 60; // 한 사이클 이동 시간 (초)
-    // var startTime = Date.now();
-    // var isPaused = false;
-    // var isDragging = false;
+    var duration = 60; // 한 사이클 이동 시간 (초)
+    var startTime = Date.now();
+    var isPaused = false;
+    var isDragging = false;
 
     // 3. GSAP ticker: 매 프레임마다 자동 이동 (현재 진행률에 따라 x값 업데이트)
     gsap.ticker.add(function () {
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let index = 0;
 
   //화면사이즈 768 이하면 줄간격16
-  const lineHeight = $(window).width() <= 768 ? 16 : 24;
+  const lineHeight = $(window).outerWidth() <= 768 ? 16 : 24;
 
   // ① 초기: 각 p를 (i*lineHeight) 위치에 배치 (세로로 줄줄이)
   $texts.each(function (i, el) {
@@ -460,17 +460,57 @@ document.addEventListener("DOMContentLoaded", (event) => {
   setInterval(updateSanDiegoTime, 1000); // 1초마다 업데이트
 
   //시계테두리
-  const translateYValue = $(window).width() <= 768 ? 0 : -40;
-  const $ticks = $(".ticks");
-  for (let i = 0; i < 60; i++) {
-    const $tick = $("<div>").addClass("tick");
+  // const translateYValue = $(window).outerWidth() <= 768 ? 0 : -40;
+  // const $ticks = $(".ticks");
+  // for (let i = 0; i < 60; i++) {
+  //   const $tick = $("<div>").addClass("tick");
 
-    $tick.css(
-      "transform",
-      `rotate(${i * 6}deg) translateY(${translateYValue}px)`
-    );
-    $ticks.append($tick);
+  //   $tick.css(
+  //     "transform",
+  //     `rotate(${i * 6}deg) translateY(${translateYValue}px)`
+  //   );
+  //   $ticks.append($tick);
+  // }
+
+  // 시계테두리 반응형 추가
+
+  function getTranslateYValue() {
+    const w = $(window).outerWidth();
+    let translateYValue;
+    if (w <= 768) {
+      translateYValue = 20;
+    } else if (w <= 1200) {
+      // 768px에서 1023px 사이: 0 ~ -20 선형 보간
+      translateYValue = -20 * ((w - 768) / (1023 - 768));
+    } else if (w <= 1439) {
+      // 1200px에서 1920px 사이: -20 ~ -40 선형 보간
+      translateYValue = -20 - 20 * ((w - 1023) / (1439 - 1023));
+    } else {
+      translateYValue = -40;
+    }
+    return translateYValue;
   }
+
+  function createTicks() {
+    const translateYValue = getTranslateYValue();
+    const $ticks = $(".ticks");
+    $ticks.empty(); // 기존 tick 제거
+    for (let i = 0; i < 60; i++) {
+      const $tick = $("<div>").addClass("tick");
+      $tick.css(
+        "transform",
+        `rotate(${i * 6}deg) translateY(${translateYValue}px)`
+      );
+      $ticks.append($tick);
+    }
+  }
+
+  $(document).ready(function () {
+    createTicks();
+    $(window).on("resize", function () {
+      createTicks();
+    });
+  });
 
   /* 섹션7 */
   //보더 늘어나기
@@ -586,7 +626,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   /* footer */
   //footer 글씨
 
-  if ($(window).width() > 768) {
+  if ($(window).outerWidth() > 768) {
     gsap.to("footer .con > div:first-child", {
       y: "0%",
       duration: 0.5,

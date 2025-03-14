@@ -2,6 +2,19 @@
 
 /* 노트북 lg */
 @media screen and (min-width: 1440px) {
+  header .con {
+    height: 62px;
+  }
+  #gnb {
+    margin-left: 11vw;
+  }
+  #gnb > ul {
+    line-height: 3;
+    align-items: end;
+  }
+  .text_wrap {
+    margin-top: 58vh;
+  }
   /* 💡가상요소 위치 고치기 */
   /* .sec2 a > span::after {
     width: 332px;
@@ -133,10 +146,17 @@
   .ham {
     display: block;
   }
+  .btn_menu {
+    right: -12vw;
+  }
   header .con > .btn_talk {
     display: none;
   }
+  .text_wrap {
+    margin-top: 66vh;
+  }
   /* 섹션1 */
+
   .main_video > div > h2 {
     border-bottom: 2px solid rgba(255, 255, 255, 0.7);
   }
@@ -164,8 +184,10 @@
     text-align: start;
   }
   .sec2 a > span {
-    position: static;
-    display: inline;
+    width: clamp(20vw, 21vw, 22vw);
+    box-sizing: border-box;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #fff;
   }
   .sec2 a > span::before,
   .sec2 a > span::after {
@@ -591,8 +613,8 @@
     margin-top: clamp(14px, 1.6vh, 32px);
   }
   .text_wrap {
-    margin-top: 664px;
-    margin-top: 840px;
+    gap: 18px;
+    margin-top: 74vh;
   }
   .text_wrap > div:first-child {
     font-size: 3.8vw;
@@ -634,8 +656,13 @@
     text-align: start;
   }
   .sec2 a > span {
-    position: static;
-    display: inline;
+    width: 38vw;
+    height: fit-content;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 6px;
+    box-sizing: border-box;
+    top: clamp(4px, 4px, 10px);
+    left: clamp(4px, 1.2vw, 12px);
   }
   .sec2 a > span::before,
   .sec2 a > span::after {

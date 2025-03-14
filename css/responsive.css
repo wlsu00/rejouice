@@ -40,6 +40,7 @@
   /* 섹션2 */
   .sec2 a > span {
     position: static;
+    display: inline;
   }
   .sec2 a > span::before,
   .sec2 a > span::after {
@@ -152,7 +153,7 @@
   }
   .sec1_lightbox .btn_close {
     position: absolute;
-    top: 25vh;
+    top: 18vh;
     right: 1%;
     z-index: 1000;
     /* padding-bottom: 5%; */
@@ -164,6 +165,7 @@
   }
   .sec2 a > span {
     position: static;
+    display: inline;
   }
   .sec2 a > span::before,
   .sec2 a > span::after {
@@ -555,16 +557,16 @@
     display: block;
   }
   .btn_menu {
-    width: 60px;
-    height: 31px;
+    width: clamp(60px, 17vw, 140px);
+    height: clamp(31px, 10vw, 64px);
     background-color: #ffffff21;
-    font-size: 12px;
-    line-height: 31px;
+    font-size: clamp(11px, 4vw, 28px);
+    line-height: clamp(31px, 10vw, 64px);
     text-align: center;
     cursor: pointer;
     position: absolute;
     top: 0;
-    right: 0px;
+    right: 4vw;
     z-index: 20;
   }
   #mobile_menu {
@@ -585,8 +587,12 @@
     margin-top: 330px;
     line-height: 1.6;
   }
+  .logo_wrap > div:first-child {
+    margin-top: clamp(14px, 1.6vh, 32px);
+  }
   .text_wrap {
-    margin-top: 630px;
+    margin-top: 664px;
+    margin-top: 840px;
   }
   .text_wrap > div:first-child {
     font-size: 3.8vw;
@@ -603,7 +609,7 @@
   }
   .sec1_lightbox .btn_close {
     position: absolute;
-    top: 40vh;
+    top: 30vh;
     right: 2%;
     z-index: 1000;
     cursor: pointer;
@@ -619,7 +625,7 @@
   .sec2 > .con > .ani_text > p {
     font-size: clamp(22px, 7vw, 53px);
     line-height: 1;
-    letter-spacing: -0.1rem;
+    letter-spacing: -0.11rem;
   }
   .sec2 > .con > .ani_text {
     padding: 24px 0;
@@ -629,6 +635,7 @@
   }
   .sec2 a > span {
     position: static;
+    display: inline;
   }
   .sec2 a > span::before,
   .sec2 a > span::after {
@@ -714,7 +721,7 @@
   }
   .sec4 .img_lg > img:nth-of-type(2) {
     width: 20.6vw;
-    bottom: 70px;
+    bottom: 6vh;
   }
   .img_sm {
     margin-top: 0;
@@ -730,18 +737,18 @@
   }
   .img_sm_l > img:nth-of-type(2) {
     width: 12vw;
-    bottom: 72px;
+    bottom: 6vh;
   }
   .img_sm_r > img:nth-of-type(2) {
     width: 22.6vw;
-    bottom: 72px;
+    bottom: 6vh;
   }
   /* 섹션5 */
   .sec5 .con {
     padding: 8vh 0;
   }
   .sec5 .logo_con {
-    gap: 50px;
+    gap: clamp(36px, 12vw, 76px);
   }
   .logo_con > li {
     width: fit-content;
@@ -870,10 +877,12 @@
     font-size: clamp(22px, 7vw, 53px);
   }
   .sec7 .con h3 {
-    width: 38%;
+    width: 50%;
+    box-sizing: border-box;
+    padding-right: 40px;
   }
   .sec7 .con p {
-    width: 60%;
+    width: 50%;
   }
   .sec7 .left_txt,
   .sec7 .right_txt {
@@ -881,7 +890,7 @@
   }
   /* 섹션9 */
   .sec9 .txt_wrap {
-    height: 30px;
+    height: clamp(23px, 6vh, 68px);
     margin: 14.5vh 0;
   }
   .sec9 .get_us {
@@ -914,14 +923,16 @@
     margin-bottom: 44px;
   }
   footer .left div:nth-of-type(2) > p {
-    width: 60%;
+    width: 50vw;
     margin-bottom: 4px;
+    font-size: clamp(11px, 4vw, 28px);
   }
   footer input {
     width: 90%;
   }
   .right {
     width: 100%;
+    font-size: clamp(12px, 3.4vw, 28px);
   }
   .right_up > .sitemap {
     width: 50%;
@@ -929,7 +940,7 @@
     margin-bottom: 0px;
   }
   .right_up > .sitemap > li {
-    height: 28px;
+    height: fit-content;
     margin-bottom: 7px;
   }
   .right_up > ul:last-child {
@@ -946,6 +957,7 @@
   }
   .right_up > ul > li {
     width: 100%;
+    height: fit-content;
   }
   .right_up .left_content {
     display: block;
@@ -958,6 +970,6 @@
   }
   .right_down > div:last-child {
     width: 50%;
-    margin-top: -42px;
+    margin-top: -5vh;
   }
 }

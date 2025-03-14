@@ -1,354 +1,421 @@
-            <div class="slide_wrap">
-              <div class="inner_slide">
-                <div class="card_wrap card_wrap1">
-                  <!-- 카드1 : 반지 -->
-                  <div class="card1">
-                    <img src="./img/sec6/image1.avif" alt="img1" />
-                    <div class="card">
-                      <div class="content">
-                        <div class="text_con">
-                          <div class="text">
-                            <p>Technology</p>
-                            <p>Finance</p>
-                            <p>E-commerce</p>
-                            <p>BioTech</p>
-                            <p>Automotive</p>
-                            <p>Healthcare</p>
-                            <p>Real Estate</p>
-                            <p>Fashion</p>
-                            <p>Energy</p>
-                            <p>Retail</p>
-                            <p>Manufacturing</p>
-                            <p>Software</p>
-                            <p>Consumer Goods</p>
-                            <p>Transportation</p>
-                            <p>Hospitality</p>
-                            <p>Defense</p>
-                            <p>Logistics</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드2 : 70+ -->
-                  <div class="card2">
-                    <div class="card">
-                      <div class="text">
-                        <p>70+ industry-recognized<br />awards.</p>
-                      </div>
-                      <div class="logos">
-                        <img src="./img/sec6/Behance-logo.svg" alt="Behance" />
-                        <img
-                          src="./img/sec6/Webby-Awards-Logo1.svg"
-                          alt="Webby"
-                        />
-                        <img src="./img/sec6/fwa-logo.svg" alt="fwa" />
-                        <img
-                          src="./img/sec6/Awwards-logotype-2018.svg"
-                          alt="Awwards"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드3 : 커튼 -->
-                  <div class="card3">
-                    <img src="./img/sec6/image3.avif" alt="image3" />
-                    <div class="card">
-                      <div class="text">
-                        <p>
-                          E-commerce<br />
-                          <span> 10+ years of expertise</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드4 : 2 models -->
-                  <div class="card4">
-                    <div class="card">
-                      <div class="text">
-                        <p>2 Engagement Models</p>
-                        <span>Classic / Venture</span>
-                      </div>
-                      <div class="btn_learn">
-                        <a href="#">
-                          <i class="xi-arrow-up on"></i> Learn more
-                          <i class="xi-arrow-up off"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드5 : 150% -->
-                  <div class="card5">
-                    <div class="card">
-                      <div class="text">
-                        <p>
-                          Driving 150%
-                          <br />
-                          <span>LTV:CAC in average</span>
-                        </p>
-                      </div>
-                      <!-- 150% 숫자커지는거 -->
-                      <p class="bg_num">150%</p>
-                    </div>
-                  </div>
-                  <!-- 카드6 : 텐트비디오 -->
-                  <div class="card6">
-                    <video src="./img/video/WIDGET-RIVIAN.mp4" muted>
-                      이 동영상파일은 해당 브라우저에서 지원되지 않습니다.
-                    </video>
-                    <div class="card">
-                      <div class="text">
-                        <span>
-                          Catalyzed ~71,000<br />
-                          pre-orders
-                        </span>
-                        <span>after brand reveal</span><br />
-                        (approximately $5.68 billion).
-                      </div>
-                      <img src="./img/sec6/rivian-white.svg" alt="rivian" />
-                    </div>
-                  </div>
-                  <!-- 카드7 : noovo -->
-                  <div class="card7">
-                    <div class="card">
-                      <div class="text">
-                        <p>$5M+ in new business</p>
-                        <p>generated within 90 days of launch</p>
-                      </div>
-                      <div class="bottom_con">
-                        <div class="btn_learn">
-                          <a href="#">
-                            <i class="xi-arrow-up on"></i> Case Study<i
-                              class="xi-arrow-up off"
-                            ></i>
-                          </a>
-                        </div>
-                        <div>
-                          <img src="./img/sec6/noovo-logo.svg" alt="noovo" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드8 : 시계 -->
-                  <div class="card8">
-                    <div class="card">
-                      <div class="text">
-                        <div class="info">
-                          <p>2 Offices</p>
-                          <!-- 미국 -->
-                          <div class="us" data-tz="America/Los_Angeles">
-                            <span>San Diego, USA</span>
-                            <span>12:30</span>
-                          </div>
-                          <!-- 프랑스 -->
-                          <div div class="fr" data-tz="Europe/Paris">
-                            <span>Paris, France</span>
-                            <span>01:50</span>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- 아날로그시계 -->
-                      <div class="clock">
-                        <div class="hour us" id="us"></div>
-                        <div class="hour fr" id="fr"></div>
-                        <div class="center_circle">
-                          <div class="dot"></div>
-                        </div>
-                        <div class="ticks"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드9 : 60 brands -->
-                  <div class="card9">
-                    <div class="card">
-                      <div class="text">
-                        60 brands<br />
-                        <span>successfully launched since 2013.</span>
-                      </div>
-                      <div class="logos">
-                        <img src="./img/rivian-white.svg" alt="oura" />
-                        <img src="./img/hyperframe-white.svg" alt="oura" />
-                        <img src="./img/oura-logo-white.svg" alt="oura" />
-                        <img src="./img/tensr-white.svg" alt="oura" />
-                        <img src="./img/rappi-white.svg" alt="oura" />
-                        <img src="./img/moxion-logo-white.svg" alt="oura" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card_wrap card_wrap2">
-                  <!-- 카드1 : 반지 -->
-                  <div class="card1">
-                    <img src="./img/sec6/image1.avif" alt="img1" />
-                    <div class="card">
-                      <div class="content">
-                        <div class="text_con">
-                          <div class="text">
-                            <p>Technology</p>
-                            <p>Finance</p>
-                            <p>E-commerce</p>
-                            <p>BioTech</p>
-                            <p>Automotive</p>
-                            <p>Healthcare</p>
-                            <p>Real Estate</p>
-                            <p>Fashion</p>
-                            <p>Energy</p>
-                            <p>Retail</p>
-                            <p>Manufacturing</p>
-                            <p>Software</p>
-                            <p>Consumer Goods</p>
-                            <p>Transportation</p>
-                            <p>Hospitality</p>
-                            <p>Defense</p>
-                            <p>Logistics</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드2 : 70+ -->
-                  <div class="card2">
-                    <div class="card">
-                      <div class="text">
-                        <p>70+ industry-recognized<br />awards.</p>
-                      </div>
-                      <div class="logos">
-                        <img src="./img/sec6/Behance-logo.svg" alt="Behance" />
-                        <img
-                          src="./img/sec6/Webby-Awards-Logo1.svg"
-                          alt="Webby"
-                        />
-                        <img src="./img/sec6/fwa-logo.svg" alt="fwa" />
-                        <img
-                          src="./img/sec6/Awwards-logotype-2018.svg"
-                          alt="Awwards"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드3 : 커튼 -->
-                  <div class="card3">
-                    <img src="./img/sec6/image3.avif" alt="image3" />
-                    <div class="card">
-                      <div class="text">
-                        <p>
-                          E-commerce<br />
-                          <span> 10+ years of expertise</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드4 : 2 models -->
-                  <div class="card4">
-                    <div class="card">
-                      <div class="text">
-                        <p>2 Engagement Models</p>
-                        <span>Classic / Venture</span>
-                      </div>
-                      <div class="btn_learn">
-                        <a href="#">
-                          <i class="xi-arrow-up on"></i> Learn more
-                          <i class="xi-arrow-up off"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드5 : 150% -->
-                  <div class="card5">
-                    <div class="card">
-                      <div class="text">
-                        <p>
-                          Driving 150%
-                          <br />
-                          <span>LTV:CAC in average</span>
-                        </p>
-                      </div>
-                      <!-- 150% 숫자커지는거 -->
-                      <p class="bg_num">150%</p>
-                    </div>
-                  </div>
-                  <!-- 카드6 : 텐트비디오 -->
-                  <div class="card6">
-                    <video src="./img/video/WIDGET-RIVIAN.mp4" muted>
-                      이 동영상파일은 해당 브라우저에서 지원되지 않습니다.
-                    </video>
-                    <div class="card">
-                      <div class="text">
-                        <span>
-                          Catalyzed ~71,000<br />
-                          pre-orders
-                        </span>
-                        <span>after brand reveal</span><br />
-                        (approximately $5.68 billion).
-                      </div>
-                      <img src="./img/sec6/rivian-white.svg" alt="rivian" />
-                    </div>
-                  </div>
-                  <!-- 카드7 : noovo -->
-                  <div class="card7">
-                    <div class="card">
-                      <div class="text">
-                        <p>$5M+ in new business</p>
-                        <p>generated within 90 days of launch</p>
-                      </div>
-                      <div class="bottom_con">
-                        <div class="btn_learn">
-                          <a href="#">
-                            <i class="xi-arrow-up on"></i> Case Study<i
-                              class="xi-arrow-up off"
-                            ></i>
-                          </a>
-                        </div>
-                        <div>
-                          <img src="./img/sec6/noovo-logo.svg" alt="noovo" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드8 : 시계 -->
-                  <div class="card8">
-                    <div class="card">
-                      <div class="text">
-                        <div class="info">
-                          <p>2 Offices</p>
-                          <!-- 미국 -->
-                          <div class="us" data-tz="America/Los_Angeles">
-                            <span>San Diego, USA</span>
-                            <span>12:30</span>
-                          </div>
-                          <!-- 프랑스 -->
-                          <div div class="fr" data-tz="Europe/Paris">
-                            <span>Paris, France</span>
-                            <span>01:50</span>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- 아날로그시계 -->
-                      <div class="clock">
-                        <!-- 시계 테두리나 눈금은 CSS 배경/::before로 처리 가능 -->
-                        <div class="hand hour"></div>
-                        <div class="hand minute"></div>
-                        <div class="hand second"></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 카드9 : 60 brands -->
-                  <div class="card9">
-                    <div class="card">
-                      <div class="text">
-                        60 brands<br />
-                        <span>successfully launched since 2013.</span>
-                      </div>
-                      <div class="logos">
-                        <img src="./img/rivian-white.svg" alt="oura" />
-                        <img src="./img/hyperframe-white.svg" alt="oura" />
-                        <img src="./img/oura-logo-white.svg" alt="oura" />
-                        <img src="./img/tensr-white.svg" alt="oura" />
-                        <img src="./img/rappi-white.svg" alt="oura" />
-                        <img src="./img/moxion-logo-white.svg" alt="oura" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+<div class="slide_wrap">
+  <div class="inner_slide">
+    <div class="card_wrap card_wrap1">
+      <!-- 카드1 : 반지 -->
+      <div class="card1">
+        <img src="./img/sec6/image1.avif" alt="img1" />
+        <div class="card">
+          <div class="content">
+            <div class="text_con">
+              <div class="text">
+                <p>Technology</p>
+                <p>Finance</p>
+                <p>E-commerce</p>
+                <p>BioTech</p>
+                <p>Automotive</p>
+                <p>Healthcare</p>
+                <p>Real Estate</p>
+                <p>Fashion</p>
+                <p>Energy</p>
+                <p>Retail</p>
+                <p>Manufacturing</p>
+                <p>Software</p>
+                <p>Consumer Goods</p>
+                <p>Transportation</p>
+                <p>Hospitality</p>
+                <p>Defense</p>
+                <p>Logistics</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <!-- 카드2 : 70+ -->
+      <div class="card2">
+        <div class="card">
+          <div class="text">
+            <p>70+ industry-recognized<br />awards.</p>
+          </div>
+          <div class="logos">
+            <img src="./img/sec6/Behance-logo.svg" alt="Behance" />
+            <img src="./img/sec6/Webby-Awards-Logo1.svg" alt="Webby" />
+            <img src="./img/sec6/fwa-logo.svg" alt="fwa" />
+            <img src="./img/sec6/Awwards-logotype-2018.svg" alt="Awwards" />
+          </div>
+        </div>
+      </div>
+      <!-- 카드3 : 커튼 -->
+      <div class="card3">
+        <img src="./img/sec6/image3.avif" alt="image3" />
+        <div class="card">
+          <div class="text">
+            <p>
+              E-commerce<br />
+              <span> 10+ years of expertise</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- 카드4 : 2 models -->
+      <div class="card4">
+        <div class="card">
+          <div class="text">
+            <p>2 Engagement Models</p>
+            <span>Classic / Venture</span>
+          </div>
+          <div class="btn_learn">
+            <a href="#">
+              <i class="xi-arrow-up on"></i> Learn more
+              <i class="xi-arrow-up off"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 카드5 : 150% -->
+      <div class="card5">
+        <div class="card">
+          <div class="text">
+            <p>
+              Driving 150%
+              <br />
+              <span>LTV:CAC in average</span>
+            </p>
+          </div>
+          <!-- 150% 숫자커지는거 -->
+          <p class="bg_num">150%</p>
+        </div>
+      </div>
+      <!-- 카드6 : 텐트비디오 -->
+      <div class="card6">
+        <video src="./img/video/WIDGET-RIVIAN.mp4" muted>
+          이 동영상파일은 해당 브라우저에서 지원되지 않습니다.
+        </video>
+        <div class="card">
+          <div class="text">
+            <span>
+              Catalyzed ~71,000<br />
+              pre-orders
+            </span>
+            <span>after brand reveal</span><br />
+            (approximately $5.68 billion).
+          </div>
+          <img src="./img/sec6/rivian-white.svg" alt="rivian" />
+        </div>
+      </div>
+      <!-- 카드7 : noovo -->
+      <div class="card7">
+        <div class="card">
+          <div class="text">
+            <p>$5M+ in new business</p>
+            <p>generated within 90 days of launch</p>
+          </div>
+          <div class="bottom_con">
+            <div class="btn_learn">
+              <a href="#">
+                <i class="xi-arrow-up on"></i> Case Study<i
+                  class="xi-arrow-up off"
+                ></i>
+              </a>
+            </div>
+            <div>
+              <img src="./img/sec6/noovo-logo.svg" alt="noovo" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 카드8 : 시계 -->
+      <div class="card8">
+        <div class="card">
+          <div class="text">
+            <div class="info">
+              <p>2 Offices</p>
+              <!-- 미국 -->
+              <div class="us" data-tz="America/Los_Angeles">
+                <span>San Diego, USA</span>
+                <span>12:30</span>
+              </div>
+              <!-- 프랑스 -->
+              <div div class="fr" data-tz="Europe/Paris">
+                <span>Paris, France</span>
+                <span>01:50</span>
+              </div>
+            </div>
+          </div>
+          <!-- 아날로그시계 -->
+          <div class="clock">
+            <div class="hour us" id="us"></div>
+            <div class="hour fr" id="fr"></div>
+            <div class="center_circle">
+              <div class="dot"></div>
+            </div>
+            <div class="ticks"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 카드9 : 60 brands -->
+      <div class="card9">
+        <div class="card">
+          <div class="text">
+            60 brands<br />
+            <span>successfully launched since 2013.</span>
+          </div>
+          <div class="logos">
+            <img src="./img/rivian-white.svg" alt="oura" />
+            <img src="./img/hyperframe-white.svg" alt="oura" />
+            <img src="./img/oura-logo-white.svg" alt="oura" />
+            <img src="./img/tensr-white.svg" alt="oura" />
+            <img src="./img/rappi-white.svg" alt="oura" />
+            <img src="./img/moxion-logo-white.svg" alt="oura" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card_wrap card_wrap2">
+      <!-- 카드1 : 반지 -->
+      <div class="card1">
+        <img src="./img/sec6/image1.avif" alt="img1" />
+        <div class="card">
+          <div class="content">
+            <div class="text_con">
+              <div class="text">
+                <p>Technology</p>
+                <p>Finance</p>
+                <p>E-commerce</p>
+                <p>BioTech</p>
+                <p>Automotive</p>
+                <p>Healthcare</p>
+                <p>Real Estate</p>
+                <p>Fashion</p>
+                <p>Energy</p>
+                <p>Retail</p>
+                <p>Manufacturing</p>
+                <p>Software</p>
+                <p>Consumer Goods</p>
+                <p>Transportation</p>
+                <p>Hospitality</p>
+                <p>Defense</p>
+                <p>Logistics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 카드2 : 70+ -->
+      <div class="card2">
+        <div class="card">
+          <div class="text">
+            <p>70+ industry-recognized<br />awards.</p>
+          </div>
+          <div class="logos">
+            <img src="./img/sec6/Behance-logo.svg" alt="Behance" />
+            <img src="./img/sec6/Webby-Awards-Logo1.svg" alt="Webby" />
+            <img src="./img/sec6/fwa-logo.svg" alt="fwa" />
+            <img src="./img/sec6/Awwards-logotype-2018.svg" alt="Awwards" />
+          </div>
+        </div>
+      </div>
+      <!-- 카드3 : 커튼 -->
+      <div class="card3">
+        <img src="./img/sec6/image3.avif" alt="image3" />
+        <div class="card">
+          <div class="text">
+            <p>
+              E-commerce<br />
+              <span> 10+ years of expertise</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- 카드4 : 2 models -->
+      <div class="card4">
+        <div class="card">
+          <div class="text">
+            <p>2 Engagement Models</p>
+            <span>Classic / Venture</span>
+          </div>
+          <div class="btn_learn">
+            <a href="#">
+              <i class="xi-arrow-up on"></i> Learn more
+              <i class="xi-arrow-up off"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 카드5 : 150% -->
+      <div class="card5">
+        <div class="card">
+          <div class="text">
+            <p>
+              Driving 150%
+              <br />
+              <span>LTV:CAC in average</span>
+            </p>
+          </div>
+          <!-- 150% 숫자커지는거 -->
+          <p class="bg_num">150%</p>
+        </div>
+      </div>
+      <!-- 카드6 : 텐트비디오 -->
+      <div class="card6">
+        <video src="./img/video/WIDGET-RIVIAN.mp4" muted>
+          이 동영상파일은 해당 브라우저에서 지원되지 않습니다.
+        </video>
+        <div class="card">
+          <div class="text">
+            <span>
+              Catalyzed ~71,000<br />
+              pre-orders
+            </span>
+            <span>after brand reveal</span><br />
+            (approximately $5.68 billion).
+          </div>
+          <img src="./img/sec6/rivian-white.svg" alt="rivian" />
+        </div>
+      </div>
+      <!-- 카드7 : noovo -->
+      <div class="card7">
+        <div class="card">
+          <div class="text">
+            <p>$5M+ in new business</p>
+            <p>generated within 90 days of launch</p>
+          </div>
+          <div class="bottom_con">
+            <div class="btn_learn">
+              <a href="#">
+                <i class="xi-arrow-up on"></i> Case Study<i
+                  class="xi-arrow-up off"
+                ></i>
+              </a>
+            </div>
+            <div>
+              <img src="./img/sec6/noovo-logo.svg" alt="noovo" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 카드8 : 시계 -->
+      <div class="card8">
+        <div class="card">
+          <div class="text">
+            <div class="info">
+              <p>2 Offices</p>
+              <!-- 미국 -->
+              <div class="us" data-tz="America/Los_Angeles">
+                <span>San Diego, USA</span>
+                <span>12:30</span>
+              </div>
+              <!-- 프랑스 -->
+              <div div class="fr" data-tz="Europe/Paris">
+                <span>Paris, France</span>
+                <span>01:50</span>
+              </div>
+            </div>
+          </div>
+          <!-- 아날로그시계 -->
+          <div class="clock">
+            <!-- 시계 테두리나 눈금은 CSS 배경/::before로 처리 가능 -->
+            <div class="hand hour"></div>
+            <div class="hand minute"></div>
+            <div class="hand second"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 카드9 : 60 brands -->
+      <div class="card9">
+        <div class="card">
+          <div class="text">
+            60 brands<br />
+            <span>successfully launched since 2013.</span>
+          </div>
+          <div class="logos">
+            <img src="./img/rivian-white.svg" alt="oura" />
+            <img src="./img/hyperframe-white.svg" alt="oura" />
+            <img src="./img/oura-logo-white.svg" alt="oura" />
+            <img src="./img/tensr-white.svg" alt="oura" />
+            <img src="./img/rappi-white.svg" alt="oura" />
+            <img src="./img/moxion-logo-white.svg" alt="oura" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+"use strict"; $(function () { /* 메인 로딩화면 */ // 1. 로딩 화면이 뜬 상태에서
+main 숨기기 gsap.set(".logo_wrap", { display: "none" }); // 처음에 main을 숨김
+// 2. 로딩 화면 끝나면 main 보이게 gsap.to(".loading", { opacity: 0, duration:
+0.5, delay: 1.5, // 로딩 화면 유지 시간 (1.5초 추가) onStart: function () {
+$(".logo_wrap").css("display", "block"); // 로딩 화면이 시작될 때 main을 보이게
+설정 }, onComplete: function () { $(".loading").hide(); // 로딩 화면 끝나면
+숨기기 }, }); // 3. main을 위에서 아래로 애니메이션으로 나타내기
+gsap.set("main", { y: "-100vh", opacity: 0 }); // 처음에는 숨긴 상태로 설정
+gsap.to("main", { y: "0vh", opacity: 1, duration: 1, ease: "power3.out", delay:
+2, // 로딩 끝난 후에 메인 등장 }); /* 모바일메뉴 */ $("#mobile_menu").hide();
+$(".btn_menu a").on("click", function (e) { e.preventDefault();
+$("header").css({ mixBlendMode: "normal", });
+$("#mobile_menu").slideToggle(function () { if
+($("#mobile_menu").is(":visible")) { $(".btn_menu a").text("Close"); } else {
+$("header").css({ mixBlendMode: "difference", }); $(".btn_menu a").text("Menu");
+} }); }); $("#mobile_menu > .mbtn_talk").on("click", function () {
+$("#mobile_menu > .mbtn_talk").css("opacity", "0.5"); }); /* 메인비주얼 큰
+동영상 */ //마우스올리면 .play 나오고, 벗어나면 사라지기 $(".main_video
+.play").hide(); $(".main_video > div").hover( function () { $(".main_video
+.play").show(); }, function () { $(".main_video .play").hide(); } ); //.play가
+마우스 따라다니기 $(".main_video > div").on("scroll mousemove", function (e) {
+// 마우스 좌표값 $(".main_video .play").css({ left: (e.pageX += 30) + "px", top:
+(e.pageY -= 924) + "px", }); }); //클릭하면 라이트박스 동영상 나오기
+$(".main_video .sec1_lightbox").slideToggle(); $(".main_video >
+div").on("click", function () { $(".main_video .sec1_lightbox").slideToggle();
+$(".main_video > div > h2, .main_video > div > h2::after").toggle(300); });
+//화면사이즈 768보다 크면 마우스커스 play>close if (768 <
+$(window).outerWidth()) { $(".main_video > div .main_video1").on("click",
+function () { $(".main_video .play").text("X Close Reel").css({ fontWeight:
+"400", color: "#000", }); }); } //라이트박스 클릭하면 다시 마우스커서 close>play
+$(".main_video .sec1_lightbox").on("click", function (e) { $(".main_video
+.play").text("▶ Play Reel").css({ fontWeight: "300", color: "#fff", }); });
+//해상도 768 이하부터 라이트박스 엑스아이콘등장 if ($(window).width() <= 768) {
+if ($(".sec1_lightbox").is(":visible")) { $(".sec1_lightbox .btn_close").show();
+$(".main_video .play").css("opacity", "0"); } } else { $(".sec1_lightbox
+.btn_close").hide(); } /* 섹션4 */ // work1 (work2,3은 gsap으로 처리)
+//마우스올리면 .hover_img_lg 나오고, 벗어나면 사라지기 $(".img_lg >
+.hover_img_lg").hide(); $(".img_lg > .hover_area").on("mouseenter", function ()
+{ $(".sec4 .img_lg > .hover_img_lg").slideDown(); $(".sec4 .img_lg
+img:first-child").css("opacity", "0.5"); $(".sec4 .img_lg
+img:nth-of-type(2)").css("opacity", "0"); }); $(".img_lg >
+.hover_area").on("mouseleave", function () { $(".sec4 .img_lg >
+.hover_img_lg").slideUp(); $(".sec4 .img_lg img:first-child").css("opacity",
+"1"); $(".sec4 .img_lg img:nth-of-type(2)").css("opacity", "1"); }); //스크롤바
+없이 사진3장 드래그 $(document).ready(function () { let isDown = false; let
+startX, scrollLeft; const $container = $(".sec4 .highlights > div:last-child");
+$container.on("mousedown", function (e) { isDown = true; startX = e.pageX -
+$container.offset().left; scrollLeft = $container.scrollLeft(); }); // document
+전체에 mouseup 이벤트를 걸어, 컨테이너 외부에서도 drag 상태를 해제
+$(document).on("mouseup", function () { isDown = false;
+$container.removeClass("active"); }); $container.on("mousemove", function (e) {
+if (!isDown) return; e.preventDefault(); const x = e.pageX -
+$container.offset().left; const walk = (x - startX) * 3; // 드래그 이동 속도
+조절 $container.scrollLeft(scrollLeft - walk); }); }); /* 가상요소들 */
+//호버하면 애프터 앞으로 사라지면서 움직이기 $(".main_video > div > h2").hover(
+function () { $(this).removeClass("removing").addClass("hovered"); // 왼쪽 →
+오른쪽으로 나타남 }, function () {
+$(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+} ); $(".comEmail").hover( function () {
+$(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+}, function () { $(this).removeClass("hovered").addClass("removing"); // 오른쪽
+→ 왼쪽으로 사라짐 } ); $(".right_up > .sitemap > li > a").hover( function () {
+$(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+}, function () { $(this).removeClass("hovered").addClass("removing"); // 오른쪽
+→ 왼쪽으로 사라짐 } ); $(".right_up > ul:last-child > li > a").hover( function
+() { $(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로
+나타남 }, function () { $(this).removeClass("hovered").addClass("removing"); //
+오른쪽 → 왼쪽으로 사라짐 } ); $(".right_down > div:last-child > a").hover(
+function () { $(this).removeClass("removing").addClass("hovered"); // 왼쪽 →
+오른쪽으로 나타남 }, function () {
+$(this).removeClass("hovered").addClass("removing"); // 오른쪽 → 왼쪽으로 사라짐
+} ); $("#gnb > ul > li").hover( function () {
+$(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+}, function () { $(this).removeClass("hovered").addClass("removing"); // 오른쪽
+→ 왼쪽으로 사라짐 } ); $(".sec6 .con > div > a").hover( function () {
+$(this).removeClass("removing").addClass("hovered"); // 왼쪽 → 오른쪽으로 나타남
+}, function () { $(this).removeClass("hovered").addClass("removing"); // 오른쪽
+→ 왼쪽으로 사라짐 } ); //---------------------- });

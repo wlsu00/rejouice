@@ -2,7 +2,9 @@
 @import url("./reset.css");
 
 /* 공통영역 */
-
+* {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "SuisseIntl", sans-serif;
   font-size: 14px;
@@ -261,7 +263,7 @@ h1 .logo_img {
   visibility: visible;
   animation: loading 2s ease-out 0s 1 forwards;
   transition: 0.3s;
-  z-index: 100;
+  z-index: 1000;
 }
 @keyframes loading {
   0% {
@@ -424,6 +426,7 @@ h1 .logo_img {
   left: 0;
   z-index: 100;
   font-size: 16px;
+  mix-blend-mode: difference;
 }
 .main_video .close {
   width: fit-content;

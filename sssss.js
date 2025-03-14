@@ -4,7 +4,7 @@ $(function () {
   /* 메인 로딩화면 */
 
   // 1. 로딩 화면이 뜬 상태에서 main 숨기기
-  gsap.set("header, .logo_wrap", { display: "none" }); // 처음에 main을 숨김
+  gsap.set(".logo_wrap", { display: "none" }); // 처음에 main을 숨김
 
   // 2. 로딩 화면 끝나면 main 보이게
   gsap.to(".loading", {
@@ -12,7 +12,7 @@ $(function () {
     duration: 0.5,
     delay: 1.5, // 로딩 화면 유지 시간 (1.5초 추가)
     onStart: function () {
-      $("header, .logo_wrap").css("display", "block"); // 로딩 화면이 시작될 때 main을 보이게 설정
+      $(".logo_wrap").css("display", "block"); // 로딩 화면이 시작될 때 main을 보이게 설정
     },
     onComplete: function () {
       $(".loading").hide(); // 로딩 화면 끝나면 숨기기
@@ -83,14 +83,15 @@ $(function () {
     $(".main_video .sec1_lightbox").slideToggle();
     $(".main_video > div > h2, .main_video > div > h2::after").toggle(300);
   });
-  //화면사이즈 768보다 크면 마우스커서 play>close
-
-  $(".main_video > div .main_video1").on("click", function () {
-    $(".main_video .play").text("X Close Reel").css({
-      fontWeight: "400",
+  //화면사이즈 768보다 크면 마우스커스 play>close
+  if (768 < $(window).outerWidth()) {
+    $(".main_video > div .main_video1").on("click", function () {
+      $(".main_video .play").text("X Close Reel").css({
+        fontWeight: "400",
+        color: "#000",
+      });
     });
-  });
-
+  }
   //라이트박스 클릭하면 다시 마우스커서 close>play
   $(".main_video .sec1_lightbox").on("click", function (e) {
     $(".main_video .play").text("▶ Play Reel").css({

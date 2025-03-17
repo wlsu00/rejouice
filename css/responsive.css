@@ -484,6 +484,16 @@
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
   /* 섹션2 */
+  .sec2 > .con > .ani_text {
+    height: 280px;
+    padding: 24px 0;
+    overflow: hidden;
+  }
+  .sec2 a {
+    display: block;
+    top: -6px;
+    left: -12px;
+  }
   .sec2 a > span {
     top: clamp(4px, 7px, 10px);
     left: clamp(4px, 2vw, 12px);

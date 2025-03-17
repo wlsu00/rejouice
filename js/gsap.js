@@ -232,8 +232,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   /* 섹션6 - 슬라이드 */
 
-  //03.13
-
   gsap.registerPlugin(Draggable);
 
   $(document).ready(function () {
@@ -260,10 +258,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     var isDragging = false;
 
     // 3. GSAP ticker: 매 프레임마다 자동 이동 (현재 진행률에 따라 x값 업데이트)
+    //duration이나 epsilon으로 끊김현상 조절
     gsap.ticker.add(function () {
       if (isPaused || isDragging) return;
       var elapsed = (Date.now() - startTime) / 1000;
-      var progress = (elapsed % duration) / duration;
+      var progress = (elapsed % duration) / duration - 0.000001;
+      if (progress < 0) progress += 1;
       var xVal = -progress * originalWidth;
       gsap.set($wrapper, { x: xVal });
     });
@@ -320,8 +320,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const total = $texts.length;
   let index = 0;
 
-  //화면사이즈 768 이하면 줄간격16
-  const lineHeight = $(window).outerWidth() <= 768 ? 16 : 24;
+  //줄간격 반응형
+  const lineHeight =
+    $(window).outerWidth() <= 320
+      ? 16
+      : $(window).outerWidth() <= 540
+      ? 22
+      : $(window).outerWidth() <= 768
+      ? 16
+      : 22;
 
   // ① 초기: 각 p를 (i*lineHeight) 위치에 배치 (세로로 줄줄이)
   $texts.each(function (i, el) {
@@ -331,38 +338,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
-  // ② 매번 호출될 때 실행
+  // ② 업데이트 함수: 한 줄씩 위로 이동하며 visible한 3줄의 위치와 opacities를 정함
   function updateText() {
-    // 한 줄씩 "위로" 이동 - index를 1 증가
+    // 인덱스를 1 증가시켜 순환
     index = (index + 1) % total;
 
     $texts.each(function (i, el) {
-      let dist = i - index;
-      if (dist < 0) dist += total; // 음수면 순환
+      // pos: 현재 index 기준 상대 위치 (0부터 total-1)
+      let pos = (i - index + total) % total;
 
-      if (dist === 0) {
-        // 글자 1
-        gsap.to(el, { y: 0, opacity: 1, duration: 0.5 });
-      } else if (dist === 1) {
-        // 글자 2
-        gsap.to(el, { y: lineHeight, opacity: 0.8, duration: 0.5 });
-      } else if (dist === 2) {
-        // 글자 3
-        gsap.to(el, { y: lineHeight * 2, opacity: 0.6, duration: 0.5 });
+      let targetY, targetOpacity;
+      if (pos < 3) {
+        // visible한 3줄: pos 0,1,2에 대해 애니메이션 적용
+        let targetY = pos * lineHeight;
+        let targetOpacity = pos === 0 ? 1 : pos === 1 ? 0.8 : 0.6;
+        gsap.to(el, {
+          y: targetY,
+          opacity: targetOpacity,
+          duration: 0.5,
+          ease: "power3.out",
+        });
       } else {
-        // ✨최상단 글자는 먼저 투명하게 만든 후, 나중에 위로 올림
-        if (dist === total - 1) {
-          gsap.to(el, {
-            opacity: 0,
-            duration: 0.3,
-            onComplete: () => {
-              gsap.to(el, { y: -lineHeight, duration: 0.5 });
-            },
-          });
-        } else {
-          gsap.to(el, { y: lineHeight * 3, opacity: 0, duration: 0.5 });
-        }
+        // 나머지 텍스트는 애니메이션 없이 즉시 아래쪽 (lineHeight * 3)으로 배치하여 보이지 않게 함
+        gsap.set(el, { y: lineHeight * 3, opacity: 0 });
       }
+
+      gsap.to(el, {
+        y: targetY,
+        opacity: targetOpacity,
+        duration: 0.5,
+        ease: "power3.out",
+      });
     });
   }
   // ③ 1초마다 updateText 실행
@@ -459,36 +465,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
   updateSanDiegoTime(); // 초기 업데이트
   setInterval(updateSanDiegoTime, 1000); // 1초마다 업데이트
 
-  //시계테두리
-  // const translateYValue = $(window).outerWidth() <= 768 ? 0 : -40;
-  // const $ticks = $(".ticks");
-  // for (let i = 0; i < 60; i++) {
-  //   const $tick = $("<div>").addClass("tick");
-
-  //   $tick.css(
-  //     "transform",
-  //     `rotate(${i * 6}deg) translateY(${translateYValue}px)`
-  //   );
-  //   $ticks.append($tick);
-  // }
-
-  // 시계테두리 반응형 추가
+  //시계테두리 반응형
 
   function getTranslateYValue() {
     const w = $(window).outerWidth();
-    let translateYValue;
-    if (w <= 768) {
-      translateYValue = 20;
-    } else if (w <= 1200) {
-      // 768px에서 1023px 사이: 0 ~ -20 선형 보간
-      translateYValue = -20 * ((w - 768) / (1023 - 768));
-    } else if (w <= 1439) {
-      // 1200px에서 1920px 사이: -20 ~ -40 선형 보간
-      translateYValue = -20 - 20 * ((w - 1023) / (1439 - 1023));
-    } else {
-      translateYValue = -40;
-    }
-    return translateYValue;
+    return w <= 425
+      ? 20
+      : w <= 540
+      ? -20
+      : w <= 767
+      ? -20
+      : w <= 768
+      ? 0
+      : w <= 1200
+      ? -40 * ((w - 768) / (1023 - 768))
+      : w <= 1439
+      ? -40 - 40 * ((w - 1023) / (1439 - 1023))
+      : -60;
   }
 
   function createTicks() {

@@ -458,6 +458,7 @@ h1 .logo_img {
   margin-top: 62px;
 }
 .sec2 > .con > .ani_text {
+  width: 100%;
   box-sizing: border-box;
   padding: 60px 0;
   border-bottom: 1px solid #ffffff34;
@@ -994,7 +995,7 @@ h1 .logo_img {
   color: #000;
   text-align: start;
 }
-.logos {
+.card2 .logos {
   width: fit-content;
   height: 30px;
   margin-left: auto;
@@ -1005,7 +1006,7 @@ h1 .logo_img {
   flex-direction: column;
   align-items: flex-end;
 }
-.logos img {
+.card2 .logos img {
   width: fit-content;
   display: block;
   box-sizing: border-box;
@@ -1014,7 +1015,7 @@ h1 .logo_img {
   animation: rolling 8s steps(4) infinite;
   -webkit-animation: rolling 8s steps(4) infinite;
 }
-.logos img:nth-child(2) {
+.card2 .logos img:nth-child(2) {
   padding: 0;
 }
 @keyframes rolling {
@@ -1237,9 +1238,9 @@ h1 .logo_img {
 .hour.fr {
   width: 2px;
   height: 28px;
-  top: 69%;
-  left: 31%;
-  transform: rotate(45deg);
+  top: 9.4vh;
+  left: 18%;
+  transform: rotate(90deg);
 }
 .center_circle {
   width: 2vw;
@@ -1305,10 +1306,18 @@ h1 .logo_img {
   width: fit-content;
   height: 20px;
   overflow: hidden;
+  margin-left: auto;
+  transform: translateY(0);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 .card9 .logos img {
+  width: fit-content;
   height: 20px;
   object-fit: contain;
+  box-sizing: border-box;
   padding: 0;
   animation: rolling2 12s steps(6) infinite;
   -webkit-animation: rolling2 12s steps(6) infinite;

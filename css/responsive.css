@@ -483,6 +483,11 @@
   }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
+  /* 섹션2 */
+  .sec2 a > span {
+    top: clamp(4px, 7px, 10px);
+    left: clamp(4px, 2vw, 12px);
+  }
   /* 섹션4 */
   .sec4 .img_lg {
     width: 306px;
@@ -502,21 +507,44 @@
     bottom: 3vh;
   }
   /* 섹션6 */
+  .swiper-slide > div {
+    border-radius: 8px;
+  }
+  .card1 {
+    height: 26vh;
+  }
   .card2 {
     height: 16.8vh;
   }
+  .card3 {
+    height: 26vh;
+  }
+  .card4 {
+    height: 16.8vh;
+  }
+  .card5 {
+    height: 16.8vh;
+  }
+  .card6 {
+    height: 22.8vh;
+  }
+  .card7 {
+    height: 16.8vh;
+  }
+  .card8 {
+    height: 26vh;
+  }
   .hour.us {
-    top: 7vh;
+    top: 10vh;
   }
   .hour.fr {
-    height: 19px;
-    top: 9vh;
-    left: -1.2vw;
+    top: 13.6vh;
+    left: -5vw;
   }
   .center_circle {
-    width: 5vw;
-    height: 1.8vh;
-    top: 10.6vh;
+    width: 6.6vw;
+    height: 2.6vh;
+    top: 15vh;
   }
 }
 @media screen and (min-width: 540px) and (max-width: 767px) {

@@ -453,72 +453,69 @@ h1 .logo_img {
   text-align: right;
   margin: 10px;
 }
-/* 섹션2 */
+
+/* 😀😀😀😀😀😀😀😀😀😀 */
 .sec2 {
   margin-top: 62px;
 }
 .sec2 > .con > .ani_text {
   width: 100%;
+  height: 40vh;
   box-sizing: border-box;
   padding: 60px 0;
   border-bottom: 1px solid #ffffff34;
-}
-.sec2 > .con > .ani_text > p {
-  width: 100%;
-  /* font-size: 82px; */
   font-size: 4.3vw;
-  letter-spacing: -0.22rem;
-  word-spacing: 8px;
-  transform: translateY(-100%);
-  opacity: 0;
+  letter-spacing: -0.04rem;
 }
-.sec2 > .con > .ani_text > p:first-child {
+.ani_text > .first-line {
+  display: block; /* 인라인 요소가 아니라 블록 요소로 만들어야 text-align 적용 가능 */
   text-align: right;
 }
-.sec2 a {
-  position: relative;
-  top: 0;
-  left: 0;
-}
-.sec2 a > span {
-  display: inline-block;
+.ani_text a {
+  display: block;
+  width: fit-content;
+  height: fit-content;
   line-height: 1;
-  position: absolute;
-  top: 4px;
-  left: 10px;
-  overflow: hidden;
+  /* background-color: yellowgreen; */
+  position: relative;
+  top: -8.4vh;
+  left: 68.8vw;
 }
-.sec2 a > span::before {
-  content: "line1";
-  font-size: 0;
+.ani_text a::before {
+  content: "";
   display: block;
-  background-color: #fff;
-  width: 200px;
-  height: 5px;
-  margin-top: 10px;
-  transform: translate(-446px, 86px);
-  transition: 0.5s;
-  transform-origin: left;
-}
-.sec2 a > span:hover::before {
-  width: 429px;
-  transform: translate(0, 86px);
-}
-.sec2 a > span::after {
-  content: "line1";
-  font-size: 0;
-  display: block;
-  background-color: #fff;
-  width: 429px;
+  width: 0;
   height: 3px;
-  margin-top: 10px;
-  transition: 0.5s;
-  transform-origin: left;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: -100%;
+  transition: 0.8s;
+  transform: scale(0);
+  margin-top: 2%;
 }
-.sec2 a > span:hover::after {
-  width: 429px;
-  transform: translateX(434px);
+.ani_text a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: 0.8s;
+  margin-top: 2%;
 }
+.ani_text a:hover::before {
+  left: 0;
+  width: 100%;
+  transform: scale(1);
+}
+.ani_text a:hover::after {
+  left: 100%;
+  width: 0;
+}
+/* 😀😀😀😀😀😀😀😀😀😀 */
 
 /* 섹션3 */
 .sec3 > .con > div {

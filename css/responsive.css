@@ -91,31 +91,18 @@
     padding: 0;
   }
   /* 섹션2 */
-  .sec2 > .con > .ani_text > p {
-    display: inline;
-    font-size: clamp(22px, 7vw, 53px);
-    line-height: 1;
-    letter-spacing: -0.11rem;
-    word-spacing: 1.6vw;
-  }
   .sec2 > .con > .ani_text {
-    padding: 24px 0;
-  }
-  .sec2 > .con > .ani_text > p:first-child {
-    text-align: start;
-  }
-  .sec2 a > span {
-    width: 38vw;
     height: fit-content;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 6px;
-    box-sizing: border-box;
-    top: clamp(4px, 4px, 10px);
-    left: clamp(4px, 1.2vw, 12px);
+    font-size: 7vw;
+    padding: 2.1vh 0;
   }
-  .sec2 a > span::before,
-  .sec2 a > span::after {
-    display: none;
+  .ani_text a {
+    top: 0;
+    left: 0;
+  }
+  .ani_text a::before,
+  .ani_text a::after {
+    height: 1px;
   }
   /* 섹션3 */
   .sec3 > .con > div {
@@ -485,18 +472,7 @@
 @media screen and (min-width: 425px) and (max-width: 767px) {
   /* 섹션2 */
   .sec2 > .con > .ani_text {
-    height: 280px;
-    padding: 24px 0;
-    overflow: hidden;
-  }
-  .sec2 a {
-    display: block;
-    top: -6px;
-    left: -12px;
-  }
-  .sec2 a > span {
-    top: clamp(4px, 7px, 10px);
-    left: clamp(4px, 2vw, 12px);
+    padding: 2.5vh 0;
   }
   /* 섹션4 */
   .sec4 .img_lg {
@@ -625,14 +601,11 @@
   }
   /* 섹션2 */
   .sec2 > .con > .ani_text {
-    padding: 22px 0 84px;
+    font-size: 6.8vw;
   }
-  .sec2 > .con > .ani_text > p {
-    word-spacing: 1vw;
-  }
-  .sec2 a {
-    left: -8px;
-    display: block;
+  .ani_text a::before,
+  .ani_text a::after {
+    height: 2px;
   }
   /* 섹션4 */
   .sec4 .highlights {
@@ -810,20 +783,19 @@
     cursor: pointer;
   }
   /* 섹션2 */
-  .sec2 > .con > .ani_text > p:first-child {
-    text-align: start;
+  .sec2 > .con > .ani_text {
+    height: 16vh;
+    padding: 2.5vh 0;
+    letter-spacing: -0.1rem;
   }
-  .sec2 a > span {
-    width: clamp(20vw, 21vw, 22vw);
-    box-sizing: border-box;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #fff;
+  .ani_text a {
+    top: -3.1vh;
+    left: 49.6vw;
   }
-  .sec2 a > span::before,
-  .sec2 a > span::after {
-    display: none;
+  .ani_text a::before,
+  .ani_text a::after {
+    height: 2px;
   }
-
   /* 섹션3 */
   .sec3 > .con > div {
     font-size: 2.1vw;
@@ -1229,20 +1201,12 @@
   }
   /* 섹션2 */
   .sec2 > .con > .ani_text {
-    padding: 60px 20px;
+    height: 25vh;
   }
-  .sec2 a {
-    border-bottom: 3px solid #fff;
+  .ani_text a {
+    top: -4.1vh;
+    left: 67.2vw;
   }
-  .sec2 a > span {
-    position: static;
-    display: inline;
-  }
-  .sec2 a > span::before,
-  .sec2 a > span::after {
-    display: none;
-  }
-
   /* 섹션4 */
   /* 로고사이즈 */
   .sec4 .img_lg > img:nth-of-type(2) {
@@ -1334,15 +1298,14 @@
     gap: 4vw;
   }
   /* 섹션2 */
-  .sec2 a > span {
-    width: 22vw;
-    border-bottom: 3px solid #fff;
-    top: clamp(14px, 14px, 16px);
+  .sec2 > .con > .ani_text {
+    height: 30vh;
   }
-  .sec2 a > span::before,
-  .sec2 a > span::after {
-    display: none;
+  .ani_text a {
+    top: -5.7vh;
+    left: 67.8vw;
   }
+
   /* 섹션4 */
   .sec4 .img_lg {
     height: 873px;

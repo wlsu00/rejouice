@@ -109,6 +109,57 @@ $(function () {
     $(".sec1_lightbox .btn_close").hide();
   }
 
+  /* 섹션2 */
+  //첫줄만 text-align:end효과
+  // if (1024 <= $(window).outerWidth()) {
+  //   // 첫 번째 span의 y좌표(위치)를 기준으로 "첫 줄"에 해당하는 span들을 식별
+  //   let $allSpans = $(".ani_text span");
+  //   if ($allSpans.length === 0) return;
+
+  //   let firstLineTop = $allSpans.first().position().top;
+
+  //   // 첫 줄에 해당하는 span: 첫 span과 y좌표가 거의 같은 (오차 ±5px)
+  //   let $firstLineSpans = $allSpans.filter(function () {
+  //     return Math.abs($(this).position().top - firstLineTop) < 5;
+  //   });
+
+  //   // 찾은 첫 줄 span들을 하나의 래퍼 .first-line으로 감싸기
+  //   $firstLineSpans.wrapAll('<div class="first-line"></div>');
+  // }
+
+  let w = $(window).outerWidth();
+  // ani_text 안의 모든 span
+  let $allSpans = $(".ani_text span");
+  if ($allSpans.length === 0) return;
+
+  // “design” 단어의 index, “and” 단어의 index를 찾는다
+  let designIndex = $allSpans
+    .filter((i, el) => $(el).text().trim().toLowerCase() === "design,")
+    .index();
+  let andIndex = $allSpans
+    .filter((i, el) => $(el).text().trim().toLowerCase() === "and")
+    .index();
+
+  // 조건 분기
+  if (w >= 1024 && w <= 1330) {
+    // 1024~1330px: “We”부터 “design,” 전까지만 감싸기 (즉, 0 ~ designIndex)
+    // 만약 designIndex가 -1이면 단어를 못 찾은 경우이므로 종료
+    if (designIndex > 0) {
+      // slice(0, designIndex+1) => 0번 ~ designIndex번 span까지
+      $allSpans
+        .slice(0, designIndex + 1)
+        .wrapAll('<div class="first-line"></div>');
+    }
+  } else if (w >= 1331) {
+    // 1331px 이상: “We”부터 “and”까지 감싸기
+    if (andIndex > 0) {
+      // slice(0, andIndex+1) => 0번 ~ andIndex번 span까지
+      $allSpans
+        .slice(0, andIndex + 1)
+        .wrapAll('<div class="first-line"></div>');
+    }
+  }
+
   /* 섹션4 */
 
   // work1 (work2,3은 gsap으로 처리)

@@ -26,18 +26,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
   /* 섹션2 */
   //글자 아래로 떨어지기
   gsap.fromTo(
-    ".sec2 .ani_text p",
+    ".sec2 .ani_text",
     { y: "-20%", opacity: 0 },
     {
       y: "0%",
       opacity: 1,
-      duration: 0.3,
+      duration: 0.5,
       ease: "power3.out",
       stagger: 0.2,
       scrollTrigger: {
         trigger: ".sec2",
-        start: "bottom 26%",
-        //markers: true,
+        start: "bottom 22%",
+        // markers: true,
       },
     }
   );

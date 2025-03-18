@@ -681,13 +681,13 @@
     padding: 2vh 5.2vw;
   }
   .card1 {
-    height: 33.1vh;
+    height: clamp(386px, calc((100vw - 540px) * 0.718 + 386px), 549px);
   }
   .card1 .text p {
     font-size: 3.8vw;
   }
   .card2 {
-    height: 21.4vh;
+    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
   }
   .card2 .logos {
     height: 3.7vh;
@@ -707,25 +707,25 @@
     }
   }
   .card3 {
-    height: 42vh;
+    height: clamp(386px, calc((100vw - 540px) * 0.718 + 386px), 549px);
   }
   .card4 {
-    height: 21.4vh;
+    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
   }
   .card5 {
-    height: 21.4vh;
+    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
   }
   .card6 {
-    height: 29.2vh;
+    height: clamp(338px, calc((100vw - 540px) * 0.625 + 338px), 480px);
   }
   .card7 {
-    height: 21.4vh;
+    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
   }
   .bottom_con img {
     height: 1.6vh;
   }
   .card8 {
-    height: 33.1vh;
+    height: clamp(386px, calc((100vw - 540px) * 0.718 + 386px), 549px);
   }
   .hour.us {
     height: 24px;
@@ -742,7 +742,7 @@
     top: 17.5vh;
   }
   .card9 {
-    height: 21.4vh;
+    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
   }
 }
 /* 태블릿 lg */

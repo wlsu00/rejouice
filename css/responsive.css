@@ -566,27 +566,35 @@
 @media screen and (min-width: 500px) and (max-width: 767px) {
   .card1 {
     height: 30.6vh;
+    height: 358px;
   }
   .card2 {
     height: 19.8vh;
+    height: 231px;
   }
   .card3 {
     height: 30.6vh;
+    height: 358px;
   }
   .card4 {
     height: 19.8vh;
+    height: 231px;
   }
   .card5 {
     height: 19.8vh;
+    height: 231px;
   }
   .card6 {
     height: 27vh;
+    height: 315px;
   }
   .card7 {
-    height: 16.8vh;
+    height: 19.8vh;
+    height: 231px;
   }
   .card8 {
     height: 30.6vh;
+    height: 358px;
   }
   .hour.us {
     height: 22px;
@@ -603,7 +611,8 @@
     top: 18vh;
   }
   .card9 {
-    height: 16.8vh;
+    height: 19.8vh;
+    height: 231px;
   }
 }
 

@@ -322,10 +322,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //줄간격 반응형
   const lineHeight =
-    $(window).outerWidth() <= 320
-      ? 16
+    $(window).outerWidth() <= 425
+      ? 14
       : $(window).outerWidth() <= 540
       ? 22
+      : $(window).outerWidth() <= 767
+      ? 30
       : $(window).outerWidth() <= 768
       ? 16
       : 22;
@@ -476,7 +478,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       : w <= 540
       ? -20
       : w <= 767
-      ? -20
+      ? -40
       : w <= 768
       ? 0
       : w <= 1200

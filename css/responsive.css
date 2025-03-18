@@ -561,7 +561,6 @@
   .btn_menu {
     right: 4vw;
   }
-
   .sec1_lightbox .btn_close {
     top: 24vh;
   }
@@ -583,6 +582,12 @@
   }
   .sec4 .highlights > div:last-child {
     height: fit-content;
+  }
+  .btn_see a {
+    line-height: 1.6;
+  }
+  .btn_see:hover i.on {
+    transform: translate(-8px, 12px) rotate(45deg);
   }
   .sec4 .img_lg {
     width: 388px;
@@ -617,13 +622,13 @@
     padding: 2vh 5.2vw;
   }
   .card1 {
-    height: 33.1vh;
+    height: 42vh;
   }
   .card1 .text p {
     font-size: 3.8vw;
   }
   .card2 {
-    height: 21.4vh;
+    height: 28vh;
   }
   .card2 .logos {
     height: 3.7vh;
@@ -643,42 +648,42 @@
     }
   }
   .card3 {
-    height: 33.1vh;
+    height: 42vh;
   }
   .card4 {
-    height: 21.4vh;
+    height: 28vh;
   }
   .card5 {
-    height: 21.4vh;
+    height: 28vh;
   }
   .card6 {
-    height: 29vh;
+    height: 38vh;
   }
   .card7 {
-    height: 21.4vh;
+    height: 28vh;
   }
   .bottom_con img {
     height: 1.6vh;
   }
   .card8 {
-    height: 33.1vh;
+    height: 42vh;
   }
   .hour.us {
     height: 24px;
-    top: 11vh;
+    top: 10vh;
   }
   .hour.fr {
     height: 24px;
     top: 15.4vh;
-    left: -6vw;
+    left: -4vw;
   }
   .center_circle {
     width: 5vw;
-    height: 2.4vh;
+    height: 3.4vh;
     top: 17.5vh;
   }
   .card9 {
-    height: 21.4vh;
+    height: 28vh;
   }
 }
 /* 태블릿 lg */
@@ -793,12 +798,13 @@
   .btn_see {
     width: fit-content;
   }
-  .btn_see > a {
+  .btn_see a {
     transform: translateX(0);
   }
   .btn_see > a > i:first-child {
     display: none;
   }
+
   /* 이미지3장(호버) - 컨테이너 */
   .sec4 .highlights > div:last-child {
     height: 346px;
@@ -1249,7 +1255,7 @@
 }
 
 /* 노트북 lg */
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
   /* header */
   header .con {
     height: 62px;

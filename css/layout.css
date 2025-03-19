@@ -862,13 +862,13 @@ h1 .logo_img {
 
 /* 섹션6 */
 .sec6 .con {
-  height: 600px;
+  height: 580px;
   margin: 0 auto;
   padding-bottom: 120px;
   background-color: #fff;
   font-size: 20px;
 }
-.sec6 .con > div {
+.sec6 .con > div:first-child {
   color: #000;
   font-size: 20px;
   box-sizing: border-box;
@@ -914,6 +914,10 @@ h1 .logo_img {
   overflow: hidden;
   margin: 0 auto;
 }
+.inner_slide {
+  height: 504px;
+  background-color: lavender;
+}
 .swiper-wrapper {
   width: 100%;
   height: 100%;
@@ -921,10 +925,6 @@ h1 .logo_img {
   display: flex;
   gap: 30px;
   transition-timing-function: linear !important;
-}
-.inner_slide {
-  height: 300px;
-  background-color: lavender;
 }
 .swiper-slide {
   text-align: center;

@@ -715,6 +715,9 @@
   .card9 {
     height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
   }
+  .swiper-slide > div {
+    height: 100%;
+  }
 }
 /* 태블릿 lg */
 @media screen and (min-width: 768px) and (max-width: 1023px) {

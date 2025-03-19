@@ -279,6 +279,7 @@
   }
   .card3 {
     height: 19.6vh;
+    height: 100%;
   }
   .card4 {
     height: 12.7vh;
@@ -547,7 +548,6 @@
   .card3 {
     height: 30.6vh;
     height: 358px;
-    height: 100%;
   }
   .card4 {
     height: 19.8vh;

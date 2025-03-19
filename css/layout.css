@@ -916,14 +916,14 @@ h1 .logo_img {
 }
 .swiper-wrapper {
   width: 100%;
-  height: fit-content;
+  height: 100%;
   border-bottom: 2px solid red;
   display: flex;
   gap: 30px;
   transition-timing-function: linear !important;
 }
 .inner_slide {
-  height: 100%;
+  height: 300px;
   background-color: lavender;
 }
 .swiper-slide {

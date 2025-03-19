@@ -454,13 +454,12 @@ h1 .logo_img {
   margin: 10px;
 }
 
-/* 😀😀😀😀😀😀😀😀😀😀 */
+/* 섹션2 */
 .sec2 {
   margin-top: 62px;
 }
 .sec2 > .con > .ani_text {
   width: 100%;
-  /* height: 40vh; */
   height: auto;
   box-sizing: border-box;
   padding: 60px 0;
@@ -472,17 +471,20 @@ h1 .logo_img {
   left: 0;
 }
 .ani_text > .first-line {
-  display: block; /* 인라인 요소가 아니라 블록 요소로 만들어야 text-align 적용 가능 */
+  display: block; /* 블록이어야 text-align 적용 가능 */
   text-align: right;
 }
+.ani_text span,
 .ani_text a {
-  display: block;
+  display: inline-block;
+  vertical-align: baseline;
+}
+.ani_text a {
+  /* display: block; */
   width: fit-content;
   height: fit-content;
   line-height: 1;
-  position: absolute;
-  top: 63%;
-  left: 49vw;
+  position: relative;
 }
 .ani_text a::before {
   content: "";
@@ -508,6 +510,9 @@ h1 .logo_img {
   left: 0;
   transition: 0.8s;
   margin-top: 2%;
+  left: 0;
+  right: 0;
+  bottom: 0; /* 베이스라인 근처에 배치 */
 }
 .ani_text a:hover::before {
   left: 0;
@@ -518,7 +523,6 @@ h1 .logo_img {
   left: 100%;
   width: 0;
 }
-/* 😀😀😀😀😀😀😀😀😀😀 */
 
 /* 섹션3 */
 .sec3 > .con > div {

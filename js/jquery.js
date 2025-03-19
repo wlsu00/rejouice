@@ -111,21 +111,6 @@ $(function () {
 
   /* 섹션2 */
   //첫줄만 text-align:end효과
-  // if (1024 <= $(window).outerWidth()) {
-  //   // 첫 번째 span의 y좌표(위치)를 기준으로 "첫 줄"에 해당하는 span들을 식별
-  //   let $allSpans = $(".ani_text span");
-  //   if ($allSpans.length === 0) return;
-
-  //   let firstLineTop = $allSpans.first().position().top;
-
-  //   // 첫 줄에 해당하는 span: 첫 span과 y좌표가 거의 같은 (오차 ±5px)
-  //   let $firstLineSpans = $allSpans.filter(function () {
-  //     return Math.abs($(this).position().top - firstLineTop) < 5;
-  //   });
-
-  //   // 찾은 첫 줄 span들을 하나의 래퍼 .first-line으로 감싸기
-  //   $firstLineSpans.wrapAll('<div class="first-line"></div>');
-  // }
 
   let w = $(window).outerWidth();
   // ani_text 안의 모든 span

@@ -916,9 +916,15 @@ h1 .logo_img {
 }
 .swiper-wrapper {
   width: 100%;
+  height: fit-content;
+  border-bottom: 2px solid red;
   display: flex;
   gap: 30px;
   transition-timing-function: linear !important;
+}
+.inner_slide {
+  height: 100%;
+  background-color: lavender;
 }
 .swiper-slide {
   text-align: center;

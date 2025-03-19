@@ -252,10 +252,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     //잠깐 멈출때 여기 주석하기
-    var duration = 60; // 한 사이클 이동 시간 (초)
-    var startTime = Date.now();
-    var isPaused = false;
-    var isDragging = false;
+    // var duration = 60; // 한 사이클 이동 시간 (초)
+    // var startTime = Date.now();
+    // var isPaused = false;
+    // var isDragging = false;
 
     // 3. GSAP ticker: 매 프레임마다 자동 이동 (현재 진행률에 따라 x값 업데이트)
     //duration이나 epsilon으로 끊김현상 조절

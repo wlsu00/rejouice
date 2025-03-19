@@ -862,6 +862,7 @@ h1 .logo_img {
 
 /* 섹션6 */
 .sec6 .con {
+  height: 100%;
   margin: 0 auto;
   padding-bottom: 120px;
   background-color: #fff;
@@ -1056,6 +1057,7 @@ h1 .logo_img {
 /* 카드3 */
 .card3 {
   height: 504px;
+  height: 100%;
   position: relative;
   top: 0;
   left: 0;

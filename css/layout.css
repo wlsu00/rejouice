@@ -1169,7 +1169,7 @@ h1 .logo_img {
   position: absolute;
   top: 0;
   left: 0;
-  object-fit: scale-down;
+  object-fit: cover;
 }
 .card6 .card {
   width: 100%;

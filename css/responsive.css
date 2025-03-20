@@ -593,6 +593,9 @@
   .btn_menu {
     right: 4vw;
   }
+  .text_wrap {
+    margin-top: 800px;
+  }
   .sec1_lightbox .btn_close {
     top: 24vh;
   }

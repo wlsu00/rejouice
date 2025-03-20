@@ -193,6 +193,7 @@
     bottom: 30px;
   }
   .img_sm {
+    height: fit-content;
     margin-top: 0;
     justify-content: space-evenly;
     gap: 10px;
@@ -872,6 +873,7 @@
     bottom: 30px;
   }
   .img_sm {
+    height: fit-content;
     margin-top: 0;
     justify-content: space-evenly;
     gap: 10px;

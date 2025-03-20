@@ -252,10 +252,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     //잠깐 멈출때 여기 주석하기
-    var duration = 60; // 한 사이클 이동 시간 (초)
-    var startTime = Date.now();
-    var isPaused = false;
-    var isDragging = false;
+    // var duration = 60; // 한 사이클 이동 시간 (초)
+    // var startTime = Date.now();
+    // var isPaused = false;
+    // var isDragging = false;
 
     // 3. GSAP ticker: 매 프레임마다 자동 이동 (현재 진행률에 따라 x값 업데이트)
     //duration이나 epsilon으로 끊김현상 조절
@@ -323,7 +323,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //줄간격 반응형
   const lineHeight =
     $(window).outerWidth() <= 425
-      ? 14
+      ? 16
       : $(window).outerWidth() <= 540
       ? 22
       : $(window).outerWidth() <= 767
@@ -471,15 +471,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   function getTranslateYValue() {
     const w = $(window).outerWidth();
-    return w <= 375
+    return w <= 374 //320~
       ? 20
-      : w <= 425
+      : w <= 424 //375-424
       ? 0
-      : w <= 540
-      ? -20
-      : w <= 767
-      ? -40
-      : w <= 768
+      : w <= 539 //425-539
+      ? -16
+      : w <= 767 //540-767
+      ? -36
+      : w <= 768 //768
       ? 0
       : w <= 1200
       ? -40 * ((w - 768) / (1023 - 768))

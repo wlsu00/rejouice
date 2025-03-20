@@ -317,22 +317,22 @@
   }
   .clock {
     width: 18vw;
-    height: 14vh;
-    top: -12vh;
+    height: 162px;
+    top: -140px;
   }
   .hour.us {
     height: 19px;
-    top: 7.6vh;
+    top: 88px;
   }
   .hour.fr {
     height: 19px;
-    top: 9.8vh;
-    left: -4vw;
+    top: 114px;
+    left: -13px;
   }
   .center_circle {
-    width: 6.6vw;
+    width: 24px;
     height: 24px;
-    top: 11.6vh;
+    top: 134px;
   }
   .ticks {
     top: 70%;
@@ -469,14 +469,14 @@
     height: 235px;
   }
   .hour.us {
-    top: 9.6vh;
+    top: 96px;
   }
   .hour.fr {
-    top: 12vh;
-    left: -2vw;
+    top: 140px;
+    left: -26px;
   }
   .center_circle {
-    top: 13.6vh;
+    top: 160px;
   }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
@@ -519,74 +519,24 @@
   .card6 {
     height: 266px;
   }
+  .clock {
+    top: -150px;
+  }
   .hour.us {
     height: 22px;
-    top: 10vh;
+    top: 100px;
   }
   .hour.fr {
     height: 22px;
-    top: 14vh;
-    left: -5vw;
+    top: 160px;
+    left: -38px;
   }
   .center_circle {
-    width: 6.6vw;
+    width: 30px;
     height: 30px;
-    top: 15.8vh;
+    top: 180px;
   }
 }
-/* @media screen and (min-width: 500px) and (max-width: 767px) {
-  .card1 {
-    height: 30.6vh;
-    height: 358px;
-  }
-  .card2 {
-    height: 19.8vh;
-    height: 231px;
-  }
-  .card3 {
-    height: 30.6vh;
-    height: 358px;
-  }
-  .card4 {
-    height: 19.8vh;
-    height: 231px;
-  }
-  .card5 {
-    height: 19.8vh;
-    height: 231px;
-  }
-  .card6 {
-    height: 27vh;
-    height: 315px;
-  }
-  .card7 {
-    height: 19.8vh;
-    height: 231px;
-  }
-  .card8 {
-    height: 30.6vh;
-    height: 358px;
-  }
-  .hour.us {
-    height: 22px;
-    top: 11vh;
-  }
-  .hour.fr {
-    height: 22px;
-    top: 16vh;
-    left: -7vw;
-  }
-  .center_circle {
-    width: 6.6vw;
-    height: 2.8vh;
-    top: 18vh;
-  }
-  .card9 {
-    height: 19.8vh;
-    height: 231px;
-  }
-} */
-
 @media screen and (min-width: 540px) and (max-width: 767px) {
   .btn_menu {
     right: 4vw;
@@ -687,17 +637,17 @@
   }
   .hour.us {
     height: 24px;
-    top: 11vh;
+    top: 110px;
   }
   .hour.fr {
     height: 24px;
-    top: 15.8vh;
-    left: -5vw;
+    top: 188px;
+    left: -48px;
   }
   .center_circle {
-    width: 6vw;
+    width: 36px;
     height: 36px;
-    top: 17.8vh;
+    top: 210px;
   }
 }
 /* 태블릿 lg */
@@ -931,7 +881,6 @@
   .card9 {
     height: 174px;
   }
-
   .card2 > .card .text {
     width: 100%;
   }
@@ -945,14 +894,12 @@
   .card2 .logos img:nth-child(2) {
     padding: 0;
   }
-
   .card4 .text p {
     width: 100%;
   }
   .card4 .btn_learn a {
     transform: translateX(0);
   }
-
   .card5 .text {
     width: 50%;
   }
@@ -994,17 +941,17 @@
   }
   .hour.us {
     height: 20px;
-    top: 4.4vh;
+    top: 52px;
   }
   .hour.fr {
     height: 20px;
-    top: 8.6vh;
-    left: 3.4vw;
+    top: 100px;
+    left: 30px;
   }
   .center_circle {
     width: 28px;
     height: 28px;
-    top: 10.2vh;
+    top: 118px;
   }
   .tick {
     height: 18px;

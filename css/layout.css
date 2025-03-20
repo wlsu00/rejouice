@@ -616,23 +616,28 @@ h1 .logo_img {
 }
 /* 섹션4 */
 .sec4 {
+  height: 2920px;
   overflow: hidden;
   text-shadow: 0 0 1px #fff;
 }
-.sec4 .highlights {
+.sec4 > .con {
+  height: 100%;
   box-sizing: border-box;
   padding-top: 300px;
   padding-bottom: 220px;
 }
+
 .sec4 .highlights > div:first-child {
+  /* highlights랑 버튼 묶인 div */
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  line-height: 2.4;
+  line-height: 1;
+  margin-bottom: 8px;
 }
 .btn_see {
   width: 142px;
-  height: 44px;
+  height: 26px;
   overflow: hidden;
 }
 .btn_see a {
@@ -653,10 +658,10 @@ h1 .logo_img {
   transform: translate(-16px, 20px) rotate(45deg);
 }
 .btn_see i.off {
-  transform: translate(-8px, 12px) rotate(45deg);
+  transform: translate(-2px, 2px) rotate(45deg);
 }
 .btn_see:hover i.on {
-  transform: translate(-8px, 10px) rotate(45deg);
+  transform: translate(1px, 4px) rotate(45deg);
 }
 .btn_see:hover i.off {
   transform: translatey(-20px) rotate(45deg);
@@ -921,8 +926,6 @@ h1 .logo_img {
 .swiper-wrapper {
   width: 100%;
   height: 100%;
-  /* border-bottom: 2px solid red;
-  background-color: yellowgreen; */
   display: flex;
   gap: 30px;
   transition-timing-function: linear !important;
@@ -1286,12 +1289,12 @@ h1 .logo_img {
 /* 아날로그 시계 */
 .clock {
   width: 18vw;
-  height: 24vh;
+  height: 250px;
   margin: 0 auto;
   border-radius: 50%;
   background: transparent;
   position: relative;
-  top: -4vh;
+  top: -20px;
   left: 0;
 }
 /* 시계바늘 공통 */
@@ -1304,20 +1307,20 @@ h1 .logo_img {
 .hour.us {
   width: 2px;
   height: 28px;
-  top: 2vh;
+  top: 20px;
   left: 50%;
   opacity: 0.8;
 }
 .hour.fr {
   width: 2px;
   height: 28px;
-  top: 9.4vh;
+  top: 100px;
   left: 18%;
   transform: rotate(90deg);
 }
 .center_circle {
-  width: 2vw;
-  height: 3.6vh;
+  width: 38px;
+  height: 38px;
   background-color: #000;
   border-radius: 50%;
   position: absolute;

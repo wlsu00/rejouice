@@ -159,7 +159,7 @@ h1 .logo_img {
   height: 100%;
 }
 #mobile_menu {
-  width: 100vw;
+  width: calc(100vw - 14px);
   height: 100vh;
   background-color: #000000;
   position: absolute;

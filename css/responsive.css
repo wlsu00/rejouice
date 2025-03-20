@@ -219,15 +219,16 @@
     object-fit: cover;
   }
   /* 섹션6 */
-  .sec6 .con > div {
-    font-size: 4.3vw;
-  }
+  .sec6 .con > div,
   .sec6 .con > div > a {
     font-size: 4.3vw;
   }
-  .sec6 .con > div {
+  .sec6 .con > div:first-child {
     padding-top: 7px;
     padding-bottom: 22px;
+  }
+  .mySwiper {
+    height: 230px;
   }
   .swiper-wrapper {
     gap: 1.8vw;
@@ -247,15 +248,12 @@
   .card5 {
     padding: 1.5vh 5.4vw;
   }
-  .card1 {
-    height: 19.6vh;
-  }
   .card1 .text p {
     font-size: 3.7vw;
     line-height: 1;
   }
   .card2 {
-    height: 12.7vh;
+    height: 148px;
   }
   .card2 > .card .text {
     width: 100%;
@@ -278,17 +276,16 @@
     }
   }
   .card3 {
-    height: 19.6vh;
     height: 100%;
   }
   .card4 {
-    height: 12.7vh;
+    height: 148px;
   }
   .card4 .text p {
     width: 100%;
   }
   .card5 {
-    height: 12.7vh;
+    height: 148px;
   }
   .card5 .bg_num {
     font-size: 5.6vw;
@@ -296,7 +293,7 @@
     bottom: 1.5vh;
   }
   .card6 {
-    height: 17.2vh;
+    height: 200px;
   }
   .card6 video {
     width: 100%;
@@ -310,16 +307,13 @@
     bottom: 1.5vh;
   }
   .card7 {
-    height: 12.7vh;
+    height: 148px;
   }
   .card7 .text > p > br {
     display: none;
   }
   .bottom_con img {
     height: 1.2vh;
-  }
-  .card8 {
-    height: 19.6vh;
   }
   .clock {
     width: 18vw;
@@ -337,14 +331,14 @@
   }
   .center_circle {
     width: 6.6vw;
-    height: 2vh;
-    top: 11.3vh;
+    height: 24px;
+    top: 11.6vh;
   }
   .ticks {
     top: 70%;
   }
   .card9 {
-    height: 12.7vh;
+    height: 148px;
   }
   .card9 .logos {
     height: 10px;
@@ -460,10 +454,29 @@
   }
 }
 @media screen and (min-width: 375px) and (max-width: 767px) {
+  /* 섹션6 */
+  .mySwiper {
+    height: 268px;
+  }
+  .card2,
+  .card4,
+  .card5,
+  .card7,
+  .card9 {
+    height: 173px;
+  }
+  .card6 {
+    height: 235px;
+  }
+  .hour.us {
+    top: 9.6vh;
+  }
   .hour.fr {
-    height: 19px;
-    top: 9.8vh;
+    top: 12vh;
     left: -2vw;
+  }
+  .center_circle {
+    top: 13.6vh;
   }
 }
 @media screen and (min-width: 425px) and (max-width: 767px) {
@@ -490,53 +503,38 @@
     bottom: 3vh;
   }
   /* 섹션6 */
+  .mySwiper {
+    height: 304px;
+  }
   .swiper-slide > div {
-    border-radius: 8px;
+    border-radius: 6px;
   }
-  .card1 {
-    height: 30.6vh;
-    height: 26vh;
-  }
-  .card2 {
-    height: 16.8vh;
-  }
-  .card3 {
-    height: 26vh;
-  }
-  .card4 {
-    height: 16.8vh;
-  }
-  .card5 {
-    height: 16.8vh;
+  .card2,
+  .card4,
+  .card5,
+  .card7,
+  .card9 {
+    height: 196px;
   }
   .card6 {
-    height: 23vh;
-  }
-  .card7 {
-    height: 19.8vh;
-  }
-  .card8 {
-    height: 26vh;
+    height: 266px;
   }
   .hour.us {
     height: 22px;
-    top: 11vh;
+    top: 10vh;
   }
   .hour.fr {
     height: 22px;
-    top: 16vh;
-    left: -7vw;
+    top: 14vh;
+    left: -5vw;
   }
   .center_circle {
     width: 6.6vw;
-    height: 2.8vh;
-    top: 18vh;
-  }
-  .card9 {
-    height: 19.8vh;
+    height: 30px;
+    top: 15.8vh;
   }
 }
-@media screen and (min-width: 500px) and (max-width: 767px) {
+/* @media screen and (min-width: 500px) and (max-width: 767px) {
   .card1 {
     height: 30.6vh;
     height: 358px;
@@ -587,7 +585,7 @@
     height: 19.8vh;
     height: 231px;
   }
-}
+} */
 
 @media screen and (min-width: 540px) and (max-width: 767px) {
   .btn_menu {
@@ -636,9 +634,12 @@
     height: 37px;
   }
   /* 섹션6 */
-  .sec6 .con > div {
+  .sec6 .con > div:first-child {
     padding-top: 12px;
     padding-bottom: 37px;
+  }
+  .mySwiper {
+    height: 386px;
   }
   .swiper-slide > div {
     border-radius: 8px;
@@ -651,14 +652,15 @@
   .card5 {
     padding: 2vh 5.2vw;
   }
-  .card1 {
-    height: clamp(386px, calc((100vw - 540px) * 0.718 + 386px), 549px);
-  }
   .card1 .text p {
     font-size: 3.8vw;
   }
-  .card2 {
-    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
+  .card2,
+  .card4,
+  .card5,
+  .card7,
+  .card9 {
+    height: 250px;
   }
   .card2 .logos {
     height: 3.7vh;
@@ -677,46 +679,25 @@
       transform: translateY(-15vh);
     }
   }
-  .card3 {
-    height: clamp(386px, calc((100vw - 540px) * 0.718 + 386px), 549px);
-  }
-  .card4 {
-    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
-  }
-  .card5 {
-    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
-  }
   .card6 {
-    height: clamp(338px, calc((100vw - 540px) * 0.625 + 338px), 480px);
-  }
-  .card7 {
-    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
+    height: 338px;
   }
   .bottom_con img {
     height: 1.6vh;
   }
-  .card8 {
-    height: clamp(386px, calc((100vw - 540px) * 0.718 + 386px), 549px);
-  }
   .hour.us {
     height: 24px;
-    top: 10vh;
+    top: 11vh;
   }
   .hour.fr {
     height: 24px;
-    top: 15.4vh;
-    left: -4vw;
+    top: 15.8vh;
+    left: -5vw;
   }
   .center_circle {
-    width: 5vw;
-    height: 3.4vh;
-    top: 17.5vh;
-  }
-  .card9 {
-    height: clamp(249px, calc((100vw - 540px) * 0.467 + 249px), 355px);
-  }
-  .swiper-slide > div {
-    height: 100%;
+    width: 6vw;
+    height: 36px;
+    top: 17.8vh;
   }
 }
 /* 태블릿 lg */
@@ -908,12 +889,15 @@
     object-fit: cover;
   }
   /* 섹션6 */
-  .sec6 .con > div {
-    font-size: 2.1vw;
-    padding-top: 9px;
-  }
+  .sec6 .con > div,
   .sec6 .con > div > a {
     font-size: 2.1vw;
+  }
+  .sec6 .con > div:first-child {
+    padding-top: 9px;
+  }
+  .mySwiper {
+    height: 268px;
   }
   .swiper-wrapper {
     gap: 8px;
@@ -933,10 +917,6 @@
   .card5 {
     padding: 16px 20px;
   }
-  .card1 {
-    /* height: 268px; */
-    height: 100%;
-  }
   .card1 .text_con {
     height: 50px;
   }
@@ -944,9 +924,14 @@
     font-size: 14px;
     line-height: 16px;
   }
-  .card2 {
-    height: 173px;
+  .card2,
+  .card4,
+  .card5,
+  .card7,
+  .card9 {
+    height: 174px;
   }
+
   .card2 > .card .text {
     width: 100%;
   }
@@ -960,12 +945,7 @@
   .card2 .logos img:nth-child(2) {
     padding: 0;
   }
-  .card3 {
-    height: 268px;
-  }
-  .card4 {
-    height: 173px;
-  }
+
   .card4 .text p {
     width: 100%;
   }
@@ -973,9 +953,6 @@
     transform: translateX(0);
   }
 
-  .card5 {
-    height: 173px;
-  }
   .card5 .text {
     width: 50%;
   }
@@ -998,9 +975,6 @@
     right: 20px;
     bottom: 16px;
   }
-  .card7 {
-    height: 173px;
-  }
   .card7 .card .text br {
     display: none;
   }
@@ -1010,15 +984,13 @@
   .bottom_con img {
     height: 13px;
   }
-  .card8 {
-    height: 268px;
-  }
   .card8 .card {
     gap: 10px;
   }
   .clock {
     width: 183px;
     height: 183px;
+    margin-top: 20px;
   }
   .hour.us {
     height: 20px;
@@ -1036,9 +1008,6 @@
   }
   .tick {
     height: 18px;
-  }
-  .card9 {
-    height: 173px;
   }
   .card9 .logos {
     height: 13px;
@@ -1226,6 +1195,19 @@
     height: 68.2vh;
   }
   /* 섹션6 */
+  .mySwiper {
+    height: 504px;
+  }
+  .card2,
+  .card4,
+  .card5,
+  .card7,
+  .card9 {
+    height: 326px;
+  }
+  .card6 {
+    height: 440px;
+  }
   .hour.us {
     top: 3vh;
   }
@@ -1265,7 +1247,6 @@
     justify-content: space-between;
   }
 }
-
 /* 노트북 lg */
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
   /* header */
@@ -1317,7 +1298,8 @@
     left: 6%;
   }
   .center_circle {
-    width: 2.4vw;
+    width: 2.6vw;
+    height: 40px;
   }
   /* 섹션7 */
   .sec7 .con p {

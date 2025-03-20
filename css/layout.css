@@ -910,18 +910,19 @@ h1 .logo_img {
 /* 슬라이드 */
 .mySwiper {
   width: 100%;
-  height: 100%;
+  height: 504px;
   overflow: hidden;
   margin: 0 auto;
 }
 .inner_slide {
-  height: 504px;
-  background-color: lavender;
+  height: 100%;
+  /* background-color: lavender; */
 }
 .swiper-wrapper {
   width: 100%;
   height: 100%;
-  border-bottom: 2px solid red;
+  /* border-bottom: 2px solid red;
+  background-color: yellowgreen; */
   display: flex;
   gap: 30px;
   transition-timing-function: linear !important;
@@ -962,8 +963,12 @@ h1 .logo_img {
   text-shadow: 0 0 1px #ffffff6b;
 }
 /* 카드1 */
+.card1,
+.card3,
+.card8 {
+  height: 100%;
+}
 .card1 {
-  height: 504px;
   position: relative;
   top: 0;
   left: 0;
@@ -1062,7 +1067,6 @@ h1 .logo_img {
 }
 /* 카드3 */
 .card3 {
-  height: 504px;
   height: 100%;
   position: relative;
   top: 0;
@@ -1254,7 +1258,6 @@ h1 .logo_img {
 }
 /* 카드8 */
 .card8 {
-  height: 503px;
   background-color: #f7f7f7;
   text-align: start;
   color: #000;

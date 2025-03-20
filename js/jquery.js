@@ -144,8 +144,6 @@ $(function () {
         .wrapAll('<div class="first-line"></div>');
     }
   }
-  // let height1 = $(".ani_text").outerHeight() + 0.1 + "vh";
-  // $(".ani_text").css("height", height1);
 
   /* 섹션4 */
 

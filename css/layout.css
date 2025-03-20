@@ -626,7 +626,9 @@ h1 .logo_img {
   padding-top: 300px;
   padding-bottom: 220px;
 }
-
+.sec4 .highlights {
+  height: 100%;
+}
 .sec4 .highlights > div:first-child {
   /* highlights랑 버튼 묶인 div */
   display: flex;
@@ -667,6 +669,9 @@ h1 .logo_img {
   transform: translatey(-20px) rotate(45deg);
 }
 /* 동영상 */
+.sec4 .highlights > div:last-child {
+  height: 100%;
+}
 .sec4 img {
   transition: 0.3s;
 }
@@ -677,6 +682,7 @@ h1 .logo_img {
   position: relative;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 .sec4 .img_lg > img:first-of-type {
   width: 100%;
@@ -697,7 +703,7 @@ h1 .logo_img {
   z-index: 10;
 }
 .sec4 .hover_area {
-  width: 78%;
+  width: 76%;
   height: 80%;
   position: absolute;
   top: 50%;

@@ -61,7 +61,8 @@
   }
   .text_wrap {
     gap: 18px;
-    margin-top: 850px;
+    margin-top: 76vh;
+    padding-bottom: 12px;
   }
   .text_wrap > div:first-child {
     font-size: 3.8vw;
@@ -594,7 +595,8 @@
     right: 4vw;
   }
   .text_wrap {
-    margin-top: 800px;
+    margin-top: 71vh;
+    padding-bottom: 16px;
   }
   .sec1_lightbox .btn_close {
     top: 24vh;

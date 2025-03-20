@@ -150,8 +150,8 @@ $(function () {
   // work1 (work2,3은 gsap으로 처리)
 
   //마우스올리면 .hover_img_lg 나오고, 벗어나면 사라지기
-  $(".img_lg > .hover_img_lg").hide();
-  $(".img_lg > .hover_area").on("mouseenter", function () {
+  $(".sec4 .img_lg > .hover_img_lg").hide();
+  $(".sec4 .hover_area").on("mouseenter", function () {
     $(".sec4 .img_lg > .hover_img_lg").slideDown();
     $(".sec4 .img_lg img:first-child").css("opacity", "0.5");
     $(".sec4 .img_lg img:nth-of-type(2)").css("opacity", "0");

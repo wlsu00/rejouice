@@ -39,6 +39,7 @@
     z-index: 20;
   }
   #mobile_menu {
+    width: 100vw;
     top: -16px;
     right: 8px;
   }
